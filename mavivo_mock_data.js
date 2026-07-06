@@ -1,7 +1,7 @@
-// mavivo_mock_data — generiert 6. Jul 2026 (aktualisiert: +16 TED-Vergaben, +bepreiste LVs)
+// mavivo_mock_data — generiert 6. Jul 2026 (aktualisiert: +16 TED-Vergaben, +bepreiste LVs, +offizielles LV Mannheim)
 // MEDICAL_TENDERS: eCore MEDICAL-Niche (4, live) + TED-Recherche 2026-07-06 (16). BUYERS: aus Vergabeliste gruppiert.
 // AWARDS: echte deutsche Medizin-Zuschläge (TED). COMPETITORS: Dossier-Recherche (Beispieldaten).
-// PRICED_BOQ: 4 LVs — Mengen REAL aus TED-Bekanntmachungen, Einheitspreise = Markt-Richtwerte (Demo, NICHT mavivos Preise).
+// PRICED_BOQ: LVs — Mengen REAL aus TED; EPs = Markt-Richtwerte (Demo). Mannheim: offizielle LV-Struktur (Gruppen, Herkunft) aus Notice 399254-2026.
 // DEMAND_COMPASS: deutsche TED-Nachfrage nach CPV-Abteilung.
 window.MAVIVO_MOCK_DATA = {
  "meta": {
@@ -9058,8 +9058,8 @@ window.MAVIVO_MOCK_DATA = {
  "PRICED_BOQ": {
   "399254-2026": {
    "tedNo": "399254-2026",
-   "buyer": "Stadt Mannheim",
-   "title": "Hygienepapier + Seife — Rahmenvertrag 2 Jahre",
+   "buyer": "Stadt Mannheim, Fachbereich Baurecht, Bauverwaltung und Denkmalschutz",
+   "title": "Hygienepapier und Seife — Rahmenvertrag (2 Jahre)",
    "portal": "vergabe.vmstart.de (NetServer)",
    "deadline": "2026-07-14",
    "currency": "EUR",
@@ -9067,6 +9067,7 @@ window.MAVIVO_MOCK_DATA = {
    "boq": [
     {
      "pos": "1",
+     "group": "Toilettenpapier",
      "item": "Toilettenpapier Einzelblatt",
      "qty": 10980,
      "unit": "Bündel",
@@ -9075,6 +9076,7 @@ window.MAVIVO_MOCK_DATA = {
     },
     {
      "pos": "2",
+     "group": "Toilettenpapier",
      "item": "Toilettenpapier Kleinrollen",
      "qty": 535428,
      "unit": "Rollen",
@@ -9083,6 +9085,7 @@ window.MAVIVO_MOCK_DATA = {
     },
     {
      "pos": "3",
+     "group": "Toilettenpapier",
      "item": "Toilettenpapier Jumbo-Rollen",
      "qty": 8960,
      "unit": "Rollen",
@@ -9091,6 +9094,7 @@ window.MAVIVO_MOCK_DATA = {
     },
     {
      "pos": "4",
+     "group": "Toilettenpapier",
      "item": "Toilettenpapier Mini-Jumbo-Rollen",
      "qty": 16358,
      "unit": "Rollen",
@@ -9099,6 +9103,7 @@ window.MAVIVO_MOCK_DATA = {
     },
     {
      "pos": "5",
+     "group": "Toilettenpapier",
      "item": "Toilettenpapier Midi-Rollen",
      "qty": 756,
      "unit": "Rollen",
@@ -9107,6 +9112,7 @@ window.MAVIVO_MOCK_DATA = {
     },
     {
      "pos": "6",
+     "group": "Toilettenpapier",
      "item": "Toilettenpapier Großrolle",
      "qty": 600,
      "unit": "Rollen",
@@ -9115,6 +9121,7 @@ window.MAVIVO_MOCK_DATA = {
     },
     {
      "pos": "7",
+     "group": "Toilettenpapier",
      "item": "Toilettenpapier Mini-Rollen",
      "qty": 24000,
      "unit": "Rollen",
@@ -9123,6 +9130,7 @@ window.MAVIVO_MOCK_DATA = {
     },
     {
      "pos": "8",
+     "group": "Handtuchpapier",
      "item": "Falthandtücher",
      "qty": 20972,
      "unit": "Kartons",
@@ -9131,6 +9139,7 @@ window.MAVIVO_MOCK_DATA = {
     },
     {
      "pos": "9",
+     "group": "Handtuchpapier",
      "item": "Rollenhandtücher",
      "qty": 12594,
      "unit": "Kartons",
@@ -9139,7 +9148,8 @@ window.MAVIVO_MOCK_DATA = {
     },
     {
      "pos": "10",
-     "item": "Flüssig-/Schaumseife",
+     "group": "Seife/Desinfektion",
+     "item": "Flüssigseife / Schaumseife",
      "qty": 6224,
      "unit": "Kartons",
      "unit_price": 28,
@@ -9147,6 +9157,7 @@ window.MAVIVO_MOCK_DATA = {
     },
     {
      "pos": "11",
+     "group": "Seife/Desinfektion",
      "item": "Toilettensitzreiniger",
      "qty": 222,
      "unit": "Kartons",
@@ -9155,7 +9166,8 @@ window.MAVIVO_MOCK_DATA = {
     },
     {
      "pos": "12",
-     "item": "Flüssigseife (spenderoffen)",
+     "group": "Seife/Desinfektion",
+     "item": "Flüssigseife (spenderoffenes System)",
      "qty": 492,
      "unit": "Liter",
      "unit_price": 3.5,
@@ -9163,6 +9175,7 @@ window.MAVIVO_MOCK_DATA = {
     },
     {
      "pos": "13",
+     "group": "Seife/Desinfektion",
      "item": "Seifencreme im Pumpspender",
      "qty": 120,
      "unit": "Stück",
@@ -9170,7 +9183,16 @@ window.MAVIVO_MOCK_DATA = {
      "line_total": 480
     }
    ],
-   "bid_total": 1001370
+   "bid_total": 1001370,
+   "link": "https://ted.europa.eu/de/notice/-/detail/399254-2026",
+   "quantity_basis": "geschätzte Gesamtmenge = Höchstmenge, Laufzeit 2 Jahre",
+   "spec_note": "Hygienepapier und Seife in unterschiedlichen Qualitäten, geeignet/nutzbar für vorhandene Tork-Spendersysteme.",
+   "provenance": {
+    "source": "Official EU TED notice 399254-2026 (Auftragsbekanntmachung)",
+    "quantities": "REAL — buyer's official geschätzte Gesamtmenge (= zugleich Höchstmenge)",
+    "unit_price_official": "leer — Preisspalte ist vom Bieter (mavivo) zu füllen; angezeigte EPs sind Demo-Richtwerte",
+    "note": "Notice-Level-Leistungsbeschreibung; ein detaillierteres Preisblatt kann als Portal-Dokument existieren (Abruf ausstehend)."
+   }
   },
   "411785-2026": {
    "tedNo": "411785-2026",

@@ -226,6 +226,7 @@
   .ib-tbl td{padding:10px 13px;border-bottom:1px solid var(--line2);font-size:13px}
   .ib-tbl tr:last-child td{border-bottom:none}
   .ib-tbl tfoot td{border-top:2px solid var(--ink);font-weight:800;font-size:14px;background:var(--mav-l2)}
+  .ib-tbl tr.ib-grp td{background:#FAFBFA;font-size:10px;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);font-weight:800;padding:7px 13px}
   /* ===== feature checklist (customer selection form) ===== */
   .fc-wrap{max-width:860px}
   .fc-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:20px}
@@ -637,7 +638,7 @@ function boqCard(t,boq){
  const pb=(window.MAVIVO_MOCK_DATA.PRICED_BOQ||{})[t.ref];
  if(!pb)return `<div class="card"><h3>Leistungsverzeichnis <span class="hint">${boq.length} Positionen</span></h3>${boq.map((b,i)=>`<div class="li"><span>${i+1}. ${esc(b[0])}</span><span class="q">${b[1]} ${b[2]}</span></div>`).join('')}</div>`;
  return `<div class="card"><h3>Leistungsverzeichnis · bepreist <span class="hint">Mengen: TED (real) · Preise: Richtwerte</span></h3>
- ${pb.boq.map(p=>`<div class="li"><span>${p.pos}. ${esc(p.item)}</span><span class="q">${p.qty==null?'Menge lt. Preisblatt':NF(p.qty)+' '+esc(p.unit)+' × '+NF2(p.unit_price)+' €'}${p.line_total!=null?' = <b style="color:var(--ink)">'+NF(p.line_total)+' €</b>':''}</span></div>`).join('')}
+ ${(function(){var lg=null;return pb.boq.map(p=>{var g='';if(p.group&&p.group!==lg){lg=p.group;g=`<div class="mlabel" style="margin-top:10px">${esc(p.group)}</div>`;}return g+`<div class="li"><span>${p.pos}. ${esc(p.item)}</span><span class="q">${p.qty==null?'Menge lt. Preisblatt':NF(p.qty)+' '+esc(p.unit)+' × '+NF2(p.unit_price)+' €'}${p.line_total!=null?' = <b style="color:var(--ink)">'+NF(p.line_total)+' €</b>':''}</span></div>`;}).join('');})()}
  <div class="li" style="border-bottom:none;border-top:2px solid var(--ink);font-weight:800;margin-top:2px"><span>Angebotssumme (netto)</span><span style="color:var(--mav-d)">${pb.bid_total!=null?NF(pb.bid_total)+' €':'— lt. Preisblatt'}</span></div>
  ${pb.note?`<div class="note">${esc(pb.note)}</div>`:''}</div>`;
 }
@@ -871,9 +872,10 @@ renderChat();
  ].map(k=>`<div class="kpi"><div class="l">${k.l}</div><div class="v" style="font-size:20px">${k.v}</div><div class="d">${k.d}</div></div>`).join('');
  function cards(sel){document.getElementById('ibCards').innerHTML=keys.map(k=>{var t=PB[k];return `<div class="ib-card ${k===sel?'on':''}" onclick="ibSel('${k}')"><div class="bn">${esc(t.buyer)}</div><div class="bt">${esc(t.title)} · TED ${k}</div><span class="ib-portal">⛿ ${esc(t.portal)}</span><div class="bm"><span>Frist ${fd(t.deadline)}</span><b>${t.bid_total!=null?NF(t.bid_total)+' €':'— offen'}</b></div></div>`;}).join('');}
  window.ibSel=function(k){cards(k);var t=PB[k];
-  document.getElementById('ibRows').innerHTML=t.boq.map(p=>`<tr><td>${p.pos}</td><td>${esc(p.item)}</td><td class="num">${p.qty==null?'—':NF(p.qty)}</td><td>${esc(p.unit)}</td><td class="num">${NF2(p.unit_price)} €</td><td class="num" style="font-weight:700">${p.line_total==null?'—':NF(p.line_total)+' €'}</td></tr>`).join('');
+  var lastGrp=null;
+  document.getElementById('ibRows').innerHTML=t.boq.map(p=>{var g='';if(p.group&&p.group!==lastGrp){lastGrp=p.group;g=`<tr class="ib-grp"><td colspan="6">${esc(p.group)}</td></tr>`;}return g+`<tr><td>${p.pos}</td><td>${esc(p.item)}</td><td class="num">${p.qty==null?'—':NF(p.qty)}</td><td>${esc(p.unit)}</td><td class="num">${NF2(p.unit_price)} €</td><td class="num" style="font-weight:700">${p.line_total==null?'—':NF(p.line_total)+' €'}</td></tr>`;}).join('');
   document.getElementById('ibFoot').innerHTML=`<tr><td colspan="5">Angebotssumme (netto) — ${esc(t.buyer)}</td><td class="num">${t.bid_total!=null?NF(t.bid_total)+' €':'— lt. Preisblatt'}</td></tr>`;
-  document.getElementById('ibNote').textContent=t.note?t.note+' ':'';
+  document.getElementById('ibNote').textContent=[t.quantity_basis?'Mengenbasis: '+t.quantity_basis:'',t.spec_note||'',t.provenance?t.provenance.unit_price_official:'',t.note||''].filter(Boolean).join(' · ');
  };
  ibSel(keys[0]);
 })();

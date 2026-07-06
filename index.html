@@ -784,6 +784,7 @@ document.getElementById('deadlines').addEventListener('click',e=>{const r=e.targ
 // ---- tender-tool modal: pricing form + document checklist ----
 function openModal(which){var m={pricing:['mavivo-pricing-form-excel-en.html','Preisblatt · Leistungsverzeichnis'],doccheck:['mavivo-document-checklist.html','Unterlagen-Checkliste'],esign:['mavivo-esign.html','Kundenfreigabe · E-Sign']}[which];if(!m)return;var src=m[0];
  if(which==='esign'&&window._curT){var t=window._curT;src+='?'+new URLSearchParams({ref:'MAV-'+String(t.id).padStart(4,'0'),title:t.title,buyer:t.buyer,loc:t.region,dl:fd(t.deadline),val:t.value||'',vu:esignVu()}).toString();}
+ if(which==='pricing'&&window._curT&&window._curT.ref){src+='?ref='+encodeURIComponent(window._curT.ref);}
  document.getElementById('modalTitle').textContent=m[1];document.getElementById('modalFrame').src=src;document.getElementById('modal').classList.add('on');document.body.style.overflow='hidden';}
 function closeModal(){document.getElementById('modal').classList.remove('on');document.getElementById('modalFrame').src='about:blank';document.body.style.overflow='';}
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});

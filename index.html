@@ -18,7 +18,8 @@
   .app{display:grid;grid-template-columns:236px minmax(0,1fr);min-height:100vh}
   .sb{background:#fff;border-right:1px solid var(--line);display:flex;flex-direction:column;position:sticky;top:0;height:100vh}
   .brand{padding:18px 18px 14px;border-bottom:1px solid var(--line)}
-  .lo{display:flex;align-items:center;gap:9px}
+  .lo{display:flex;align-items:flex-start;gap:2px}
+  .brand-logo{height:32px;width:auto;display:block}
   .mk{width:27px;height:27px;background:var(--mav);border-radius:7px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:16px}
   .nm{font-weight:700;font-size:23px;letter-spacing:-.8px;color:var(--mav);line-height:1}
   .reg{font-size:9px;color:var(--mav);vertical-align:super;margin-left:1px;font-weight:600}
@@ -207,13 +208,46 @@
   .rowbar .rf{height:100%;background:var(--cov-partial);border-radius:3px}.rowbar.win .rf{background:var(--gold)}
   .rowbar .rv{font-size:12.5px;font-weight:700;text-align:right;font-variant-numeric:tabular-nums}.rowbar .rv small{color:var(--muted2);font-weight:400}
   .emptybox{text-align:center;color:var(--muted2);font-size:12.5px;padding:34px 10px}
+  /* ===== tender-tool modal (pricing form / document checklist) ===== */
+  .tl .st.clk{cursor:pointer}.tl .st.clk .dot{box-shadow:0 0 0 4px var(--mav-l)}.tl .st.clk:hover{color:var(--mav-d)}
+  .doc-btn{font-family:inherit;font-size:11px;font-weight:700;border:1px solid var(--line);background:#fff;color:var(--mav-d);border-radius:7px;padding:4px 10px;cursor:pointer;text-transform:none;letter-spacing:0}
+  .doc-btn:hover{background:var(--mav-l2);border-color:var(--mav)}
+  .modal{position:fixed;inset:0;background:rgba(15,35,26,.55);z-index:120;display:none;padding:22px}
+  .modal.on{display:flex}
+  .modal-inner{background:#fff;border-radius:14px;overflow:hidden;width:100%;max-width:1180px;height:100%;margin:auto;display:flex;flex-direction:column;box-shadow:0 24px 70px rgba(0,0,0,.35)}
+  .modal-bar{display:flex;align-items:center;justify-content:space-between;padding:11px 16px;border-bottom:1px solid var(--line);background:#FAFBFA}
+  .modal-bar .mt{font-size:12px;font-weight:700;color:var(--ink2);text-transform:uppercase;letter-spacing:.5px}
+  .modal-close{font-family:inherit;font-size:13px;font-weight:700;border:1px solid var(--line);background:#fff;color:var(--ink2);border-radius:8px;padding:6px 13px;cursor:pointer}
+  .modal-close:hover{border-color:var(--mav);color:var(--mav-d)}
+  .modal-frame{flex:1;width:100%;border:none;background:#fff}
+  /* ===== competitor radar cards (seeded) ===== */
+  .seed{display:inline-block;background:var(--orange);color:#fff;font-size:9px;font-weight:700;padding:1px 7px;border-radius:4px;letter-spacing:.5px;vertical-align:2px;margin-left:6px}
+  .seed-banner{display:flex;align-items:flex-start;gap:11px;background:var(--orange-l);border:1px solid #f3cba6;border-radius:10px;padding:12px 16px;margin-bottom:16px;font-size:12px;line-height:1.6;color:#7a3500}
+  .seed-banner .si{font-size:16px;flex:none;margin-top:1px}.seed-banner b{color:var(--orange-d)}
+  .comp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:14px}
+  .comp-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 20px;position:relative}
+  .comp-head{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px}
+  .comp-mark{width:42px;height:42px;border-radius:11px;flex:none;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;color:#fff;letter-spacing:-.5px}
+  .comp-name{font-weight:800;font-size:14.5px;letter-spacing:-.2px}
+  .comp-meta{font-size:11px;color:var(--muted);margin-top:2px}
+  .comp-region{display:inline-block;font-size:9.5px;font-weight:700;padding:3px 8px;border-radius:5px;background:#EAF0F1;color:#3a545e;letter-spacing:.2px;white-space:nowrap;flex:none}
+  .comp-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:6px}
+  .comp-stat{background:var(--bg);border-radius:9px;padding:9px 10px}
+  .comp-stat .cv{font-size:17px;font-weight:800;letter-spacing:-.5px}
+  .comp-stat .cl{font-size:9.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.3px;margin-top:1px}
+  .comp-row{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;padding:8px 0;border-top:1px solid var(--line2)}
+  .comp-row .crk{color:var(--muted)}
+  .strat{display:inline-block;font-size:10px;font-weight:700;padding:2px 9px;border-radius:20px}
+  .strat.aggr{background:var(--red-l);color:var(--red)}.strat.prem{background:var(--mav-l);color:var(--mav-d)}.strat.bal{background:var(--gold-l);color:var(--gold-d)}
+  .trend-up{color:var(--red);font-weight:700}.trend-dn{color:var(--mav-d);font-weight:700}.trend-fl{color:var(--muted);font-weight:700}
+  .comp-foot{margin-top:11px;font-size:11px;color:var(--muted);line-height:1.55;border-top:1px solid var(--line2);padding-top:10px}.comp-foot b{color:var(--ink2)}
 </style>
 </head>
 <body>
 <div class="app">
   <aside class="sb">
     <div class="brand">
-      <div class="lo"><span class="nm">mavivo</span><span class="reg">®</span></div>
+      <div class="lo"><img class="brand-logo" src="mavivo-logo.png" alt="mavivo" /><span class="reg">®</span></div>
       <div class="tg">Precision for practices, care &amp; clinics</div>
       <div class="pw">Tender ERP · powered by <b>EverTrust</b></div>
     </div>
@@ -271,9 +305,10 @@
     </section>
 
     <section class="view" id="comp">
-      <h2 class="sec">Competitor Radar</h2>
-      <p class="lede">Established suppliers by frequency of awards in mavivo's product segments — the vendors mavivo competes against.</p>
-      <div class="cgrid" id="compCards"></div>
+      <h2 class="sec">Competitor Radar <span class="seed">SEED</span></h2>
+      <p class="lede">Who bids on the same lots as mavivo — award frequency, price strategy, estimated margins and participation trends of the established suppliers.</p>
+      <div class="seed-banner"><span class="si">⚠</span><div><b>Seeded demo data — for illustration.</b> Competitor figures (tenders, win rate, average offer, estimated margin, participation trend) are <b>modelled estimates</b> derived from EU award notices (TED), not reported company numbers. Shown to demonstrate the competitor-radar feature.</div></div>
+      <div class="comp-grid" id="compCards"></div>
     </section>
 
     <section class="view" id="auth">
@@ -333,6 +368,13 @@
       <div class="panel"><h2>News timeline</h2><div class="emptybox">No tagged news yet — the daily digest tags bullets to sub-markets as they appear.</div></div>
     </section>
   </main>
+</div>
+
+<div id="modal" class="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-inner">
+    <div class="modal-bar"><span class="mt" id="modalTitle"></span><button class="modal-close" onclick="closeModal()">✕ Close</button></div>
+    <iframe id="modalFrame" class="modal-frame" title="mavivo tool"></iframe>
+  </div>
 </div>
 
 <script src="mavivo_mock_data.js"></script>
@@ -450,11 +492,11 @@ function detailHTML(t){
    <div class="m"><div class="k">Procedure</div><div class="v">${t.value? 'Open procedure (EU)':'Open-house'}</div></div>
    <div class="m"><div class="k">Responsible (PIC)</div><div class="v">${PICN[t.pic]||'—'}</div></div>
  </div>
- ${decBlock(t)}<div class="card" style="margin:14px 0"><h3>Progress</h3><div class="tl">${steps.map((s,i)=>`<div class="st ${i<idx?'done':''} ${i===idx?'cur':''} ${i<=idx?'done':''}"><div class="dot"></div>${s}</div>`).join('')}</div></div>
+ ${decBlock(t)}<div class="card" style="margin:14px 0"><h3>Progress</h3><div class="tl">${steps.map((s,i)=>`<div class="st ${i<idx?'done':''} ${i===idx?'cur':''} ${i<=idx?'done':''}${s==='Pricing'?' clk':''}" ${s==='Pricing'?`onclick="openModal('pricing')" title="Open pricing form"`:''}><div class="dot"></div>${s}</div>`).join('')}</div></div>
  <div class="grid g2">
    <div class="card"><h3>Bill of quantities <span class="hint">${boq.length} items</span></h3>${boq.map((b,i)=>`<div class="li"><span>${i+1}. ${esc(b[0])}</span><span class="q">${b[1]} ${b[2]}</span></div>`).join('')}</div>
    <div>
-     <div class="card" style="margin-bottom:14px"><h3>Tender documents</h3>${DOCS.map(d=>`<div class="doc"><span class="fi">${d.split('.').pop().toUpperCase()}</span>${d}</div>`).join('')}</div>
+     <div class="card" style="margin-bottom:14px"><h3>Tender documents <button class="doc-btn" onclick="openModal('doccheck')">✓ Document checklist</button></h3>${DOCS.map(d=>`<div class="doc"><span class="fi">${d.split('.').pop().toUpperCase()}</span>${d}</div>`).join('')}</div>
      <div class="card"><h3>Bid checklist</h3>${cks.map((c,i)=>`<div class="ck ${i<done?'done':''}"><span class="bx"></span>${c}</div>`).join('')}</div>
    </div>
  </div>`;
@@ -472,10 +514,18 @@ function decline(id){const t=T.find(x=>x.id===id);if(!t)return;t.dec='nein';rend
 const AWARDS=window.MAVIVO_MOCK_DATA.AWARDS;
 document.getElementById('winRows').innerHTML=AWARDS.map(a=>`<tr><td><div class="ttl">${esc(a.title)}</div><div class="sub">${esc(a.segment)} · CPV ${esc(a.cpv)}</div></td><td class="win" style="font-weight:700;color:var(--ink2)">${esc(a.winner)}</td><td class="sub" style="font-size:13px;color:var(--ink2)">${esc(a.buyer)}</td><td class="val">${a.value?eur(a.value):'—'}</td><td>${fd(a.date)}</td></tr>`).join('')||'<tr><td colspan="5" class="note" style="text-align:center;padding:26px">No contract awards yet.</td></tr>';
 
-// ---- competitors ----
-const COMP=window.MAVIVO_MOCK_DATA.COMPETITORS.map(c=>({n:c.name,w:c.activity,cat:c.segments,by:c.keyClients,p:c.pricePressure}));
-const PDE={High:"Price: high",Mid:"Price: medium",Low:"Price: low"};
-document.getElementById('compCards').innerHTML=COMP.map(c=>`<div class="comp"><div style="display:flex;justify-content:space-between;align-items:flex-start"><div><div class="cn">${esc(c.n)}</div><div class="cw">${esc(c.w)} (research)</div></div></div><div class="tags">${c.cat.map(x=>`<span class="tag">${x}</span>`).join('')}</div><div class="by"><b>Key clients:</b> ${esc(c.by)}</div><span class="price p-${c.p}">${PDE[c.p]}</span></div>`).join('')||'<div class="note">No competitors yet.</div>';
+// ---- competitors (seeded competitor radar) ----
+const STRAT={aggr:'Aggressive',prem:'Premium',bal:'Balanced'};
+const TRARR={up:'▲',dn:'▼',fl:'▬'},TRCOL={up:'var(--red)',dn:'var(--mav-d)',fl:'var(--muted)'};
+function cspark(arr,color){var w=62,h=20,mx=Math.max.apply(null,arr),mn=Math.min.apply(null,arr),rng=(mx-mn)||1;var p=arr.map((v,i)=>(i/(arr.length-1)*w).toFixed(1)+','+(h-2-((v-mn)/rng)*(h-4)).toFixed(1)).join(' ');return '<svg width="'+w+'" height="'+h+'" style="vertical-align:middle;margin-right:8px"><polyline fill="none" stroke="'+color+'" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round" points="'+p+'"/></svg>';}
+document.getElementById('compCards').innerHTML=(window.MAVIVO_MOCK_DATA.COMPETITORS||[]).map(c=>`<div class="comp-card">
+ <div class="comp-head"><div class="comp-mark" style="background:${c.mark}">${esc(c.initials)}</div><div style="flex:1;min-width:0"><div class="comp-name">${esc(c.name)}</div><div class="comp-meta">${esc(c.meta)}</div></div><span class="comp-region">${esc(c.region)}</span></div>
+ <div class="comp-stats"><div class="comp-stat"><div class="cv">${c.tenders6mo}</div><div class="cl">Tenders 6 mo</div></div><div class="comp-stat"><div class="cv">${c.winRate}%</div><div class="cl">Win rate</div></div><div class="comp-stat"><div class="cv">${esc(c.avgOffer)}</div><div class="cl">Ø offer</div></div></div>
+ <div class="comp-row"><span class="crk">Price strategy</span><span class="strat ${c.strategy}">${STRAT[c.strategy]||esc(c.strategy)}</span></div>
+ <div class="comp-row"><span class="crk">Est. margin <span class="seed" style="margin-left:5px">EST</span></span><span style="font-weight:700">${esc(c.margin)}</span></div>
+ <div class="comp-row"><span class="crk">Participation trend</span><span style="display:inline-flex;align-items:center">${cspark(c.trend,TRCOL[c.trendDir])}<span class="trend-${c.trendDir}">${TRARR[c.trendDir]} ${esc(c.trendLabel)}</span></span></div>
+ <div class="comp-foot"><b>Bid behavior:</b> ${esc(c.bidBehavior)}</div>
+</div>`).join('')||'<div class="note">No competitors yet.</div>';
 
 // ---- authorities: real contracting authorities behind mavivo's tenders (from TED) ----
 const AUTH=window.MAVIVO_MOCK_DATA.BUYERS.map(b=>[b.name,b.region,b.openTenders,b.segments,b.contact,b.lastActivity]);
@@ -558,6 +608,11 @@ document.getElementById('deadlines').addEventListener('click',e=>{const r=e.targ
  barList('whoWins',(aw.whoWins||[]).map(w=>[w.name,w.awards,w.sumValueText?'Σ '+w.sumValueText:'']),'win');
  document.getElementById('awards').innerHTML=(aw.recent||[]).map(a=>`<tr><td>${esc(a.date)}</td><td>${esc(a.winner)}</td><td class="num" style="font-weight:400">${esc(a.valueText)}</td></tr>`).join('');
 })();
+
+// ---- tender-tool modal: pricing form + document checklist ----
+function openModal(which){var m={pricing:['mavivo-pricing-form-excel-en.html','Pricing form · Bill of quantities'],doccheck:['mavivo-document-checklist.html','Document checklist']}[which];if(!m)return;document.getElementById('modalTitle').textContent=m[1];document.getElementById('modalFrame').src=m[0];document.getElementById('modal').classList.add('on');document.body.style.overflow='hidden';}
+function closeModal(){document.getElementById('modal').classList.remove('on');document.getElementById('modalFrame').src='about:blank';document.body.style.overflow='';}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
 
 renderPipe();renderSearch();
 </script>

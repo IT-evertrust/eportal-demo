@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>mavivo · Document checklist — powered by EverTrust</title>
+<style>
+  :root{
+    --mav:#019e3b;--mav-d:#017a2e;--mav-l:#E8F6ED;--mav-l2:#F3FBF6;
+    --ink:#0F231A;--ink2:#27352E;--bg:#F3F6F4;--line:#E4EAE6;--line2:#EEF2EF;
+    --muted:#5F6E66;--muted2:#94A19A;
+    /* app core palette: project teal accent + neutral grays (matches erp-client sidebar) */
+    --acc:#23495a;--acc-d:#1b3947;--acc-bg:#e8f0f3;--chip:#f4f4f5;--chip-t:#6b7280;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;font-size:14px;line-height:1.5}
+  .app{display:grid;grid-template-columns:236px minmax(0,1fr);min-height:100vh}
+  .sb{background:#fff;border-right:1px solid var(--line);display:flex;flex-direction:column;position:sticky;top:0;height:100vh}
+  .brand{padding:18px 18px 14px;border-bottom:1px solid var(--line)}
+  .nm{font-weight:700;font-size:23px;letter-spacing:-.8px;color:var(--mav);line-height:1}
+  .reg{font-size:9px;color:var(--mav);vertical-align:super;margin-left:1px;font-weight:600}
+  .brand .tg{margin-top:9px;font-size:10.5px;color:var(--muted);line-height:1.5}
+  .brand .pw{margin-top:8px;font-size:10px;color:var(--muted2);text-transform:uppercase;letter-spacing:.7px;border-top:1px dashed var(--line);padding-top:8px}
+  .brand .pw b{color:var(--mav-d)}
+  .nav{padding:10px;flex:1;overflow:auto}
+  .nav a{width:100%;text-align:left;background:none;border:none;color:var(--ink2);font-size:13px;padding:9px 11px;border-radius:9px;cursor:pointer;display:flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:1px}
+  .nav a:hover{background:var(--mav-l2)}
+  .nav a.on{background:var(--mav);color:#fff;font-weight:600}
+  .nav .ic{width:16px;text-align:center;font-size:12px;opacity:.95}
+  .sb .foot{padding:12px 18px;border-top:1px solid var(--line);font-size:10.5px;color:var(--muted2);line-height:1.6}
+  .main{padding:22px 30px 60px}
+  .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;flex-wrap:wrap;gap:10px}
+  .crumb{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+  h1{font-size:20px;font-weight:700;letter-spacing:-.3px;margin-top:3px}
+  /* progress */
+  .prog{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:16px 0;display:flex;align-items:center;gap:18px}
+  .prog .ptxt{font-size:13px;font-weight:600;white-space:nowrap}
+  .prog .ptxt b{color:var(--ink);font-size:16px}
+  .track{flex:1;height:10px;background:#eef1ef;border-radius:6px;overflow:hidden}
+  .fill{height:100%;background:var(--acc);border-radius:6px;transition:width .3s}
+  .split{display:grid;grid-template-columns:1fr 320px;gap:16px;align-items:start}
+  @media(max-width:900px){.split{grid-template-columns:1fr}.app{grid-template-columns:1fr}.sb{position:static;height:auto}}
+  .card{background:#fff;border:1px solid var(--line);border-radius:12px;margin-bottom:16px}
+  .card h3{font-size:12px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);font-weight:700;padding:15px 18px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:8px}
+  .card h3 .hint{font-weight:500;color:var(--muted2);text-transform:none;letter-spacing:0;font-size:11px}
+  /* checklist item */
+  .item{display:flex;align-items:center;gap:13px;padding:13px 18px;border-bottom:1px solid var(--line2)}
+  .item:last-child{border-bottom:none}
+  .bx{width:20px;height:20px;border-radius:6px;border:1.8px solid var(--line);flex:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.15s}
+  .item.done .bx{background:var(--acc);border-color:var(--acc)}
+  .item.done .bx::after{content:"✓";color:#fff;font-size:12px;font-weight:700}
+  .it-main{flex:1;min-width:0}
+  .it-name{font-weight:600;font-size:13.5px}
+  .item.done .it-name{color:var(--ink)}
+  .it-sub{font-size:11.5px;color:var(--muted);margin-top:1px}
+  .req{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;padding:2px 7px;border-radius:20px;margin-left:8px;vertical-align:middle}
+  .req.mand{background:var(--chip);color:var(--chip-t);border:1px solid var(--line)}
+  .req.opt{background:var(--line2);color:var(--muted)}
+  .st{font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;white-space:nowrap}
+  .st.up{background:var(--acc-bg);color:var(--acc)}
+  .st.miss{background:var(--chip);color:var(--chip-t)}
+  .up-btn{font-family:inherit;font-size:11.5px;font-weight:700;border:1px solid var(--line);background:#fff;color:var(--ink2);border-radius:7px;padding:6px 11px;cursor:pointer;white-space:nowrap}
+  .up-btn:hover{border-color:var(--acc);color:var(--acc)}
+  /* provided docs */
+  .doc{display:flex;align-items:center;gap:11px;padding:11px 18px;border-bottom:1px solid var(--line2);font-size:13px}
+  .doc:last-child{border-bottom:none}
+  .fi{color:var(--chip-t);font-weight:700;font-size:10.5px;border:1px solid var(--line);border-radius:5px;padding:2px 6px}
+  .doc .dl{margin-left:auto;color:var(--acc);font-weight:700;font-size:12px;text-decoration:none}
+  .acts{display:flex;justify-content:flex-end;gap:10px}
+  .btn{font-family:inherit;font-size:14px;font-weight:600;border-radius:9px;padding:10px 18px;cursor:pointer;border:1px solid}
+  .btn.ghost{background:#fff;color:var(--ink);border-color:#d4d7dd}.btn.ghost:hover{background:#f3f4f7}
+  .btn.pri{background:var(--acc);color:#fff;border-color:var(--acc)}.btn.pri:hover{background:var(--acc-d)}
+  .btn:disabled{opacity:.5;cursor:not-allowed}
+  .note{font-size:11px;color:var(--muted2);margin-top:8px;text-align:right}
+  .toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:11px 20px;border-radius:10px;font-size:13px;font-weight:600;opacity:0;transition:opacity .25s;z-index:80;pointer-events:none}
+  .toast.show{opacity:1}
+html.embed .sb{display:none}html.embed .app{grid-template-columns:1fr}html.embed .main{padding:18px 22px 40px}html.embed body{background:#fff}
+</style>
+<script>if(window.self!==window.top){document.documentElement.className+=" embed";}</script>
+</head>
+<body>
+<div class="app">
+  <aside class="sb">
+    <div class="brand">
+      <div><span class="nm">mavivo</span><span class="reg">®</span></div>
+      <div class="tg">Precision for practices, care &amp; clinics</div>
+      <div class="pw">Tender ERP · powered by <b>EverTrust</b></div>
+    </div>
+    <nav class="nav">
+      <a href="#"><span class="ic">▣</span>Dashboard</a>
+      <a href="#"><span class="ic">≣</span>Tender list</a>
+      <a href="mavivo-pricing-form.html"><span class="ic">€</span>Pricing form</a>
+      <a href="#" class="on"><span class="ic">✓</span>Document checklist</a>
+    </nav>
+    <div class="foot">Outsourced tender dept.<br>by EverTrust<br><span style="color:var(--mav-d)">Demo · sample data</span></div>
+  </aside>
+
+  <main class="main">
+    <div class="top">
+      <div>
+        <div class="crumb">Document checklist</div>
+        <h1>LED recessed &amp; surface luminaires — framework agreement</h1>
+      </div>
+    </div>
+
+    <div class="prog">
+      <div class="ptxt"><b id="pcount">0</b> / <span id="ptotal">0</span> ready</div>
+      <div class="track"><div class="fill" id="pfill" style="width:0%"></div></div>
+      <div class="ptxt" id="ppct" style="color:var(--muted)">0%</div>
+    </div>
+
+    <div class="split">
+      <div>
+        <div class="card">
+          <h3>Documents required for submission <span class="hint">tick when attached · mandatory items must be ready before submit</span></h3>
+          <div id="checklist"></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="card">
+          <h3>Tender documents <span class="hint">from the buyer</span></h3>
+          <div id="provided"></div>
+        </div>
+        <div class="acts">
+          <button class="btn ghost" onclick="toast('Checklist saved')">Save</button>
+          <button class="btn pri" id="submitBtn" onclick="onSubmit()">Submit bid</button>
+        </div>
+        <div class="note" id="submitNote"></div>
+      </div>
+    </div>
+  </main>
+</div>
+<script>
+// Required documents for the submission (mandatory ones gate the Submit button).
+const CHECK=[
+  {name:"Eligibility documents (Eignungsnachweise)",sub:"Company registration, references, insurance",mandatory:true,done:true},
+  {name:"Price sheet (Preisblatt)",sub:"From the pricing form — unit prices per position",mandatory:true,done:true},
+  {name:"Certificates (CE / EN 455 / EN 14683)",sub:"Product conformity for the offered luminaires",mandatory:true,done:false},
+  {name:"Samples requested",sub:"Physical samples for Luminaire A & C",mandatory:false,done:false},
+  {name:"Declaration of commitment (Verpflichtungserklärung)",sub:"Signed",mandatory:true,done:true},
+  {name:"Bid letter (Angebotsschreiben)",sub:"Signed by authorised signatory",mandatory:true,done:false},
+  {name:"References (last 3 years)",sub:"Comparable public lighting frameworks",mandatory:false,done:true},
+];
+// Documents provided by the buyer (downloadable).
+const DOCS=[
+  {n:"Contract_notice.pdf"},{n:"Bill_of_quantities.pdf"},{n:"Eligibility_criteria.pdf"},
+  {n:"Contract_terms.pdf"},{n:"Price_sheet.xlsx"},
+];
+
+function renderChecklist(){
+  document.getElementById('checklist').innerHTML=CHECK.map((c,i)=>`
+    <div class="item ${c.done?'done':''}" data-i="${i}">
+      <div class="bx" onclick="toggle(${i})"></div>
+      <div class="it-main">
+        <div class="it-name">${c.name}<span class="req ${c.mandatory?'mand':'opt'}">${c.mandatory?'Required':'Optional'}</span></div>
+        <div class="it-sub">${c.sub}</div>
+      </div>
+      <span class="st ${c.done?'up':'miss'}">${c.done?'Attached':'Missing'}</span>
+      <button class="up-btn" onclick="upload(${i})">${c.done?'Replace':'Upload'}</button>
+    </div>`).join('');
+  updateProgress();
+}
+function renderProvided(){
+  document.getElementById('provided').innerHTML=DOCS.map(d=>`
+    <div class="doc"><span class="fi">${d.n.split('.').pop().toUpperCase()}</span>${d.n}<a class="dl" href="#" onclick="event.preventDefault();toast('Downloading ${d.n}')">Download</a></div>`).join('');
+}
+function toggle(i){CHECK[i].done=!CHECK[i].done;renderChecklist()}
+function upload(i){CHECK[i].done=true;renderChecklist();toast('✓ Attached: '+CHECK[i].name.split(' (')[0])}
+function updateProgress(){
+  const done=CHECK.filter(c=>c.done).length,total=CHECK.length,pct=Math.round(done/total*100);
+  document.getElementById('pcount').textContent=done;
+  document.getElementById('ptotal').textContent=total;
+  document.getElementById('pfill').style.width=pct+'%';
+  document.getElementById('ppct').textContent=pct+'%';
+  const missMand=CHECK.filter(c=>c.mandatory&&!c.done);
+  const btn=document.getElementById('submitBtn'),note=document.getElementById('submitNote');
+  btn.disabled=missMand.length>0;
+  note.textContent=missMand.length>0?`${missMand.length} required document${missMand.length===1?'':'s'} still missing`:'All required documents ready — good to submit.';
+  note.style.color=missMand.length>0?'var(--chip-t)':'var(--acc)';
+}
+function onSubmit(){toast('✓ Bid submitted to operations')}
+function toast(m){let e=document.getElementById('toast');if(!e){e=document.createElement('div');e.id='toast';e.className='toast';document.body.appendChild(e)}e.textContent=m;e.classList.add('show');clearTimeout(window._t);window._t=setTimeout(()=>e.classList.remove('show'),2300)}
+renderChecklist();renderProvided();
+</script>
+</body>
+</html>

@@ -279,79 +279,223 @@ window.MAVIVO_MOCK_DATA = {
  "COMPETITORS": [
   {
    "name": "Paul Hartmann AG",
-   "activity": "very active",
+   "initials": "PH",
+   "mark": "#1b3947",
+   "region": "Baden-Württemberg",
+   "meta": "Wound care · Consumables",
    "segments": [
     "Wound care",
     "Consumables"
    ],
    "keyClients": "Charité · UK Schleswig-Holstein",
-   "pricePressure": "High"
+   "tenders6mo": 22,
+   "winRate": 41,
+   "avgOffer": "€1.2M",
+   "strategy": "prem",
+   "margin": "12–16%",
+   "trend": [
+    16,
+    18,
+    17,
+    20,
+    22,
+    24
+   ],
+   "trendDir": "up",
+   "trendLabel": "rising",
+   "bidBehavior": "National wound-care & consumables leader. Bids large frameworks (Charité, UK-SH); wins on brand, MDR depth & availability rather than price."
   },
   {
    "name": "Mölnlycke Health Care",
-   "activity": "very active",
+   "initials": "MH",
+   "mark": "#017a2e",
+   "region": "national",
+   "meta": "Advanced wound care",
    "segments": [
     "Wound care",
     "Consumables"
    ],
    "keyClients": "UK Schleswig-Holstein",
-   "pricePressure": "High"
+   "tenders6mo": 15,
+   "winRate": 47,
+   "avgOffer": "€0.9M",
+   "strategy": "prem",
+   "margin": "14–18%",
+   "trend": [
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+   ],
+   "trendDir": "up",
+   "trendLabel": "rising",
+   "bidBehavior": "Focuses on advanced wound-care lots; competes on clinical evidence, rarely undercuts on price."
   },
   {
    "name": "Meditrade",
-   "activity": "active",
+   "initials": "MT",
+   "mark": "#9a6a12",
+   "region": "Bayern",
+   "meta": "Gloves · Masks / PPE",
    "segments": [
     "Gloves",
     "Masks"
    ],
    "keyClients": "Landeshauptstadt München",
-   "pricePressure": "Low"
+   "tenders6mo": 18,
+   "winRate": 33,
+   "avgOffer": "€0.5M",
+   "strategy": "aggr",
+   "margin": "5–8%",
+   "trend": [
+    19,
+    18,
+    18,
+    17,
+    18,
+    18
+   ],
+   "trendDir": "fl",
+   "trendLabel": "steady",
+   "bidBehavior": "High-volume glove/mask lots at thin margins (LH München). Wins on price; exposed to raw-material swings."
   },
   {
    "name": "Roche Diagnostics",
-   "activity": "active",
+   "initials": "RD",
+   "mark": "#1856a5",
+   "region": "Bayern",
+   "meta": "Lab reagents · Diagnostics",
    "segments": [
     "Lab reagents",
     "Diagnostics"
    ],
    "keyClients": "LMU Klinikum · LGL Bayern",
-   "pricePressure": "High"
+   "tenders6mo": 12,
+   "winRate": 55,
+   "avgOffer": "€2.1M",
+   "strategy": "prem",
+   "margin": "18–24%",
+   "trend": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+   ],
+   "trendDir": "up",
+   "trendLabel": "rising",
+   "bidBehavior": "Dominates reagent/analyzer frameworks via installed-base lock-in; near-unbeatable on integrated systems."
   },
   {
    "name": "VWR / Avantor",
-   "activity": "active",
+   "initials": "VA",
+   "mark": "#23495a",
+   "region": "Hessen",
+   "meta": "Lab reagents & consumables",
    "segments": [
     "Lab reagents"
    ],
    "keyClients": "Paul-Ehrlich-Institut",
-   "pricePressure": "Mid"
+   "tenders6mo": 14,
+   "winRate": 38,
+   "avgOffer": "€0.7M",
+   "strategy": "bal",
+   "margin": "9–13%",
+   "trend": [
+    14,
+    13,
+    14,
+    14,
+    13,
+    14
+   ],
+   "trendDir": "fl",
+   "trendLabel": "steady",
+   "bidBehavior": "Broad-catalogue distributor; competitive on multi-lot reagent baskets (PEI), balanced pricing."
   },
   {
    "name": "Mediq Deutschland",
-   "activity": "moderate",
+   "initials": "MD",
+   "mark": "#5F6E66",
+   "region": "Nordrhein-Westfalen",
+   "meta": "Medical consumables",
    "segments": [
     "Consumables"
    ],
    "keyClients": "LWL Westfalen-Lippe",
-   "pricePressure": "Mid"
+   "tenders6mo": 10,
+   "winRate": 30,
+   "avgOffer": "€0.6M",
+   "strategy": "bal",
+   "margin": "8–11%",
+   "trend": [
+    13,
+    12,
+    11,
+    11,
+    10,
+    10
+   ],
+   "trendDir": "dn",
+   "trendLabel": "falling",
+   "bidBehavior": "Regional consumables supply (LWL); steady on mid-size lots, loses large national tenders to bigger players."
   },
   {
    "name": "ISG Intermed Service",
-   "activity": "moderate",
+   "initials": "II",
+   "mark": "#7a3da5",
+   "region": "Nordrhein-Westfalen",
+   "meta": "Consumables & med-tech trade",
    "segments": [
     "Consumables"
    ],
    "keyClients": "Justizvollzug NRW",
-   "pricePressure": "Low"
+   "tenders6mo": 9,
+   "winRate": 44,
+   "avgOffer": "€0.4M",
+   "strategy": "aggr",
+   "margin": "6–9%",
+   "trend": [
+    6,
+    7,
+    7,
+    8,
+    9,
+    9
+   ],
+   "trendDir": "up",
+   "trendLabel": "rising",
+   "bidBehavior": "Wins smaller regional consumables lots (Justizvollzug NRW) at low margin; agile but capacity-limited on big packages."
   },
   {
    "name": "Carl Roth",
-   "activity": "selective",
+   "initials": "CR",
+   "mark": "#a32d2d",
+   "region": "Baden-Württemberg",
+   "meta": "Lab chemicals & labware",
    "segments": [
     "Lab chemicals"
    ],
    "keyClients": "Paul-Ehrlich-Institut",
-   "pricePressure": "Mid"
+   "tenders6mo": 7,
+   "winRate": 35,
+   "avgOffer": "€0.3M",
+   "strategy": "bal",
+   "margin": "10–14%",
+   "trend": [
+    7,
+    7,
+    8,
+    7,
+    7,
+    7
+   ],
+   "trendDir": "fl",
+   "trendLabel": "steady",
+   "bidBehavior": "Selective on lab-chemical lots; reliable catalogue pricing, not aggressive on public tenders."
   }
  ],
  "DEMAND_COMPASS": {

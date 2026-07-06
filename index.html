@@ -208,6 +208,24 @@
   .rowbar .rf{height:100%;background:var(--cov-partial);border-radius:3px}.rowbar.win .rf{background:var(--gold)}
   .rowbar .rv{font-size:12.5px;font-weight:700;text-align:right;font-variant-numeric:tabular-nums}.rowbar .rv small{color:var(--muted2);font-weight:400}
   .emptybox{text-align:center;color:var(--muted2);font-size:12.5px;padding:34px 10px}
+  /* ===== iBau-Explorer (priced BoQs) ===== */
+  .ib-kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:16px}
+  .ib-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin-bottom:16px}
+  .ib-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;cursor:pointer;transition:all .15s}
+  .ib-card:hover{border-color:var(--mav)}
+  .ib-card.on{border-color:var(--mav);background:var(--mav-l2);box-shadow:0 2px 10px rgba(1,158,59,.12)}
+  .ib-card .bn{font-weight:800;font-size:13.5px;letter-spacing:-.2px}
+  .ib-card .bt{font-size:11.5px;color:var(--muted);margin-top:2px;line-height:1.45}
+  .ib-card .bm{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-top:9px;font-size:11px;color:var(--muted)}
+  .ib-card .bm b{color:var(--mav-d);font-size:13px}
+  .ib-portal{display:inline-block;font-size:9.5px;font-weight:700;border:1px solid var(--line);border-radius:5px;padding:1px 7px;color:var(--muted);margin-top:8px}
+  .ib-tblwrap{overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:12px}
+  .ib-tbl{width:100%;border-collapse:collapse;min-width:640px}
+  .ib-tbl th{text-align:left;font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);padding:10px 13px;border-bottom:1px solid var(--line);background:#FAFBFA;white-space:nowrap}
+  .ib-tbl th.num,.ib-tbl td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .ib-tbl td{padding:10px 13px;border-bottom:1px solid var(--line2);font-size:13px}
+  .ib-tbl tr:last-child td{border-bottom:none}
+  .ib-tbl tfoot td{border-top:2px solid var(--ink);font-weight:800;font-size:14px;background:var(--mav-l2)}
   /* ===== feature checklist (customer selection form) ===== */
   .fc-wrap{max-width:860px}
   .fc-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:20px}
@@ -332,6 +350,7 @@
       <button data-v="auth"><span class="ic">⌂</span>Auftraggeber</button>
       <button data-v="search"><span class="ic">⌕</span>Suche</button>
       <button data-v="compass"><span class="ic">◎</span>Demand Compass</button>
+      <button data-v="ibau"><span class="ic">▦</span>iBau-Explorer</button>
       <button data-v="chat"><span class="ic">⚡</span>Chat mit Assistent</button>
       <button data-v="check"><span class="ic">☑</span>Feature-Checkliste</button>
     </nav>
@@ -481,6 +500,14 @@
       <div class="fc-bar"><span class="ct2"><b id="fcCnt">0</b> von <span id="fcTot"></span> Funktionen ausgewählt</span><span class="hint2">Auswahl unverbindlich — Grundlage für Angebot &amp; Umsetzungsplan</span><button class="fc-btn" id="fcCopy" onclick="fcCopySel()">Auswahl kopieren</button></div>
       </div>
     </section>
+    <section class="view" id="ibau">
+      <p class="lede">Explorer über die bepreisten Leistungsverzeichnisse der Pipeline — Position für Position, mit Mengen aus den offiziellen TED-Bekanntmachungen und markt-üblichen Richtpreisen. Vergabe anklicken, LV erkunden.</p>
+      <div class="seed-banner"><span class="si">⚠</span><div><b>Mengen real, Preise Richtwerte.</b> Alle Mengen stammen wörtlich aus der jeweiligen TED-Bekanntmachung. Die Einheitspreise sind <b>markt-übliche Benchmark-Schätzungen</b> für Demo-Zwecke — <b>nicht</b> mavivos vertrauliche Kalkulation.</div></div>
+      <div class="ib-kpis" id="ibKpis"></div>
+      <div class="ib-grid" id="ibCards"></div>
+      <div class="ib-tblwrap"><table class="ib-tbl"><thead><tr><th>Pos.</th><th>Position</th><th class="num">Menge</th><th>Einheit</th><th class="num">EP (Richtwert)</th><th class="num">GP</th></tr></thead><tbody id="ibRows"></tbody><tfoot id="ibFoot"></tfoot></table></div>
+      <div class="note" id="ibNote"></div>
+    </section>
   </main>
 </div>
 
@@ -508,10 +535,11 @@ const R=window.MAVIVO_MOCK_DATA.MEDICAL_TENDERS.map(t=>[
  (t.createdAt||"").split("T")[0],
  (t.deadline||"").split("T")[0],
  "New",
- ""
+ "",
+ t.vergabeId
 ]);
 const PICN={DN:"Dat N.",HK:"Hanna K.",KP:"Khang P.",TA:"Thy A.",PT:"Phú T."};
-const T=R.map((r,i)=>({id:i+1,line:r[0],title:r[1],buyer:r[2],region:r[3],value:r[4],published:r[5],deadline:r[6],stage:r[7],pic:r[8]}));
+const T=R.map((r,i)=>({id:i+1,line:r[0],title:r[1],buyer:r[2],region:r[3],value:r[4],published:r[5],deadline:r[6],stage:r[7],pic:r[8],ref:r[9]}));
 const STAGES=["New","Screening","Pricing","Esign","Submitted","Won","Lost"];
 const ST={New:"Neu",Screening:"Prüfung",Pricing:"Kalkulation",Esign:"eSign",Submitted:"Eingereicht",Won:"Gewonnen",Lost:"Verloren"};
 
@@ -603,6 +631,16 @@ const BOQ={
  Disinfection:[["Händedesinfektion 500 ml","36.000","Fl."],["Flächendesinfektion 5 L","8.400","Kan."],["Desinfektionstücher","48.000","Pack"],["Wandspender","1.200","Stk."]]
 };
 const DOCS=["Bekanntmachung.pdf","Leistungsverzeichnis.pdf","Eignungskriterien.pdf","Vertragsbedingungen.pdf","Preisblatt.xlsx"];
+const NF=v=>v==null?'—':v.toLocaleString('de-DE');
+const NF2=v=>v==null?'—':v.toLocaleString('de-DE',{minimumFractionDigits:2,maximumFractionDigits:2});
+function boqCard(t,boq){
+ const pb=(window.MAVIVO_MOCK_DATA.PRICED_BOQ||{})[t.ref];
+ if(!pb)return `<div class="card"><h3>Leistungsverzeichnis <span class="hint">${boq.length} Positionen</span></h3>${boq.map((b,i)=>`<div class="li"><span>${i+1}. ${esc(b[0])}</span><span class="q">${b[1]} ${b[2]}</span></div>`).join('')}</div>`;
+ return `<div class="card"><h3>Leistungsverzeichnis · bepreist <span class="hint">Mengen: TED (real) · Preise: Richtwerte</span></h3>
+ ${pb.boq.map(p=>`<div class="li"><span>${p.pos}. ${esc(p.item)}</span><span class="q">${p.qty==null?'Menge lt. Preisblatt':NF(p.qty)+' '+esc(p.unit)+' × '+NF2(p.unit_price)+' €'}${p.line_total!=null?' = <b style="color:var(--ink)">'+NF(p.line_total)+' €</b>':''}</span></div>`).join('')}
+ <div class="li" style="border-bottom:none;border-top:2px solid var(--ink);font-weight:800;margin-top:2px"><span>Angebotssumme (netto)</span><span style="color:var(--mav-d)">${pb.bid_total!=null?NF(pb.bid_total)+' €':'— lt. Preisblatt'}</span></div>
+ ${pb.note?`<div class="note">${esc(pb.note)}</div>`:''}</div>`;
+}
 function detailHTML(t){
  const boq=BOQ[t.line]||BOQ.Consumables;
  const steps=["Veröffentlicht","Prüfung","Kalkulation","eSign","Eingereicht","Zuschlag"];
@@ -619,7 +657,7 @@ function detailHTML(t){
  </div>
  ${decBlock(t)}${esignCard(t)}<div class="card" style="margin:14px 0"><h3>Fortschritt</h3><div class="tl">${steps.map((s,i)=>`<div class="st ${i<idx?'done':''} ${i===idx?'cur':''} ${i<=idx?'done':''}${s==='Kalkulation'||(s==='eSign'&&t.dec==='ja')?' clk':''}" ${s==='Kalkulation'?`onclick="openModal('pricing')" title="Preisblatt öffnen"`:s==='eSign'&&t.dec==='ja'?`onclick="openModal('esign')" title="Freigabeseite öffnen"`:''}><div class="dot"></div>${s}</div>`).join('')}</div></div>
  <div class="grid g2">
-   <div class="card"><h3>Leistungsverzeichnis <span class="hint">${boq.length} Positionen</span></h3>${boq.map((b,i)=>`<div class="li"><span>${i+1}. ${esc(b[0])}</span><span class="q">${b[1]} ${b[2]}</span></div>`).join('')}</div>
+   ${boqCard(t,boq)}
    <div>
      <div class="card" style="margin-bottom:14px"><h3>Vergabeunterlagen <button class="doc-btn" onclick="openModal('doccheck')">✓ Unterlagen-Checkliste</button></h3>${DOCS.map(d=>`<div class="doc"><span class="fi">${d.split('.').pop().toUpperCase()}</span>${d}</div>`).join('')}</div>
      <div class="card"><h3>Angebots-Checkliste</h3>${cks.map((c,i)=>`<div class="ck ${i<done?'done':''}"><span class="bx"></span>${c}</div>`).join('')}</div>
@@ -674,7 +712,7 @@ function renderSearch(){const q=document.getElementById('sq').value.toLowerCase(
  document.querySelectorAll('#searchRows tr.clk').forEach(r=>r.onclick=()=>showDetail(+r.dataset.id))}
 
 // ---- nav ----
-const TITLES={dash:["Dashboard","Überblick"],focus:["Vertrieb","Monatsfokus"],pipeline:["Pipeline","Vergabe-Pipeline"],winners:["Zuschläge","Zuschläge & Gewinner"],comp:["Wettbewerb","Wettbewerber-Radar"],auth:["Auftraggeber","Vergabestellen-Übersicht"],search:["Suche","Suche & Recherche"],detail:["Pipeline","Vergabe-Detail"],compass:["Admin","Demand Compass"],chat:["Werkzeuge","Chat mit Assistent"],check:["Werkzeuge","Feature-Checkliste"],cpv33:["Demand Compass","Medizinische Geräte, Arzneimittel · CPV 33"]};
+const TITLES={dash:["Dashboard","Überblick"],focus:["Vertrieb","Monatsfokus"],pipeline:["Pipeline","Vergabe-Pipeline"],winners:["Zuschläge","Zuschläge & Gewinner"],comp:["Wettbewerb","Wettbewerber-Radar"],auth:["Auftraggeber","Vergabestellen-Übersicht"],search:["Suche","Suche & Recherche"],detail:["Pipeline","Vergabe-Detail"],compass:["Admin","Demand Compass"],ibau:["Werkzeuge","iBau-Explorer"],chat:["Werkzeuge","Chat mit Assistent"],check:["Werkzeuge","Feature-Checkliste"],cpv33:["Demand Compass","Medizinische Geräte, Arzneimittel · CPV 33"]};
 function go(v){document.querySelectorAll('.view').forEach(s=>s.classList.toggle('on',s.id===v));
  document.querySelectorAll('#nav button').forEach(b=>b.classList.toggle('on',b.dataset.v===v||(v==='cpv33'&&b.dataset.v==='compass')));
  const ti=TITLES[v]||["",""];document.getElementById('crumb').textContent=ti[0];document.getElementById('vtitle').textContent=ti[1];window.scrollTo(0,0)}
@@ -818,11 +856,33 @@ renderChat();
  };
 })();
 
+// ---- iBau-Explorer: bepreiste LVs (Mengen TED-real, Preise Richtwerte) ----
+(function(){
+ var PB=window.MAVIVO_MOCK_DATA.PRICED_BOQ||{},META=window.MAVIVO_MOCK_DATA.PRICED_BOQ_META||{};
+ var keys=Object.keys(PB);if(!keys.length)return;
+ var priced=keys.filter(k=>PB[k].bid_total!=null);
+ var positions=keys.reduce((s,k)=>s+PB[k].boq.length,0);
+ var nextDl=keys.map(k=>PB[k].deadline).sort()[0];
+ document.getElementById('ibKpis').innerHTML=[
+  {l:'Bepreiste LVs',v:priced.length+' von '+keys.length,d:'Leistungsverzeichnisse'},
+  {l:'Positionen',v:positions,d:'über alle LVs'},
+  {l:'Angebotsvolumen',v:NF(META.pipeline_total_priced)+' €',d:'netto, bepreist'},
+  {l:'Nächste Frist',v:fd(nextDl),d:'Abgabe'}
+ ].map(k=>`<div class="kpi"><div class="l">${k.l}</div><div class="v" style="font-size:20px">${k.v}</div><div class="d">${k.d}</div></div>`).join('');
+ function cards(sel){document.getElementById('ibCards').innerHTML=keys.map(k=>{var t=PB[k];return `<div class="ib-card ${k===sel?'on':''}" onclick="ibSel('${k}')"><div class="bn">${esc(t.buyer)}</div><div class="bt">${esc(t.title)} · TED ${k}</div><span class="ib-portal">⛿ ${esc(t.portal)}</span><div class="bm"><span>Frist ${fd(t.deadline)}</span><b>${t.bid_total!=null?NF(t.bid_total)+' €':'— offen'}</b></div></div>`;}).join('');}
+ window.ibSel=function(k){cards(k);var t=PB[k];
+  document.getElementById('ibRows').innerHTML=t.boq.map(p=>`<tr><td>${p.pos}</td><td>${esc(p.item)}</td><td class="num">${p.qty==null?'—':NF(p.qty)}</td><td>${esc(p.unit)}</td><td class="num">${NF2(p.unit_price)} €</td><td class="num" style="font-weight:700">${p.line_total==null?'—':NF(p.line_total)+' €'}</td></tr>`).join('');
+  document.getElementById('ibFoot').innerHTML=`<tr><td colspan="5">Angebotssumme (netto) — ${esc(t.buyer)}</td><td class="num">${t.bid_total!=null?NF(t.bid_total)+' €':'— lt. Preisblatt'}</td></tr>`;
+  document.getElementById('ibNote').textContent=t.note?t.note+' ':'';
+ };
+ ibSel(keys[0]);
+})();
+
 // ---- seeded-data banner on every page (transparency for client demos) ----
 (function(){
  var NOTE='<b>Beispieldaten — zur Veranschaulichung.</b> Live-Vergaben, Auftraggeber &amp; Zuschläge stammen aus eCore &amp; TED; Aktivitätskennzahlen (Dashboard-Volumen, Erfolgsquote, Aufmerksamkeits-Hinweise und Wettbewerber-Zahlen) sind modellierte Beispielwerte zur Demonstration des Workflows.';
  document.querySelectorAll('.view').forEach(function(v){
-  if(v.id==='comp'||v.id==='detail'||v.id==='cpv33'||v.id==='check')return; // competitors carry their own banner; detail & cpv33 are drill-downs
+  if(v.id==='comp'||v.id==='detail'||v.id==='cpv33'||v.id==='check'||v.id==='ibau')return; // competitors carry their own banner; detail & cpv33 are drill-downs
   var b=document.createElement('div');b.className='seed-banner';
   b.innerHTML='<span class="si">⚠</span><div>'+NOTE+'</div>';
   v.insertBefore(b,v.firstChild);

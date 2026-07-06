@@ -1,6 +1,7 @@
-// mavivo_mock_data — generiert 6. Jul 2026 (aktualisiert: +16 TED-Vergaben)
+// mavivo_mock_data — generiert 6. Jul 2026 (aktualisiert: +16 TED-Vergaben, +bepreiste LVs)
 // MEDICAL_TENDERS: eCore MEDICAL-Niche (4, live) + TED-Recherche 2026-07-06 (16). BUYERS: aus Vergabeliste gruppiert.
 // AWARDS: echte deutsche Medizin-Zuschläge (TED). COMPETITORS: Dossier-Recherche (Beispieldaten).
+// PRICED_BOQ: 4 LVs — Mengen REAL aus TED-Bekanntmachungen, Einheitspreise = Markt-Richtwerte (Demo, NICHT mavivos Preise).
 // DEMAND_COMPASS: deutsche TED-Nachfrage nach CPV-Abteilung.
 window.MAVIVO_MOCK_DATA = {
  "meta": {
@@ -9053,5 +9054,240 @@ window.MAVIVO_MOCK_DATA = {
     }
    }
   }
+ },
+ "PRICED_BOQ": {
+  "399254-2026": {
+   "tedNo": "399254-2026",
+   "buyer": "Stadt Mannheim",
+   "title": "Hygienepapier + Seife — Rahmenvertrag 2 Jahre",
+   "portal": "vergabe.vmstart.de (NetServer)",
+   "deadline": "2026-07-14",
+   "currency": "EUR",
+   "note": null,
+   "boq": [
+    {
+     "pos": "1",
+     "item": "Toilettenpapier Einzelblatt",
+     "qty": 10980,
+     "unit": "Bündel",
+     "unit_price": 2.5,
+     "line_total": 27450
+    },
+    {
+     "pos": "2",
+     "item": "Toilettenpapier Kleinrollen",
+     "qty": 535428,
+     "unit": "Rollen",
+     "unit_price": 0.18,
+     "line_total": 96377
+    },
+    {
+     "pos": "3",
+     "item": "Toilettenpapier Jumbo-Rollen",
+     "qty": 8960,
+     "unit": "Rollen",
+     "unit_price": 1.4,
+     "line_total": 12544
+    },
+    {
+     "pos": "4",
+     "item": "Toilettenpapier Mini-Jumbo-Rollen",
+     "qty": 16358,
+     "unit": "Rollen",
+     "unit_price": 1.1,
+     "line_total": 17994
+    },
+    {
+     "pos": "5",
+     "item": "Toilettenpapier Midi-Rollen",
+     "qty": 756,
+     "unit": "Rollen",
+     "unit_price": 1.2,
+     "line_total": 907
+    },
+    {
+     "pos": "6",
+     "item": "Toilettenpapier Großrolle",
+     "qty": 600,
+     "unit": "Rollen",
+     "unit_price": 2,
+     "line_total": 1200
+    },
+    {
+     "pos": "7",
+     "item": "Toilettenpapier Mini-Rollen",
+     "qty": 24000,
+     "unit": "Rollen",
+     "unit_price": 0.3,
+     "line_total": 7200
+    },
+    {
+     "pos": "8",
+     "item": "Falthandtücher",
+     "qty": 20972,
+     "unit": "Kartons",
+     "unit_price": 18,
+     "line_total": 377496
+    },
+    {
+     "pos": "9",
+     "item": "Rollenhandtücher",
+     "qty": 12594,
+     "unit": "Kartons",
+     "unit_price": 22,
+     "line_total": 277068
+    },
+    {
+     "pos": "10",
+     "item": "Flüssig-/Schaumseife",
+     "qty": 6224,
+     "unit": "Kartons",
+     "unit_price": 28,
+     "line_total": 174272
+    },
+    {
+     "pos": "11",
+     "item": "Toilettensitzreiniger",
+     "qty": 222,
+     "unit": "Kartons",
+     "unit_price": 30,
+     "line_total": 6660
+    },
+    {
+     "pos": "12",
+     "item": "Flüssigseife (spenderoffen)",
+     "qty": 492,
+     "unit": "Liter",
+     "unit_price": 3.5,
+     "line_total": 1722
+    },
+    {
+     "pos": "13",
+     "item": "Seifencreme im Pumpspender",
+     "qty": 120,
+     "unit": "Stück",
+     "unit_price": 4,
+     "line_total": 480
+    }
+   ],
+   "bid_total": 1001370
+  },
+  "411785-2026": {
+   "tedNo": "411785-2026",
+   "buyer": "DZNE (Deutsches Zentrum für Neurodegenerative Erkrankungen)",
+   "title": "Kryo-Röhrchen (Laborverbrauch)",
+   "portal": "tender24.de (NetServer)",
+   "deadline": "2026-07-16",
+   "currency": "EUR",
+   "note": null,
+   "boq": [
+    {
+     "pos": "1",
+     "item": "Kryo-Röhrchen Typ 1 (0,1–0,25 ml)",
+     "qty": 460800,
+     "unit": "Stück (4.800 Racks)",
+     "unit_price": 0.09,
+     "line_total": 41472
+    },
+    {
+     "pos": "2",
+     "item": "Kryo-Röhrchen Typ 2 (0,5 ml)",
+     "qty": 252480,
+     "unit": "Stück (2.630 Racks)",
+     "unit_price": 0.11,
+     "line_total": 27773
+    },
+    {
+     "pos": "3",
+     "item": "Kryo-Röhrchen Typ 3 (1 ml)",
+     "qty": 56640,
+     "unit": "Stück (590 Racks)",
+     "unit_price": 0.13,
+     "line_total": 7363
+    }
+   ],
+   "bid_total": 76608
+  },
+  "418704-2026": {
+   "tedNo": "418704-2026",
+   "buyer": "Landeshauptstadt Dresden — Eigenbetrieb Kindertageseinrichtungen",
+   "title": "Kosmetik & Körperpflegeprodukte",
+   "portal": "evergabe.de",
+   "deadline": "2026-07-20",
+   "currency": "EUR",
+   "note": null,
+   "boq": [
+    {
+     "pos": "1",
+     "item": "Gr.1 Kosmetik/Körperpflege für Kinder",
+     "qty": 36500,
+     "unit": "VPE (est; max 46.750)",
+     "unit_price": 4.5,
+     "line_total": 164250
+    },
+    {
+     "pos": "2",
+     "item": "Gr.2 Kosmetik/Körperpflege für Erwachsene",
+     "qty": 6400,
+     "unit": "VPE (est; max 6.800)",
+     "unit_price": 5.5,
+     "line_total": 35200
+    }
+   ],
+   "bid_total": 199450
+  },
+  "424975-2026": {
+   "tedNo": "424975-2026",
+   "buyer": "Stadt Nürnberg",
+   "title": "Hygienepapier — Rahmenvertrag 3 Jahre",
+   "portal": "deutsche-evergabe.de",
+   "deadline": "2026-07-20",
+   "currency": "EUR",
+   "note": "Positionsliste steht in der Bekanntmachung; die Mengen je Position stehen nur im Preisblatt der Vergabeunterlagen (Portal-Dokument). Abruf ausstehend.",
+   "boq": [
+    {
+     "pos": "1",
+     "item": "Toilettenpapier Kleinrollen 250 Blatt",
+     "qty": null,
+     "unit": "Rollen",
+     "unit_price": 0.18,
+     "line_total": null
+    },
+    {
+     "pos": "2",
+     "item": "Toilettenpapier Kleinrollen 400 Blatt",
+     "qty": null,
+     "unit": "Rollen",
+     "unit_price": 0.26,
+     "line_total": null
+    },
+    {
+     "pos": "3",
+     "item": "Toilettenpapier Großrollen",
+     "qty": null,
+     "unit": "Rollen",
+     "unit_price": 2,
+     "line_total": null
+    },
+    {
+     "pos": "4",
+     "item": "Handtuchpapier",
+     "qty": null,
+     "unit": "Kartons",
+     "unit_price": 20,
+     "line_total": null
+    }
+   ],
+   "bid_total": null
+  }
+ },
+ "PRICED_BOQ_META": {
+  "generated": "2026-07-06",
+  "disclaimer": {
+   "quantities": "REAL — taken verbatim from the official TED notice for each tender",
+   "unit_prices": "BENCHMARK ESTIMATE — typical German bulk-procurement market rates, for demo only; NOT MAVIVO's confidential pricing",
+   "line_total": "quantity x benchmark unit price"
+  },
+  "pipeline_total_priced": 1277428
  }
 };

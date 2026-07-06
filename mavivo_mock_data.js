@@ -1,7 +1,7 @@
-// mavivo_mock_data — generated 6 Jul 2026
-// MEDICAL_TENDERS: live eCore MEDICAL niche (4). BUYERS: real TED contracting authorities.
-// AWARDS: recent real German medical-supply awards from TED. COMPETITORS: dossier research.
-// DEMAND_COMPASS: German TED demand by CPV division (live), reconstructing eCore\u2019s Demand Compass.
+// mavivo_mock_data — generiert 6. Jul 2026 (aktualisiert: +16 TED-Vergaben)
+// MEDICAL_TENDERS: eCore MEDICAL-Niche (4, live) + TED-Recherche 2026-07-06 (16). BUYERS: aus Vergabeliste gruppiert.
+// AWARDS: echte deutsche Medizin-Zuschläge (TED). COMPETITORS: Dossier-Recherche (Beispieldaten).
+// DEMAND_COMPASS: deutsche TED-Nachfrage nach CPV-Abteilung.
 window.MAVIVO_MOCK_DATA = {
  "meta": {
   "generatedAt": "2026-07-06",
@@ -20,7 +20,7 @@ window.MAVIVO_MOCK_DATA = {
    "MEDICAL": 4
   },
   "orgNiche": "MEDICAL",
-  "note": "Tenders: live eCore MEDICAL niche (4). Buyers: real contracting authorities pulled from each tender's TED notice. Awards: recent real German medical-supply contract-award notices from TED (eCore itself holds NO awarded/lost tenders). DEMAND_COMPASS: German TED demand by CPV division, live from TED (eCore's admin Demand Compass is login-gated, so its niche-coverage %, national feed, watching list & market brief are NOT included). Values null in eCore/TED shown as not stated; competitors are dossier research."
+  "note": "Tenders: live eCore MEDICAL niche (4). Buyers: real contracting authorities pulled from each tender's TED notice. Awards: recent real German medical-supply contract-award notices from TED (eCore itself holds NO awarded/lost tenders). DEMAND_COMPASS: German TED demand by CPV division, live from TED (eCore's admin Demand Compass is login-gated, so its niche-coverage %, national feed, watching list & market brief are NOT included). Values null in eCore/TED shown as not stated; competitors are dossier research. | 2026-07-06: 16 weitere MEDICAL-Vergaben aus der TED-Recherche (MAVIVO_Medical_Tenders_2026-07-06) ergänzt; Werte lt. Liste (veröffentlicht/geschätzt/Open-House)."
  },
  "MEDICAL_TENDERS": [
   {
@@ -36,11 +36,152 @@ window.MAVIVO_MOCK_DATA = {
    "buyerDept": "Zentrale Beschaffung",
    "location": "Düsseldorf, Nordrhein-Westfalen",
    "region": "NRW",
-   "estimatedValueEur": null,
+   "estimatedValueEur": 150000,
    "pic": null,
    "checklistCompletePct": 0,
    "tedLink": "https://ted.europa.eu/en/notice/-/detail/401600-2026",
-   "createdAt": "2026-07-05T05:36:10.295Z"
+   "createdAt": "2026-07-05T05:36:10.295Z",
+   "valueBasis": "geschätzt"
+  },
+  {
+   "ecoreTenderId": null,
+   "vergabeId": "399254-2026",
+   "title": "Hygienepapier + Seife (Rahmenvertrag 2 Jahre)",
+   "niche": "MEDICAL",
+   "segment": "Hygieneartikel",
+   "fitLine": "Hygiene",
+   "status": "OPEN",
+   "deadline": "2026-07-14T23:59:00.000Z",
+   "buyer": "Stadt Mannheim",
+   "buyerDept": null,
+   "location": null,
+   "region": "BW",
+   "estimatedValueEur": 200000,
+   "valueBasis": "geschätzt",
+   "pic": null,
+   "checklistCompletePct": 0,
+   "tedLink": "https://ted.europa.eu/de/notice/-/detail/399254-2026",
+   "createdAt": "2026-07-06T00:00:00.000Z"
+  },
+  {
+   "ecoreTenderId": null,
+   "vergabeId": "459494-2026",
+   "title": "Rahmenvereinbarung medizinisches Verbrauchsmaterial Rettungsdienst (9 Lose)",
+   "niche": "MEDICAL",
+   "segment": "Medizinische Verbrauchsmaterialien",
+   "fitLine": "Consumables",
+   "status": "OPEN",
+   "deadline": "2026-07-15T23:59:00.000Z",
+   "buyer": "Stadt Castrop-Rauxel",
+   "buyerDept": null,
+   "location": null,
+   "region": "NRW",
+   "estimatedValueEur": 845000,
+   "valueBasis": "veröffentlicht",
+   "pic": null,
+   "checklistCompletePct": 0,
+   "tedLink": "https://ted.europa.eu/de/notice/-/detail/459494-2026",
+   "createdAt": "2026-07-06T00:00:00.000Z"
+  },
+  {
+   "ecoreTenderId": null,
+   "vergabeId": "435331-2026",
+   "title": "Wundversorgung / Verbandstoffe (8 Lose)",
+   "niche": "MEDICAL",
+   "segment": "Wundversorgung",
+   "fitLine": "Wound care",
+   "status": "OPEN",
+   "deadline": "2026-07-15T23:59:00.000Z",
+   "buyer": "Charité Universitätsmedizin Berlin",
+   "buyerDept": null,
+   "location": null,
+   "region": "Berlin",
+   "estimatedValueEur": 400000,
+   "valueBasis": "geschätzt",
+   "pic": null,
+   "checklistCompletePct": 0,
+   "tedLink": "https://ted.europa.eu/de/notice/-/detail/435331-2026",
+   "createdAt": "2026-07-06T00:00:00.000Z"
+  },
+  {
+   "ecoreTenderId": null,
+   "vergabeId": "411785-2026",
+   "title": "Kryoröhrchen / Laborverbrauch",
+   "niche": "MEDICAL",
+   "segment": "Labor / Diagnostik",
+   "fitLine": "Lab supply",
+   "status": "OPEN",
+   "deadline": "2026-07-16T23:59:00.000Z",
+   "buyer": "DZNE (Forschung neurodegenerative Erkrankungen)",
+   "buyerDept": null,
+   "location": null,
+   "region": "NRW",
+   "estimatedValueEur": 80000,
+   "valueBasis": "geschätzt",
+   "pic": null,
+   "checklistCompletePct": 0,
+   "tedLink": "https://ted.europa.eu/de/notice/-/detail/411785-2026",
+   "createdAt": "2026-07-06T00:00:00.000Z"
+  },
+  {
+   "ecoreTenderId": null,
+   "vergabeId": "412655-2026",
+   "title": "Diagnostik-Testkits (BSE/Scrapie)",
+   "niche": "MEDICAL",
+   "segment": "Labor / Diagnostik",
+   "fitLine": "Diagnostics",
+   "status": "OPEN",
+   "deadline": "2026-07-17T23:59:00.000Z",
+   "buyer": "Land Schleswig-Holstein (Landeslabor)",
+   "buyerDept": null,
+   "location": null,
+   "region": "SH",
+   "estimatedValueEur": 430000,
+   "valueBasis": "veröffentlicht",
+   "pic": null,
+   "checklistCompletePct": 0,
+   "tedLink": "https://ted.europa.eu/de/notice/-/detail/412655-2026",
+   "createdAt": "2026-07-06T00:00:00.000Z"
+  },
+  {
+   "ecoreTenderId": null,
+   "vergabeId": "424975-2026",
+   "title": "Hygienepapier-Rahmenvertrag (3 Jahre)",
+   "niche": "MEDICAL",
+   "segment": "Hygieneartikel",
+   "fitLine": "Hygiene",
+   "status": "OPEN",
+   "deadline": "2026-07-20T23:59:00.000Z",
+   "buyer": "Stadt Nürnberg",
+   "buyerDept": null,
+   "location": null,
+   "region": "Bayern",
+   "estimatedValueEur": 300000,
+   "valueBasis": "geschätzt",
+   "pic": null,
+   "checklistCompletePct": 0,
+   "tedLink": "https://ted.europa.eu/de/notice/-/detail/424975-2026",
+   "createdAt": "2026-07-06T00:00:00.000Z"
+  },
+  {
+   "ecoreTenderId": null,
+   "vergabeId": "418704-2026",
+   "title": "Kosmetik & Körperpflegeprodukte",
+   "niche": "MEDICAL",
+   "segment": "Körperpflege",
+   "fitLine": "Körperpflege",
+   "status": "OPEN",
+   "deadline": "2026-07-20T23:59:00.000Z",
+   "buyer": "Landeshauptstadt Dresden",
+   "buyerDept": null,
+   "location": null,
+   "region": "Sachsen",
+   "estimatedValueEur": 200000,
+   "valueBasis": "geschätzt",
+   "pic": null,
+   "checklistCompletePct": 0,
+   "tedLink": "https://ted.europa.eu/de/notice/-/detail/418704-2026",
+   "createdAt": "2026-07-06T00:00:00.000Z"
   },
   {
    "ecoreTenderId": "cmr7cyouj000hnl1344r4sguo",
@@ -55,11 +196,12 @@ window.MAVIVO_MOCK_DATA = {
    "buyerDept": "Beschaffung",
    "location": null,
    "region": "Berlin",
-   "estimatedValueEur": null,
+   "estimatedValueEur": 500000,
    "pic": null,
    "checklistCompletePct": 0,
    "tedLink": "https://ted.europa.eu/en/notice/-/detail/415087-2026",
-   "createdAt": "2026-07-05T05:36:10.315Z"
+   "createdAt": "2026-07-05T05:36:10.315Z",
+   "valueBasis": "geschätzt"
   },
   {
    "ecoreTenderId": "cmr7d0x62001bnl13nzav7ui3",
@@ -74,11 +216,112 @@ window.MAVIVO_MOCK_DATA = {
    "buyerDept": "Zentraleinkauf (IPA Bochum)",
    "location": "Bochum, Nordrhein-Westfalen",
    "region": "NRW",
-   "estimatedValueEur": null,
+   "estimatedValueEur": 400000,
    "pic": null,
    "checklistCompletePct": 0,
    "tedLink": "https://ted.europa.eu/en/notice/-/detail/390906-2026",
-   "createdAt": "2026-07-05T05:37:54.410Z"
+   "createdAt": "2026-07-05T05:37:54.410Z",
+   "valueBasis": "geschätzt"
+  },
+  {
+   "ecoreTenderId": null,
+   "vergabeId": "446513-2026",
+   "title": "Dentalbedarf & Hilfsmittel inkl. Logistikleistung",
+   "niche": "MEDICAL",
+   "segment": "Medizinische Verbrauchsmaterialien",
+   "fitLine": "Consumables",
+   "status": "OPEN",
+   "deadline": "2026-07-30T23:59:00.000Z",
+   "buyer": "Universitätsklinikum Leipzig",
+   "buyerDept": null,
+   "location": null,
+   "region": "Sachsen",
+   "estimatedValueEur": 566000,
+   "valueBasis": "veröffentlicht",
+   "pic": null,
+   "checklistCompletePct": 0,
+   "tedLink": "https://ted.europa.eu/de/notice/-/detail/446513-2026",
+   "createdAt": "2026-07-06T00:00:00.000Z"
+  },
+  {
+   "ecoreTenderId": null,
+   "vergabeId": "457839-2026",
+   "title": "Feldbetten + Hygienesets",
+   "niche": "MEDICAL",
+   "segment": "Hygieneartikel",
+   "fitLine": "Hygiene",
+   "status": "OPEN",
+   "deadline": "2026-08-03T23:59:00.000Z",
+   "buyer": "Katastrophenschutz (FB 32.3)",
+   "buyerDept": null,
+   "location": null,
+   "region": "DE",
+   "estimatedValueEur": 540000,
+   "valueBasis": "veröffentlicht",
+   "pic": null,
+   "checklistCompletePct": 0,
+   "tedLink": "https://ted.europa.eu/de/notice/-/detail/457839-2026",
+   "createdAt": "2026-07-06T00:00:00.000Z"
+  },
+  {
+   "ecoreTenderId": null,
+   "vergabeId": "455355-2026",
+   "title": "Körperpflege- / Hygieneartikel-Versorgung (Justizvollzug)",
+   "niche": "MEDICAL",
+   "segment": "Körperpflege",
+   "fitLine": "Körperpflege",
+   "status": "OPEN",
+   "deadline": "2026-08-04T23:59:00.000Z",
+   "buyer": "Justizministerium RLP",
+   "buyerDept": null,
+   "location": null,
+   "region": "RLP",
+   "estimatedValueEur": 600000,
+   "valueBasis": "geschätzt",
+   "pic": null,
+   "checklistCompletePct": 0,
+   "tedLink": "https://ted.europa.eu/de/notice/-/detail/455355-2026",
+   "createdAt": "2026-07-06T00:00:00.000Z"
+  },
+  {
+   "ecoreTenderId": null,
+   "vergabeId": "453312-2026",
+   "title": "Schnitthemmende Handschuhe (Polizei & Justiz)",
+   "niche": "MEDICAL",
+   "segment": "PSA / Handschuhe",
+   "fitLine": "Gloves",
+   "status": "OPEN",
+   "deadline": "2026-08-06T23:59:00.000Z",
+   "buyer": "Logistik Zentrum Niedersachsen",
+   "buyerDept": null,
+   "location": null,
+   "region": "NI",
+   "estimatedValueEur": 372240,
+   "valueBasis": "veröffentlicht",
+   "pic": null,
+   "checklistCompletePct": 0,
+   "tedLink": "https://ted.europa.eu/de/notice/-/detail/453312-2026",
+   "createdAt": "2026-07-06T00:00:00.000Z"
+  },
+  {
+   "ecoreTenderId": null,
+   "vergabeId": "435510-2026",
+   "title": "Medizinisches Verbrauchsmaterial Rettungsdienst",
+   "niche": "MEDICAL",
+   "segment": "Medizinische Verbrauchsmaterialien",
+   "fitLine": "Consumables",
+   "status": "OPEN",
+   "deadline": "2026-08-10T23:59:00.000Z",
+   "buyer": "Rettungsdienst-Kooperation Schleswig-Holstein",
+   "buyerDept": null,
+   "location": null,
+   "region": "SH",
+   "estimatedValueEur": 500000,
+   "valueBasis": "geschätzt",
+   "pic": null,
+   "checklistCompletePct": 0,
+   "tedLink": "https://ted.europa.eu/de/notice/-/detail/435510-2026",
+   "createdAt": "2026-07-06T00:00:00.000Z"
   },
   {
    "ecoreTenderId": "cmr7cyosl000bnl137fiit4fi",
@@ -92,34 +335,125 @@ window.MAVIVO_MOCK_DATA = {
    "buyer": "Generalzolldirektion (Bundesfinanzverwaltung)",
    "buyerDept": "Zentrale Beschaffungsstelle",
    "location": null,
-   "region": "Hesse",
-   "estimatedValueEur": null,
+   "region": "Hessen",
+   "estimatedValueEur": 1000000,
    "pic": null,
    "checklistCompletePct": 0,
    "tedLink": "https://ted.europa.eu/en/notice/-/detail/446930-2026",
-   "createdAt": "2026-07-05T05:36:10.245Z"
+   "createdAt": "2026-07-05T05:36:10.245Z",
+   "valueBasis": "geschätzt"
+  },
+  {
+   "ecoreTenderId": null,
+   "vergabeId": "400097-2026",
+   "title": "Drogentest-Kits Rahmenvertrag (5 Lose)",
+   "niche": "MEDICAL",
+   "segment": "Labor / Diagnostik",
+   "fitLine": "Diagnostics",
+   "status": "OPEN",
+   "deadline": "2026-08-14T23:59:00.000Z",
+   "buyer": "JVA Chemnitz",
+   "buyerDept": null,
+   "location": null,
+   "region": "Sachsen",
+   "estimatedValueEur": 150000,
+   "valueBasis": "geschätzt",
+   "pic": null,
+   "checklistCompletePct": 0,
+   "tedLink": "https://ted.europa.eu/de/notice/-/detail/400097-2026",
+   "createdAt": "2026-07-06T00:00:00.000Z"
+  },
+  {
+   "ecoreTenderId": null,
+   "vergabeId": "35283-2026",
+   "title": "Wundversorgung — Open-House §31 SGB V",
+   "niche": "MEDICAL",
+   "segment": "Wundversorgung",
+   "fitLine": "Wound care",
+   "status": "OPEN",
+   "deadline": "2028-01-31T23:59:00.000Z",
+   "buyer": "DRV Knappschaft",
+   "buyerDept": null,
+   "location": null,
+   "region": "NRW",
+   "estimatedValueEur": 0,
+   "valueBasis": "Open-House",
+   "pic": null,
+   "checklistCompletePct": 0,
+   "tedLink": "https://ted.europa.eu/de/notice/-/detail/35283-2026",
+   "createdAt": "2026-07-06T00:00:00.000Z"
+  },
+  {
+   "ecoreTenderId": null,
+   "vergabeId": "372585-2026",
+   "title": "Wundversorgung — Open-House 2026–2028",
+   "niche": "MEDICAL",
+   "segment": "Wundversorgung",
+   "fitLine": "Wound care",
+   "status": "OPEN",
+   "deadline": "2028-05-31T23:59:00.000Z",
+   "buyer": "AOK Bremen/Bremerhaven",
+   "buyerDept": null,
+   "location": null,
+   "region": "Bremen",
+   "estimatedValueEur": 0,
+   "valueBasis": "Open-House",
+   "pic": null,
+   "checklistCompletePct": 0,
+   "tedLink": "https://ted.europa.eu/de/notice/-/detail/372585-2026",
+   "createdAt": "2026-07-06T00:00:00.000Z"
+  },
+  {
+   "ecoreTenderId": null,
+   "vergabeId": "454539-2026",
+   "title": "Wundversorgung — Open-House (volumenbasiert)",
+   "niche": "MEDICAL",
+   "segment": "Wundversorgung",
+   "fitLine": "Wound care",
+   "status": "OPEN",
+   "deadline": "2028-10-05T23:59:00.000Z",
+   "buyer": "AOK Nordost",
+   "buyerDept": null,
+   "location": null,
+   "region": "Berlin",
+   "estimatedValueEur": 0,
+   "valueBasis": "Open-House",
+   "pic": null,
+   "checklistCompletePct": 0,
+   "tedLink": "https://ted.europa.eu/de/notice/-/detail/454539-2026",
+   "createdAt": "2026-07-06T00:00:00.000Z"
   }
  ],
  "BUYERS": [
   {
-   "name": "Hochschule Düsseldorf",
-   "region": "NRW",
+   "name": "AOK Bremen/Bremerhaven",
+   "region": "Bremen",
    "openTenders": 1,
    "segments": [
-    "Hygieneartikel"
+    "Wundversorgung"
    ],
-   "contact": "Zentrale Beschaffung",
-   "lastActivity": "2026-07-13"
+   "contact": "—",
+   "lastActivity": "2028-05-31"
   },
   {
-   "name": "Robert Koch-Institut",
+   "name": "AOK Nordost",
    "region": "Berlin",
    "openTenders": 1,
    "segments": [
-    "Labor / Diagnostik"
+    "Wundversorgung"
    ],
-   "contact": "Beschaffung",
-   "lastActivity": "2026-07-20"
+   "contact": "—",
+   "lastActivity": "2028-10-05"
+  },
+  {
+   "name": "Charité Universitätsmedizin Berlin",
+   "region": "Berlin",
+   "openTenders": 1,
+   "segments": [
+    "Wundversorgung"
+   ],
+   "contact": "—",
+   "lastActivity": "2026-07-15"
   },
   {
    "name": "Deutsche Gesetzliche Unfallversicherung (DGUV)",
@@ -132,14 +466,164 @@ window.MAVIVO_MOCK_DATA = {
    "lastActivity": "2026-07-24"
   },
   {
+   "name": "DRV Knappschaft",
+   "region": "NRW",
+   "openTenders": 1,
+   "segments": [
+    "Wundversorgung"
+   ],
+   "contact": "—",
+   "lastActivity": "2028-01-31"
+  },
+  {
+   "name": "DZNE (Forschung neurodegenerative Erkrankungen)",
+   "region": "NRW",
+   "openTenders": 1,
+   "segments": [
+    "Labor / Diagnostik"
+   ],
+   "contact": "—",
+   "lastActivity": "2026-07-16"
+  },
+  {
    "name": "Generalzolldirektion (Bundesfinanzverwaltung)",
-   "region": "Hesse",
+   "region": "Hessen",
    "openTenders": 1,
    "segments": [
     "PSA / Handschuhe"
    ],
    "contact": "Zentrale Beschaffungsstelle",
    "lastActivity": "2026-08-12"
+  },
+  {
+   "name": "Hochschule Düsseldorf",
+   "region": "NRW",
+   "openTenders": 1,
+   "segments": [
+    "Hygieneartikel"
+   ],
+   "contact": "Zentrale Beschaffung",
+   "lastActivity": "2026-07-13"
+  },
+  {
+   "name": "Justizministerium RLP",
+   "region": "RLP",
+   "openTenders": 1,
+   "segments": [
+    "Körperpflege"
+   ],
+   "contact": "—",
+   "lastActivity": "2026-08-04"
+  },
+  {
+   "name": "JVA Chemnitz",
+   "region": "Sachsen",
+   "openTenders": 1,
+   "segments": [
+    "Labor / Diagnostik"
+   ],
+   "contact": "—",
+   "lastActivity": "2026-08-14"
+  },
+  {
+   "name": "Katastrophenschutz (FB 32.3)",
+   "region": "DE",
+   "openTenders": 1,
+   "segments": [
+    "Hygieneartikel"
+   ],
+   "contact": "—",
+   "lastActivity": "2026-08-03"
+  },
+  {
+   "name": "Land Schleswig-Holstein (Landeslabor)",
+   "region": "SH",
+   "openTenders": 1,
+   "segments": [
+    "Labor / Diagnostik"
+   ],
+   "contact": "—",
+   "lastActivity": "2026-07-17"
+  },
+  {
+   "name": "Landeshauptstadt Dresden",
+   "region": "Sachsen",
+   "openTenders": 1,
+   "segments": [
+    "Körperpflege"
+   ],
+   "contact": "—",
+   "lastActivity": "2026-07-20"
+  },
+  {
+   "name": "Logistik Zentrum Niedersachsen",
+   "region": "NI",
+   "openTenders": 1,
+   "segments": [
+    "PSA / Handschuhe"
+   ],
+   "contact": "—",
+   "lastActivity": "2026-08-06"
+  },
+  {
+   "name": "Rettungsdienst-Kooperation Schleswig-Holstein",
+   "region": "SH",
+   "openTenders": 1,
+   "segments": [
+    "Medizinische Verbrauchsmaterialien"
+   ],
+   "contact": "—",
+   "lastActivity": "2026-08-10"
+  },
+  {
+   "name": "Robert Koch-Institut",
+   "region": "Berlin",
+   "openTenders": 1,
+   "segments": [
+    "Labor / Diagnostik"
+   ],
+   "contact": "Beschaffung",
+   "lastActivity": "2026-07-20"
+  },
+  {
+   "name": "Stadt Castrop-Rauxel",
+   "region": "NRW",
+   "openTenders": 1,
+   "segments": [
+    "Medizinische Verbrauchsmaterialien"
+   ],
+   "contact": "—",
+   "lastActivity": "2026-07-15"
+  },
+  {
+   "name": "Stadt Mannheim",
+   "region": "BW",
+   "openTenders": 1,
+   "segments": [
+    "Hygieneartikel"
+   ],
+   "contact": "—",
+   "lastActivity": "2026-07-14"
+  },
+  {
+   "name": "Stadt Nürnberg",
+   "region": "Bayern",
+   "openTenders": 1,
+   "segments": [
+    "Hygieneartikel"
+   ],
+   "contact": "—",
+   "lastActivity": "2026-07-20"
+  },
+  {
+   "name": "Universitätsklinikum Leipzig",
+   "region": "Sachsen",
+   "openTenders": 1,
+   "segments": [
+    "Medizinische Verbrauchsmaterialien"
+   ],
+   "contact": "—",
+   "lastActivity": "2026-07-30"
   }
  ],
  "AWARDS": [

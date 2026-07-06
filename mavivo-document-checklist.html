@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>mavivo · Document checklist — powered by EverTrust</title>
+<title>mavivo · Unterlagen-Checkliste — powered by EverTrust</title>
 <style>
   :root{
     --mav:#019e3b;--mav-d:#017a2e;--mav-l:#E8F6ED;--mav-l2:#F3FBF6;
@@ -83,28 +83,28 @@ html.embed .sb{display:none}html.embed .app{grid-template-columns:1fr}html.embed
   <aside class="sb">
     <div class="brand">
       <div><span class="nm">mavivo</span><span class="reg">®</span></div>
-      <div class="tg">Precision for practices, care &amp; clinics</div>
-      <div class="pw">Tender ERP · powered by <b>EverTrust</b></div>
+      <div class="tg">Präzision für Praxen, Pflege &amp; Kliniken</div>
+      <div class="pw">Ausschreibungs-ERP · powered by <b>EverTrust</b></div>
     </div>
     <nav class="nav">
       <a href="#"><span class="ic">▣</span>Dashboard</a>
-      <a href="#"><span class="ic">≣</span>Tender list</a>
-      <a href="mavivo-pricing-form.html"><span class="ic">€</span>Pricing form</a>
-      <a href="#" class="on"><span class="ic">✓</span>Document checklist</a>
+      <a href="#"><span class="ic">≣</span>Ausschreibungen</a>
+      <a href="mavivo-pricing-form.html"><span class="ic">€</span>Preisblatt</a>
+      <a href="#" class="on"><span class="ic">✓</span>Unterlagen-Checkliste</a>
     </nav>
-    <div class="foot">Outsourced tender dept.<br>by EverTrust<br><span style="color:var(--mav-d)">Demo · sample data</span></div>
+    <div class="foot">Externe Vergabeabteilung<br>von EverTrust<br><span style="color:var(--mav-d)">Demo · Beispieldaten</span></div>
   </aside>
 
   <main class="main">
     <div class="top">
       <div>
-        <div class="crumb">Document checklist</div>
-        <h1>LED recessed &amp; surface luminaires — framework agreement</h1>
+        <div class="crumb">Unterlagen-Checkliste</div>
+        <h1>LED-Einbau- &amp; Anbauleuchten — Rahmenvereinbarung</h1>
       </div>
     </div>
 
     <div class="prog">
-      <div class="ptxt"><b id="pcount">0</b> / <span id="ptotal">0</span> ready</div>
+      <div class="ptxt"><b id="pcount">0</b> / <span id="ptotal">0</span> bereit</div>
       <div class="track"><div class="fill" id="pfill" style="width:0%"></div></div>
       <div class="ptxt" id="ppct" style="color:var(--muted)">0%</div>
     </div>
@@ -112,19 +112,19 @@ html.embed .sb{display:none}html.embed .app{grid-template-columns:1fr}html.embed
     <div class="split">
       <div>
         <div class="card">
-          <h3>Documents required for submission <span class="hint">tick when attached · mandatory items must be ready before submit</span></h3>
+          <h3>Für die Angebotsabgabe erforderliche Unterlagen <span class="hint">abhaken, wenn beigefügt · Pflichtunterlagen müssen vor der Abgabe vorliegen</span></h3>
           <div id="checklist"></div>
         </div>
       </div>
 
       <div>
         <div class="card">
-          <h3>Tender documents <span class="hint">from the buyer</span></h3>
+          <h3>Vergabeunterlagen <span class="hint">vom Auftraggeber</span></h3>
           <div id="provided"></div>
         </div>
         <div class="acts">
-          <button class="btn ghost" onclick="toast('Checklist saved')">Save</button>
-          <button class="btn pri" id="submitBtn" onclick="onSubmit()">Submit bid</button>
+          <button class="btn ghost" onclick="toast('Checkliste gespeichert')">Speichern</button>
+          <button class="btn pri" id="submitBtn" onclick="onSubmit()">Angebot abgeben</button>
         </div>
         <div class="note" id="submitNote"></div>
       </div>
@@ -134,18 +134,18 @@ html.embed .sb{display:none}html.embed .app{grid-template-columns:1fr}html.embed
 <script>
 // Required documents for the submission (mandatory ones gate the Submit button).
 const CHECK=[
-  {name:"Eligibility documents (Eignungsnachweise)",sub:"Company registration, references, insurance",mandatory:true,done:true},
-  {name:"Price sheet (Preisblatt)",sub:"From the pricing form — unit prices per position",mandatory:true,done:true},
-  {name:"Certificates (CE / EN 455 / EN 14683)",sub:"Product conformity for the offered luminaires",mandatory:true,done:false},
-  {name:"Samples requested",sub:"Physical samples for Luminaire A & C",mandatory:false,done:false},
-  {name:"Declaration of commitment (Verpflichtungserklärung)",sub:"Signed",mandatory:true,done:true},
-  {name:"Bid letter (Angebotsschreiben)",sub:"Signed by authorised signatory",mandatory:true,done:false},
-  {name:"References (last 3 years)",sub:"Comparable public lighting frameworks",mandatory:false,done:true},
+  {name:"Eignungsnachweise",sub:"Handelsregisterauszug, Referenzen, Versicherungsnachweis",mandatory:true,done:true},
+  {name:"Preisblatt",sub:"Aus dem Preisblatt-Formular — Einheitspreise je Position",mandatory:true,done:true},
+  {name:"Zertifikate (CE / EN 455 / EN 14683)",sub:"Produktkonformität der angebotenen Leuchten",mandatory:true,done:false},
+  {name:"Angeforderte Muster",sub:"Physische Muster für Leuchte A & C",mandatory:false,done:false},
+  {name:"Verpflichtungserklärung",sub:"Unterschrieben",mandatory:true,done:true},
+  {name:"Angebotsschreiben",sub:"Von zeichnungsberechtigter Person unterschrieben",mandatory:true,done:false},
+  {name:"Referenzen (letzte 3 Jahre)",sub:"Vergleichbare öffentliche Beleuchtungs-Rahmenverträge",mandatory:false,done:true},
 ];
 // Documents provided by the buyer (downloadable).
 const DOCS=[
-  {n:"Contract_notice.pdf"},{n:"Bill_of_quantities.pdf"},{n:"Eligibility_criteria.pdf"},
-  {n:"Contract_terms.pdf"},{n:"Price_sheet.xlsx"},
+  {n:"Bekanntmachung.pdf"},{n:"Leistungsverzeichnis.pdf"},{n:"Eignungskriterien.pdf"},
+  {n:"Vertragsbedingungen.pdf"},{n:"Preisblatt.xlsx"},
 ];
 
 function renderChecklist(){
@@ -153,20 +153,20 @@ function renderChecklist(){
     <div class="item ${c.done?'done':''}" data-i="${i}">
       <div class="bx" onclick="toggle(${i})"></div>
       <div class="it-main">
-        <div class="it-name">${c.name}<span class="req ${c.mandatory?'mand':'opt'}">${c.mandatory?'Required':'Optional'}</span></div>
+        <div class="it-name">${c.name}<span class="req ${c.mandatory?'mand':'opt'}">${c.mandatory?'Pflicht':'Optional'}</span></div>
         <div class="it-sub">${c.sub}</div>
       </div>
-      <span class="st ${c.done?'up':'miss'}">${c.done?'Attached':'Missing'}</span>
-      <button class="up-btn" onclick="upload(${i})">${c.done?'Replace':'Upload'}</button>
+      <span class="st ${c.done?'up':'miss'}">${c.done?'Beigefügt':'Fehlt'}</span>
+      <button class="up-btn" onclick="upload(${i})">${c.done?'Ersetzen':'Hochladen'}</button>
     </div>`).join('');
   updateProgress();
 }
 function renderProvided(){
   document.getElementById('provided').innerHTML=DOCS.map(d=>`
-    <div class="doc"><span class="fi">${d.n.split('.').pop().toUpperCase()}</span>${d.n}<a class="dl" href="#" onclick="event.preventDefault();toast('Downloading ${d.n}')">Download</a></div>`).join('');
+    <div class="doc"><span class="fi">${d.n.split('.').pop().toUpperCase()}</span>${d.n}<a class="dl" href="#" onclick="event.preventDefault();toast('${d.n} wird heruntergeladen')">Herunterladen</a></div>`).join('');
 }
 function toggle(i){CHECK[i].done=!CHECK[i].done;renderChecklist()}
-function upload(i){CHECK[i].done=true;renderChecklist();toast('✓ Attached: '+CHECK[i].name.split(' (')[0])}
+function upload(i){CHECK[i].done=true;renderChecklist();toast('✓ Beigefügt: '+CHECK[i].name.split(' (')[0])}
 function updateProgress(){
   const done=CHECK.filter(c=>c.done).length,total=CHECK.length,pct=Math.round(done/total*100);
   document.getElementById('pcount').textContent=done;
@@ -176,10 +176,10 @@ function updateProgress(){
   const missMand=CHECK.filter(c=>c.mandatory&&!c.done);
   const btn=document.getElementById('submitBtn'),note=document.getElementById('submitNote');
   btn.disabled=missMand.length>0;
-  note.textContent=missMand.length>0?`${missMand.length} required document${missMand.length===1?'':'s'} still missing`:'All required documents ready — good to submit.';
+  note.textContent=missMand.length>0?`Es ${missMand.length===1?'fehlt':'fehlen'} noch ${missMand.length} Pflichtunterlage${missMand.length===1?'':'n'}`:'Alle Pflichtunterlagen vorhanden — bereit zur Abgabe.';
   note.style.color=missMand.length>0?'var(--chip-t)':'var(--acc)';
 }
-function onSubmit(){toast('✓ Bid submitted to operations')}
+function onSubmit(){toast('✓ Angebot an das Operations-Team übermittelt')}
 function toast(m){let e=document.getElementById('toast');if(!e){e=document.createElement('div');e.id='toast';e.className='toast';document.body.appendChild(e)}e.textContent=m;e.classList.add('show');clearTimeout(window._t);window._t=setTimeout(()=>e.classList.remove('show'),2300)}
 renderChecklist();renderProvided();
 </script>

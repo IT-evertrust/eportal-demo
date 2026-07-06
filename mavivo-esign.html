@@ -1,6 +1,6 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8">
+<!doctype html><html lang="de"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>mavivo · Customer approval — Confirm offer</title>
+<title>mavivo · Kundenfreigabe — Angebot bestätigen</title>
 <style>
 :root{--mav:#019e3b;--mav-d:#017a2e;--mav-l:#E8F6ED;--mav-l2:#F3FBF6;--ink:#0F231A;--ink2:#27352E;--line:#E4EAE6;--line2:#EEF2EF;--muted:#5F6E66;--muted2:#94A19A;--red:#a32d2d;--red-l:#FCEBEB;--won-bg:#E4F5EA;--won:#017a2e}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -48,48 +48,48 @@ canvas{display:block;width:100%;height:220px;touch-action:none;cursor:crosshair}
 </style></head><body>
 <div class="page">
   <div class="rule"></div>
-  <div class="crumb">Customer approval &nbsp;·&nbsp; mavivo</div>
-  <h1>Confirm offer</h1>
-  <p class="lede">Please review the offer and confirm the submission bindingly — or decline it.</p>
+  <div class="crumb">Kundenfreigabe &nbsp;·&nbsp; mavivo</div>
+  <h1>Angebot bestätigen</h1>
+  <p class="lede">Bitte prüfen Sie das Angebot und bestätigen Sie die Einreichung verbindlich — oder lehnen Sie ab.</p>
 
   <table class="kv">
-    <tr><td class="k">Reference</td><td class="v" id="fRef">—</td></tr>
-    <tr><td class="k">Tender</td><td class="v" id="fTitle">—</td></tr>
-    <tr><td class="k">Location</td><td class="v" id="fLoc">—</td></tr>
-    <tr><td class="k">Submission deadline</td><td class="v" id="fDl">—</td></tr>
-    <tr><td class="k">Contracting authority (client)</td><td class="v" id="fBuyer">—</td></tr>
-    <tr class="sum"><td class="k">Offer total</td><td class="v" id="fVal">—</td></tr>
+    <tr><td class="k">Referenz</td><td class="v" id="fRef">—</td></tr>
+    <tr><td class="k">Ausschreibung</td><td class="v" id="fTitle">—</td></tr>
+    <tr><td class="k">Ort</td><td class="v" id="fLoc">—</td></tr>
+    <tr><td class="k">Abgabefrist</td><td class="v" id="fDl">—</td></tr>
+    <tr><td class="k">Auftraggeber (Kunde)</td><td class="v" id="fBuyer">—</td></tr>
+    <tr class="sum"><td class="k">Angebotssumme</td><td class="v" id="fVal">—</td></tr>
   </table>
 
-  <div class="callout">With this confirmation you bindingly instruct <b>mavivo</b> (tender department powered by EverTrust) to submit the offer of <b id="cVal">—</b> before the deadline.</div>
+  <div class="callout">Mit dieser Bestätigung beauftragen Sie <b>mavivo</b> (Vergabeabteilung powered by EverTrust) verbindlich, das Angebot in Höhe von <b id="cVal">—</b> fristgerecht einzureichen.</div>
 
   <div id="form">
-    <div class="flabel">Full name <span class="req">*</span></div>
-    <input type="text" id="name" placeholder="First and last name" autocomplete="name">
-    <div class="err" id="nameErr">Please enter your full name.</div>
+    <div class="flabel">Vollständiger Name <span class="req">*</span></div>
+    <input type="text" id="name" placeholder="Vor- und Nachname" autocomplete="name">
+    <div class="err" id="nameErr">Bitte geben Sie Ihren vollständigen Namen ein.</div>
 
     <div class="flabel">Position (optional)</div>
-    <input type="text" id="pos" placeholder="e.g. Managing Director">
+    <input type="text" id="pos" placeholder="z. B. Geschäftsführer">
 
-    <div class="flabel">Signature (optional)</div>
-    <div class="padwrap"><canvas id="pad"></canvas><button class="clear" id="clearBtn" type="button">Clear</button></div>
-    <div class="padhint">Sign here with finger, stylus or mouse (optional)</div>
+    <div class="flabel">Unterschrift (optional)</div>
+    <div class="padwrap"><canvas id="pad"></canvas><button class="clear" id="clearBtn" type="button">Löschen</button></div>
+    <div class="padhint">Hier mit Finger, Stift oder Maus unterschreiben (optional)</div>
 
     <div class="actions">
-      <button class="confirm" id="okBtn">Confirm bindingly</button>
-      <button class="decline" id="noBtn">Decline</button>
+      <button class="confirm" id="okBtn">Verbindlich bestätigen</button>
+      <button class="decline" id="noBtn">Ablehnen</button>
     </div>
-    <p class="legal">By clicking "Confirm bindingly", your name (and, if drawn, your signature) will be stored together with a timestamp and IP address as your electronic confirmation.</p>
+    <p class="legal">Mit Klick auf „Verbindlich bestätigen“ werden Ihr Name (und ggf. Ihre gezeichnete Unterschrift) zusammen mit Zeitstempel und IP-Adresse als elektronische Bestätigung gespeichert.</p>
   </div>
 
-  <div class="banner ok" id="okBanner">✓ Binding confirmation recorded — name, timestamp &amp; IP address stored as electronic confirmation.</div>
-  <div class="banner no" id="noBanner">✗ Offer declined — the tender team has been notified.</div>
+  <div class="banner ok" id="okBanner">✓ Verbindliche Bestätigung erfasst — Name, Zeitstempel &amp; IP-Adresse als elektronische Bestätigung gespeichert.</div>
+  <div class="banner no" id="noBanner">✗ Angebot abgelehnt — das Vergabeteam wurde benachrichtigt.</div>
 
   <div class="hr"></div>
-  <p class="alt">Alternative: <a href="#" onclick="return false">upload a signed confirmation as PDF →</a></p>
-  <p class="fine">Valid until <span id="fVu">—</span> · Content fingerprint: 4fd0e7cceb1cda1ad646324c…</p>
+  <p class="alt">Alternativ: <a href="#" onclick="return false">unterschriebene Bestätigung als PDF hochladen →</a></p>
+  <p class="fine">Gültig bis <span id="fVu">—</span> · Inhalts-Fingerabdruck: 4fd0e7cceb1cda1ad646324c…</p>
   <div class="hr"></div>
-  <div class="foot"><b>mavivo</b> · powered by EverTrust &nbsp;·&nbsp; Confidential — this link is intended for the recipient only</div>
+  <div class="foot"><b>mavivo</b> · powered by EverTrust &nbsp;·&nbsp; Vertraulich — dieser Link ist nur für den Empfänger bestimmt</div>
 </div>
 
 <script>
@@ -98,7 +98,7 @@ var q=new URLSearchParams(location.search);
 function set(id,v){document.getElementById(id).textContent=v&&v.trim()?v:'—';}
 set('fRef',q.get('ref'));set('fTitle',q.get('title'));set('fLoc',q.get('loc'));set('fDl',q.get('dl'));set('fBuyer',q.get('buyer'));set('fVu',q.get('vu'));
 var raw=parseFloat(q.get('val'));
-var val=raw>0?'€'+raw.toLocaleString('en-IE',{minimumFractionDigits:2,maximumFractionDigits:2}):'€12,500.00';
+var val=raw>0?raw.toLocaleString('de-DE',{minimumFractionDigits:2,maximumFractionDigits:2})+' €':'12.500,00 €';
 set('fVal',val);set('cVal',val);
 
 // signature pad

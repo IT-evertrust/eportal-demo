@@ -28,7 +28,7 @@ window.MAVIVO_MOCK_DATA = {
    "vergabeId": "401600-2026",
    "title": "EU 01 - 2026 Rahmenvereinbarung über Hygieneartikel",
    "niche": "MEDICAL",
-   "segment": "Hygiene supplies",
+   "segment": "Hygieneartikel",
    "fitLine": "Disinfection",
    "status": "NOT_STARTED",
    "deadline": "2026-07-13T23:59:59.000Z",
@@ -47,8 +47,8 @@ window.MAVIVO_MOCK_DATA = {
    "vergabeId": "415087-2026",
    "title": "Deutschland – Laborreagenzien – Rahmenvertrag Laborverbrauch",
    "niche": "MEDICAL",
-   "segment": "Lab / Diagnostics",
-   "fitLine": "Diagnostics",
+   "segment": "Labor / Diagnostik",
+   "fitLine": "Diagnostik",
    "status": "NOT_STARTED",
    "deadline": "2026-07-20T23:59:59.000Z",
    "buyer": "Robert Koch-Institut",
@@ -66,8 +66,8 @@ window.MAVIVO_MOCK_DATA = {
    "vergabeId": "390906-2026",
    "title": "Deutschland – Laborreagenzien – RV Chemikalien und Biostoffe für den Standort Bochum (IPA) (17 Lose)",
    "niche": "MEDICAL",
-   "segment": "Lab / Diagnostics",
-   "fitLine": "Diagnostics",
+   "segment": "Labor / Diagnostik",
+   "fitLine": "Diagnostik",
    "status": "NOT_STARTED",
    "deadline": "2026-07-24T23:59:59.000Z",
    "buyer": "Deutsche Gesetzliche Unfallversicherung (DGUV)",
@@ -85,8 +85,8 @@ window.MAVIVO_MOCK_DATA = {
    "vergabeId": "446930-2026",
    "title": "Einwegschutzhandschuhe",
    "niche": "MEDICAL",
-   "segment": "PPE / Gloves",
-   "fitLine": "Gloves",
+   "segment": "PSA / Handschuhe",
+   "fitLine": "Handschuhe",
    "status": "NOT_STARTED",
    "deadline": "2026-08-12T23:59:59.000Z",
    "buyer": "Generalzolldirektion (Bundesfinanzverwaltung)",
@@ -106,7 +106,7 @@ window.MAVIVO_MOCK_DATA = {
    "region": "NRW",
    "openTenders": 1,
    "segments": [
-    "Hygiene supplies"
+    "Hygieneartikel"
    ],
    "contact": "Zentrale Beschaffung",
    "lastActivity": "2026-07-13"
@@ -116,7 +116,7 @@ window.MAVIVO_MOCK_DATA = {
    "region": "Berlin",
    "openTenders": 1,
    "segments": [
-    "Lab / Diagnostics"
+    "Labor / Diagnostik"
    ],
    "contact": "Beschaffung",
    "lastActivity": "2026-07-20"
@@ -126,7 +126,7 @@ window.MAVIVO_MOCK_DATA = {
    "region": "NRW",
    "openTenders": 1,
    "segments": [
-    "Lab / Diagnostics"
+    "Labor / Diagnostik"
    ],
    "contact": "Zentraleinkauf (IPA Bochum)",
    "lastActivity": "2026-07-24"
@@ -136,7 +136,7 @@ window.MAVIVO_MOCK_DATA = {
    "region": "Hesse",
    "openTenders": 1,
    "segments": [
-    "PPE / Gloves"
+    "PSA / Handschuhe"
    ],
    "contact": "Zentrale Beschaffungsstelle",
    "lastActivity": "2026-08-12"
@@ -150,7 +150,7 @@ window.MAVIVO_MOCK_DATA = {
    "winnerCount": 1,
    "value": 17500,
    "date": "2026-07-01",
-   "segment": "Medical consumables",
+   "segment": "Medizinische Verbrauchsmaterialien",
    "cpv": "33190000",
    "link": "https://ted.europa.eu/en/notice/-/detail/450032-2026"
   },
@@ -161,7 +161,7 @@ window.MAVIVO_MOCK_DATA = {
    "winnerCount": 2,
    "value": 137463,
    "date": "2026-06-30",
-   "segment": "Hygiene paper",
+   "segment": "Hygienepapier",
    "cpv": "33710000",
    "link": "https://ted.europa.eu/en/notice/-/detail/446172-2026"
   },
@@ -172,7 +172,7 @@ window.MAVIVO_MOCK_DATA = {
    "winnerCount": 1,
    "value": 639417,
    "date": "2026-06-25",
-   "segment": "Medical consumables",
+   "segment": "Medizinische Verbrauchsmaterialien",
    "cpv": "33140000",
    "link": "https://ted.europa.eu/en/notice/-/detail/436836-2026"
   },
@@ -183,7 +183,7 @@ window.MAVIVO_MOCK_DATA = {
    "winnerCount": 1,
    "value": 2417228,
    "date": "2026-06-19",
-   "segment": "Hygiene paper",
+   "segment": "Hygienepapier",
    "cpv": "33770000",
    "link": "https://ted.europa.eu/en/notice/-/detail/421791-2026"
   },
@@ -194,7 +194,7 @@ window.MAVIVO_MOCK_DATA = {
    "winnerCount": 1,
    "value": null,
    "date": "2026-06-17",
-   "segment": "Gloves / PPE",
+   "segment": "Handschuhe / PSA",
    "cpv": "18424300",
    "link": "https://ted.europa.eu/en/notice/-/detail/415271-2026"
   },
@@ -205,7 +205,7 @@ window.MAVIVO_MOCK_DATA = {
    "winnerCount": 5,
    "value": 658225,
    "date": "2026-06-16",
-   "segment": "Medical consumables",
+   "segment": "Medizinische Verbrauchsmaterialien",
    "cpv": "33140000",
    "link": "https://ted.europa.eu/en/notice/-/detail/413295-2026"
   },
@@ -216,7 +216,7 @@ window.MAVIVO_MOCK_DATA = {
    "winnerCount": 15,
    "value": null,
    "date": "2026-06-15",
-   "segment": "Medical",
+   "segment": "Medizin",
    "cpv": "33000000",
    "link": "https://ted.europa.eu/en/notice/-/detail/447020-2026"
   },
@@ -227,7 +227,7 @@ window.MAVIVO_MOCK_DATA = {
    "winnerCount": 3,
    "value": 68624,
    "date": "2026-06-12",
-   "segment": "Medical consumables",
+   "segment": "Medizinische Verbrauchsmaterialien",
    "cpv": "33140000",
    "link": "https://ted.europa.eu/en/notice/-/detail/405562-2026"
   },
@@ -238,7 +238,7 @@ window.MAVIVO_MOCK_DATA = {
    "winnerCount": 18,
    "value": null,
    "date": "2026-06-11",
-   "segment": "Lab / Diagnostics",
+   "segment": "Labor / Diagnostik",
    "cpv": "33696500",
    "link": "https://ted.europa.eu/en/notice/-/detail/401682-2026"
   },
@@ -249,7 +249,7 @@ window.MAVIVO_MOCK_DATA = {
    "winnerCount": 1,
    "value": 3416000,
    "date": "2026-06-10",
-   "segment": "Lab / Diagnostics",
+   "segment": "Labor / Diagnostik",
    "cpv": "33696500",
    "link": "https://ted.europa.eu/en/notice/-/detail/413302-2026"
   },
@@ -260,7 +260,7 @@ window.MAVIVO_MOCK_DATA = {
    "winnerCount": 1,
    "value": 536975,
    "date": "2026-06-09",
-   "segment": "Hygiene paper",
+   "segment": "Hygienepapier",
    "cpv": "33770000",
    "link": "https://ted.europa.eu/en/notice/-/detail/392570-2026"
   },
@@ -271,7 +271,7 @@ window.MAVIVO_MOCK_DATA = {
    "winnerCount": 1,
    "value": 676394,
    "date": "2026-06-08",
-   "segment": "Hygiene paper",
+   "segment": "Hygienepapier",
    "cpv": "33760000",
    "link": "https://ted.europa.eu/en/notice/-/detail/390964-2026"
   }
@@ -282,15 +282,15 @@ window.MAVIVO_MOCK_DATA = {
    "initials": "PH",
    "mark": "#1b3947",
    "region": "Baden-Württemberg",
-   "meta": "Wound care · Consumables",
+   "meta": "Wundversorgung · Verbrauchsmaterial",
    "segments": [
-    "Wound care",
-    "Consumables"
+    "Wundversorgung",
+    "Verbrauchsmaterial"
    ],
    "keyClients": "Charité · UK Schleswig-Holstein",
    "tenders6mo": 22,
    "winRate": 41,
-   "avgOffer": "€1.2M",
+   "avgOffer": "1,2 Mio. €",
    "strategy": "prem",
    "margin": "12–16%",
    "trend": [
@@ -302,23 +302,23 @@ window.MAVIVO_MOCK_DATA = {
     24
    ],
    "trendDir": "up",
-   "trendLabel": "rising",
-   "bidBehavior": "National wound-care & consumables leader. Bids large frameworks (Charité, UK-SH); wins on brand, MDR depth & availability rather than price."
+   "trendLabel": "steigend",
+   "bidBehavior": "Nationaler Marktführer für Wundversorgung & Verbrauchsmaterial. Bietet auf große Rahmenverträge (Charité, UK-SH); gewinnt über Marke, MDR-Tiefe & Verfügbarkeit statt über den Preis."
   },
   {
    "name": "Mölnlycke Health Care",
    "initials": "MH",
    "mark": "#017a2e",
-   "region": "national",
-   "meta": "Advanced wound care",
+   "region": "bundesweit",
+   "meta": "Moderne Wundversorgung",
    "segments": [
-    "Wound care",
-    "Consumables"
+    "Wundversorgung",
+    "Verbrauchsmaterial"
    ],
    "keyClients": "UK Schleswig-Holstein",
    "tenders6mo": 15,
    "winRate": 47,
-   "avgOffer": "€0.9M",
+   "avgOffer": "0,9 Mio. €",
    "strategy": "prem",
    "margin": "14–18%",
    "trend": [
@@ -330,23 +330,23 @@ window.MAVIVO_MOCK_DATA = {
     15
    ],
    "trendDir": "up",
-   "trendLabel": "rising",
-   "bidBehavior": "Focuses on advanced wound-care lots; competes on clinical evidence, rarely undercuts on price."
+   "trendLabel": "steigend",
+   "bidBehavior": "Fokus auf Lose der modernen Wundversorgung; konkurriert über klinische Evidenz, unterbietet selten beim Preis."
   },
   {
    "name": "Meditrade",
    "initials": "MT",
    "mark": "#9a6a12",
    "region": "Bayern",
-   "meta": "Gloves · Masks / PPE",
+   "meta": "Handschuhe · Masken / PSA",
    "segments": [
-    "Gloves",
-    "Masks"
+    "Handschuhe",
+    "Masken"
    ],
    "keyClients": "Landeshauptstadt München",
    "tenders6mo": 18,
    "winRate": 33,
-   "avgOffer": "€0.5M",
+   "avgOffer": "0,5 Mio. €",
    "strategy": "aggr",
    "margin": "5–8%",
    "trend": [
@@ -358,23 +358,23 @@ window.MAVIVO_MOCK_DATA = {
     18
    ],
    "trendDir": "fl",
-   "trendLabel": "steady",
-   "bidBehavior": "High-volume glove/mask lots at thin margins (LH München). Wins on price; exposed to raw-material swings."
+   "trendLabel": "stabil",
+   "bidBehavior": "Großvolumige Handschuh-/Masken-Lose bei dünnen Margen (LH München). Gewinnt über den Preis; anfällig für Rohstoffschwankungen."
   },
   {
    "name": "Roche Diagnostics",
    "initials": "RD",
    "mark": "#1856a5",
    "region": "Bayern",
-   "meta": "Lab reagents · Diagnostics",
+   "meta": "Laborreagenzien · Diagnostik",
    "segments": [
-    "Lab reagents",
-    "Diagnostics"
+    "Laborreagenzien",
+    "Diagnostik"
    ],
    "keyClients": "LMU Klinikum · LGL Bayern",
    "tenders6mo": 12,
    "winRate": 55,
-   "avgOffer": "€2.1M",
+   "avgOffer": "2,1 Mio. €",
    "strategy": "prem",
    "margin": "18–24%",
    "trend": [
@@ -386,22 +386,22 @@ window.MAVIVO_MOCK_DATA = {
     13
    ],
    "trendDir": "up",
-   "trendLabel": "rising",
-   "bidBehavior": "Dominates reagent/analyzer frameworks via installed-base lock-in; near-unbeatable on integrated systems."
+   "trendLabel": "steigend",
+   "bidBehavior": "Dominiert Reagenzien-/Analyzer-Rahmenverträge über Installed-Base-Lock-in; bei integrierten Systemen kaum zu schlagen."
   },
   {
    "name": "VWR / Avantor",
    "initials": "VA",
    "mark": "#23495a",
    "region": "Hessen",
-   "meta": "Lab reagents & consumables",
+   "meta": "Laborreagenzien & Verbrauchsmaterial",
    "segments": [
-    "Lab reagents"
+    "Laborreagenzien"
    ],
    "keyClients": "Paul-Ehrlich-Institut",
    "tenders6mo": 14,
    "winRate": 38,
-   "avgOffer": "€0.7M",
+   "avgOffer": "0,7 Mio. €",
    "strategy": "bal",
    "margin": "9–13%",
    "trend": [
@@ -413,22 +413,22 @@ window.MAVIVO_MOCK_DATA = {
     14
    ],
    "trendDir": "fl",
-   "trendLabel": "steady",
-   "bidBehavior": "Broad-catalogue distributor; competitive on multi-lot reagent baskets (PEI), balanced pricing."
+   "trendLabel": "stabil",
+   "bidBehavior": "Distributor mit breitem Katalog; wettbewerbsfähig bei Multi-Los-Reagenzienkörben (PEI), ausgewogene Preise."
   },
   {
    "name": "Mediq Deutschland",
    "initials": "MD",
    "mark": "#5F6E66",
    "region": "Nordrhein-Westfalen",
-   "meta": "Medical consumables",
+   "meta": "Medizinische Verbrauchsmaterialien",
    "segments": [
-    "Consumables"
+    "Verbrauchsmaterial"
    ],
    "keyClients": "LWL Westfalen-Lippe",
    "tenders6mo": 10,
    "winRate": 30,
-   "avgOffer": "€0.6M",
+   "avgOffer": "0,6 Mio. €",
    "strategy": "bal",
    "margin": "8–11%",
    "trend": [
@@ -440,22 +440,22 @@ window.MAVIVO_MOCK_DATA = {
     10
    ],
    "trendDir": "dn",
-   "trendLabel": "falling",
-   "bidBehavior": "Regional consumables supply (LWL); steady on mid-size lots, loses large national tenders to bigger players."
+   "trendLabel": "fallend",
+   "bidBehavior": "Regionale Verbrauchsmaterial-Versorgung (LWL); stabil bei mittleren Losen, verliert große nationale Vergaben an größere Anbieter."
   },
   {
    "name": "ISG Intermed Service",
    "initials": "II",
    "mark": "#7a3da5",
    "region": "Nordrhein-Westfalen",
-   "meta": "Consumables & med-tech trade",
+   "meta": "Verbrauchsmaterial & Medizintechnik-Handel",
    "segments": [
-    "Consumables"
+    "Verbrauchsmaterial"
    ],
    "keyClients": "Justizvollzug NRW",
    "tenders6mo": 9,
    "winRate": 44,
-   "avgOffer": "€0.4M",
+   "avgOffer": "0,4 Mio. €",
    "strategy": "aggr",
    "margin": "6–9%",
    "trend": [
@@ -467,22 +467,22 @@ window.MAVIVO_MOCK_DATA = {
     9
    ],
    "trendDir": "up",
-   "trendLabel": "rising",
-   "bidBehavior": "Wins smaller regional consumables lots (Justizvollzug NRW) at low margin; agile but capacity-limited on big packages."
+   "trendLabel": "steigend",
+   "bidBehavior": "Gewinnt kleinere regionale Verbrauchsmaterial-Lose (Justizvollzug NRW) bei niedriger Marge; agil, aber kapazitätsbegrenzt bei großen Paketen."
   },
   {
    "name": "Carl Roth",
    "initials": "CR",
    "mark": "#a32d2d",
    "region": "Baden-Württemberg",
-   "meta": "Lab chemicals & labware",
+   "meta": "Laborchemikalien & Laborbedarf",
    "segments": [
-    "Lab chemicals"
+    "Laborchemikalien"
    ],
    "keyClients": "Paul-Ehrlich-Institut",
    "tenders6mo": 7,
    "winRate": 35,
-   "avgOffer": "€0.3M",
+   "avgOffer": "0,3 Mio. €",
    "strategy": "bal",
    "margin": "10–14%",
    "trend": [
@@ -494,8 +494,8 @@ window.MAVIVO_MOCK_DATA = {
     7
    ],
    "trendDir": "fl",
-   "trendLabel": "steady",
-   "bidBehavior": "Selective on lab-chemical lots; reliable catalogue pricing, not aggressive on public tenders."
+   "trendLabel": "stabil",
+   "bidBehavior": "Selektiv bei Laborchemikalien-Losen; verlässliche Katalogpreise, nicht aggressiv bei öffentlichen Vergaben."
   }
  ],
  "DEMAND_COMPASS": {
@@ -8198,7 +8198,7 @@ window.MAVIVO_MOCK_DATA = {
     "subMarkets": [
      {
       "code": "3360",
-      "name": "Pharmaceutical products",
+      "name": "Arzneimittel",
       "ted30d": 141,
       "natl30d": 96,
       "trendPct": 541,
@@ -8207,7 +8207,7 @@ window.MAVIVO_MOCK_DATA = {
      },
      {
       "code": "3310",
-      "name": "Medical equipments",
+      "name": "Medizinische Geräte",
       "ted30d": 40,
       "natl30d": 60,
       "trendPct": 344,
@@ -8216,7 +8216,7 @@ window.MAVIVO_MOCK_DATA = {
      },
      {
       "code": "3319",
-      "name": "Miscellaneous medical devices and products",
+      "name": "Verschiedene medizinische Geräte und Produkte",
       "ted30d": 34,
       "natl30d": 39,
       "trendPct": 278,
@@ -8225,7 +8225,7 @@ window.MAVIVO_MOCK_DATA = {
      },
      {
       "code": "3311",
-      "name": "Imaging equipment for medical, dental and veterinary use",
+      "name": "Bildgebende Geräte für Medizin, Zahnmedizin und Veterinärwesen",
       "ted30d": 31,
       "natl30d": 35,
       "trendPct": 417,
@@ -8234,7 +8234,7 @@ window.MAVIVO_MOCK_DATA = {
      },
      {
       "code": "3300",
-      "name": "Medical equipments, pharmaceuticals and personal care products",
+      "name": "Medizinische Geräte, Arzneimittel und Körperpflegeprodukte",
       "ted30d": 17,
       "natl30d": 23,
       "trendPct": 467,
@@ -8243,7 +8243,7 @@ window.MAVIVO_MOCK_DATA = {
      },
      {
       "code": "3314",
-      "name": "Medical consumables",
+      "name": "Medizinische Verbrauchsmaterialien",
       "ted30d": 12,
       "natl30d": 14,
       "trendPct": 200,
@@ -8252,7 +8252,7 @@ window.MAVIVO_MOCK_DATA = {
      },
      {
       "code": "3316",
-      "name": "Operating techniques",
+      "name": "OP-Technik",
       "ted30d": 10,
       "natl30d": 12,
       "trendPct": 900,
@@ -8261,7 +8261,7 @@ window.MAVIVO_MOCK_DATA = {
      },
      {
       "code": "3369",
-      "name": "Various medicinal products",
+      "name": "Verschiedene Arzneimittel",
       "ted30d": 9,
       "natl30d": 11,
       "trendPct": 350,
@@ -8270,7 +8270,7 @@ window.MAVIVO_MOCK_DATA = {
      },
      {
       "code": "3315",
-      "name": "Radiotherapy, mechanotherapy, electrotherapy and physical therapy devices",
+      "name": "Geräte für Strahlen-, Mechano-, Elektro- und Physiotherapie",
       "ted30d": 8,
       "natl30d": 7,
       "trendPct": 700,
@@ -8279,7 +8279,7 @@ window.MAVIVO_MOCK_DATA = {
      },
      {
       "code": "3318",
-      "name": "Functional support",
+      "name": "Funktionelle Unterstützung",
       "ted30d": 6,
       "natl30d": 8,
       "trendPct": null,
@@ -8288,7 +8288,7 @@ window.MAVIVO_MOCK_DATA = {
      },
      {
       "code": "3312",
-      "name": "Recording systems and exploration devices",
+      "name": "Aufzeichnungssysteme und Untersuchungsgeräte",
       "ted30d": 6,
       "natl30d": 11,
       "trendPct": 500,
@@ -8297,7 +8297,7 @@ window.MAVIVO_MOCK_DATA = {
      },
      {
       "code": "3370",
-      "name": "Personal care products",
+      "name": "Körperpflegeprodukte",
       "ted30d": 6,
       "natl30d": 8,
       "trendPct": 500,
@@ -8317,27 +8317,27 @@ window.MAVIVO_MOCK_DATA = {
       {
        "name": "Philips GmbH",
        "awards": 8,
-       "sumValueText": "€0M"
+       "sumValueText": "0 Mio. €"
       },
       {
        "name": "GlaxoSmithKline GmbH & Co. KG",
        "awards": 5,
-       "sumValueText": "€0.2M"
+       "sumValueText": "0,2 Mio. €"
       },
       {
        "name": "CleanAgent Mehlfeld+Göring GmbH",
        "awards": 4,
-       "sumValueText": "€1.7M"
+       "sumValueText": "1,7 Mio. €"
       },
       {
        "name": "meetB gesellschaft für medizintechnik Vertrieb mbH",
        "awards": 4,
-       "sumValueText": "€0.7M"
+       "sumValueText": "0,7 Mio. €"
       },
       {
        "name": "IGEFA SE & Co. KG",
        "awards": 4,
-       "sumValueText": "€0.1M"
+       "sumValueText": "0,1 Mio. €"
       },
       {
        "name": "B. Braun Deutschland GmbH",
@@ -8406,30 +8406,30 @@ window.MAVIVO_MOCK_DATA = {
     "newsTimeline": [],
     "dcKpis": [
      {
-      "l": "New today",
+      "l": "Neu heute",
       "v": "12",
-      "d": "CPV 33 TED notices"
+      "d": "CPV-33-TED-Bekanntmachungen"
      },
      {
-      "l": "New · 7d",
+      "l": "Neu · 7 T",
       "v": "93",
       "d": "TED · plus 82 national"
      },
      {
-      "l": "We cover (broad)",
-      "v": "8.3%",
-      "d": "partial 25% · blind 66.7%"
+      "l": "Wir decken ab (breit)",
+      "v": "8,3 %",
+      "d": "teilweise 25 % · blind 66,7 %"
      },
      {
-      "l": "Blind-spot sub-markets",
+      "l": "Blinde Flecken (Teilmärkte)",
       "v": "7",
-      "d": "demand, no active niche"
+      "d": "Nachfrage, keine aktive Nische"
      }
     ],
     "watching": [
      {
-      "name": "Imaging equipment (CPV 3311)",
-      "meta": "day 2 · 31/wk vs 22 baseline",
+      "name": "Bildgebende Geräte (CPV 3311)",
+      "meta": "Tag 2 · 31/Wo. vs 22 Basis",
       "delta": "+41%",
       "spark": [
        20,
@@ -8441,8 +8441,8 @@ window.MAVIVO_MOCK_DATA = {
       ]
      },
      {
-      "name": "Operating techniques (CPV 3316)",
-      "meta": "day 2 · 10/wk vs 6 baseline",
+      "name": "OP-Technik (CPV 3316)",
+      "meta": "Tag 2 · 10/Wo. vs 6 Basis",
       "delta": "+67%",
       "spark": [
        5,
@@ -8457,78 +8457,78 @@ window.MAVIVO_MOCK_DATA = {
     "movers": {
      "rising": [
       [
-       "Operating techniques",
+       "OP-Technik",
        "+900%",
-       "10/wk"
+       "10/Wo."
       ],
       [
-       "Radiotherapy & physical therapy",
+       "Strahlen- & Physiotherapie",
        "+700%",
-       "8/wk"
+       "8/Wo."
       ],
       [
-       "Recording systems",
+       "Aufzeichnungssysteme",
        "+500%",
-       "6/wk"
+       "6/Wo."
       ],
       [
-       "Personal care products",
+       "Körperpflegeprodukte",
        "+500%",
-       "6/wk"
+       "6/Wo."
       ],
       [
-       "Med. equip., pharma & personal care",
+       "Med. Geräte, Pharma & Körperpflege",
        "+467%",
-       "17/wk"
+       "17/Wo."
       ]
      ],
      "falling": [
       [
-       "Functional support",
+       "Funktionelle Unterstützung",
        "-12%",
-       "6/wk"
+       "6/Wo."
       ],
       [
-       "Hearing & vision aids",
+       "Hör- & Sehhilfen",
        "-9%",
-       "4/wk"
+       "4/Wo."
       ],
       [
-       "Dental products",
+       "Dentalprodukte",
        "-7%",
-       "5/wk"
+       "5/Wo."
       ]
      ]
     },
     "opportunities": [
      {
-      "name": "Pharmaceutical products",
+      "name": "Arzneimittel",
       "cpv": "3360",
-      "rate": "141/wk",
+      "rate": "141/Wo.",
       "delta": "+541%",
-      "mkt": "38.3% of division",
-      "top": "Basic pharmaceutical products (96) · Various medicinal products (24) · Vaccines (21)",
-      "why": "EU joint procurement of vaccines & medical countermeasures is lifting public-tender DEMAND across pharmaceuticals.",
+      "mkt": "38,3 % der Abteilung",
+      "top": "Pharmazeutische Grunderzeugnisse (96) · Verschiedene Arzneimittel (24) · Impfstoffe (21)",
+      "why": "Die gemeinsame EU-Beschaffung von Impfstoffen & medizinischen Gegenmaßnahmen hebt die öffentliche NACHFRAGE im gesamten Pharmabereich.",
       "cli": "pnpm tsx scripts/research-niche.ts --name=PHARMA --desc=\"Pharmaceutical products — CPV 33600000, 33690000\""
      },
      {
-      "name": "Imaging equipment",
+      "name": "Bildgebende Geräte",
       "cpv": "3311",
-      "rate": "31/wk",
+      "rate": "31/Wo.",
       "delta": "+417%",
-      "mkt": "8.4% of division",
-      "top": "Imaging equipment (35) · MRI units (11) · Ultrasound (9)",
-      "why": "Hospital-reform investment funds (Krankenhausreform) are pushing imaging-modernisation tenders.",
+      "mkt": "8,4 % der Abteilung",
+      "top": "Bildgebende Geräte (35) · MRT-Anlagen (11) · Ultraschall (9)",
+      "why": "Investitionsmittel der Krankenhausreform treiben Ausschreibungen zur Modernisierung der Bildgebung.",
       "cli": "pnpm tsx scripts/research-niche.ts --name=IMAGING --desc=\"Imaging equipment — CPV 33111000, 33113000\""
      },
      {
-      "name": "Operating techniques",
+      "name": "OP-Technik",
       "cpv": "3316",
-      "rate": "10/wk",
+      "rate": "10/Wo.",
       "delta": "+900%",
-      "mkt": "2.7% of division",
-      "top": "Operating-theatre devices (12) · Robotic surgery systems (6)",
-      "why": "Rapid adoption of robotic-surgery systems in German clinics is driving new above-threshold lots.",
+      "mkt": "2,7 % der Abteilung",
+      "top": "OP-Saal-Geräte (12) · Robotik-Chirurgiesysteme (6)",
+      "why": "Die schnelle Verbreitung von Robotik-Chirurgiesystemen in deutschen Kliniken erzeugt neue Oberschwellen-Lose.",
       "cli": "pnpm tsx scripts/research-niche.ts --name=SURGERY --desc=\"Operating techniques — CPV 33160000, 33162000\""
      }
     ],
@@ -8536,32 +8536,32 @@ window.MAVIVO_MOCK_DATA = {
      "date": "2026-07-06",
      "items": [
       [
-       "EU joint procurement of vaccines & medical countermeasures extended, likely increasing public-tender DEMAND in 33=Medical equipment, pharmaceuticals.",
+       "Gemeinsame EU-Beschaffung von Impfstoffen & medizinischen Gegenmaßnahmen verlängert — dürfte die öffentliche NACHFRAGE in 33=Medizinische Geräte, Arzneimittel erhöhen.",
        "EU Commission — HERA",
        "3360"
       ],
       [
-       "Krankenhausreform investment fund releases first tranche — likely lifting DEMAND for imaging & operating-theatre equipment.",
+       "Investitionsfonds der Krankenhausreform gibt erste Tranche frei — dürfte die NACHFRAGE nach Bildgebung & OP-Ausstattung heben.",
        "Beschaffung aktuell",
        "3311, 3316"
       ],
       [
-       "Price increases for nitrile & medical single-use materials in 2026, likely raising public-tender DEMAND as clinics restock.",
+       "Preissteigerungen bei Nitril & medizinischem Einwegmaterial 2026 — dürfte die NACHFRAGE erhöhen, da Kliniken Bestände auffüllen.",
        "Vergabeblog",
        "3314"
       ],
       [
-       "University clinics expand oncology capacity — several radiotherapy tenders announced.",
+       "Universitätskliniken bauen Onkologie-Kapazitäten aus — mehrere Strahlentherapie-Ausschreibungen angekündigt.",
        "heise",
        "3315"
       ],
       [
-       "Robotic-surgery adoption accelerates across German clinics — new operating-technique lots expected.",
+       "Robotik-Chirurgie verbreitet sich in deutschen Kliniken — neue OP-Technik-Lose erwartet.",
        "cosinex Blog",
        "3316"
       ],
       [
-       "Pandemic-stockpile replenishment continues in 2026, sustaining DEMAND for consumables & PPE.",
+       "Auffüllung der Pandemie-Reserve läuft 2026 weiter — stützt die NACHFRAGE nach Verbrauchsmaterial & PSA.",
        "EU Commission",
        "3314, 3300"
       ]

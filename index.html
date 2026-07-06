@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>mavivo · Tender ERP — powered by EverTrust</title>
+<title>mavivo · Ausschreibungs-ERP — powered by EverTrust</title>
 <style>
   :root{
     --mav:#019e3b;--mav-d:#017a2e;--mav-l:#E8F6ED;--mav-l2:#F3FBF6;
@@ -272,131 +272,131 @@
   <aside class="sb">
     <div class="brand">
       <div class="lo"><img class="brand-logo" src="mavivo-logo.png" alt="mavivo" /><span class="reg">®</span></div>
-      <div class="tg">Precision for practices, care &amp; clinics</div>
-      <div class="pw">Tender ERP · powered by <b>EverTrust</b></div>
+      <div class="tg">Präzision für Praxen, Pflege &amp; Kliniken</div>
+      <div class="pw">Ausschreibungs-ERP · powered by <b>EverTrust</b></div>
     </div>
     <nav class="nav" id="nav">
       <button data-v="dash" class="on"><span class="ic">▣</span>Dashboard</button>
-      <button data-v="focus"><span class="ic">▤</span>Monthly Focus</button>
-      <button data-v="pipeline"><span class="ic">≣</span>Tender Pipeline <span class="badge" id="nbPipe"></span></button>
-      <button data-v="winners"><span class="ic">★</span>Contract Awards</button>
-      <button data-v="comp"><span class="ic">◑</span>Competitors</button>
-      <button data-v="auth"><span class="ic">⌂</span>Buyers</button>
-      <button data-v="search"><span class="ic">⌕</span>Search</button>
+      <button data-v="focus"><span class="ic">▤</span>Monatsfokus</button>
+      <button data-v="pipeline"><span class="ic">≣</span>Vergabe-Pipeline <span class="badge" id="nbPipe"></span></button>
+      <button data-v="winners"><span class="ic">★</span>Zuschläge</button>
+      <button data-v="comp"><span class="ic">◑</span>Wettbewerber</button>
+      <button data-v="auth"><span class="ic">⌂</span>Auftraggeber</button>
+      <button data-v="search"><span class="ic">⌕</span>Suche</button>
       <button data-v="compass"><span class="ic">◎</span>Demand Compass</button>
     </nav>
-    <div class="foot">Outsourced tender dept.<br>by EverTrust<br><span style="color:var(--mav-d)">Demo · sample data</span></div>
+    <div class="foot">Ausgelagerte Vergabeabteilung<br>von EverTrust<br><span style="color:var(--mav-d)">Demo · Beispieldaten</span></div>
   </aside>
 
   <main class="main">
     <div class="top">
-      <div><div class="crumb" id="crumb">Dashboard</div><h1 id="vtitle">Overview</h1></div>
-      <div class="live"><span class="blip"></span>Live · Germany + Austria</div>
+      <div><div class="crumb" id="crumb">Dashboard</div><h1 id="vtitle">Überblick</h1></div>
+      <div class="live"><span class="blip"></span>Live · Deutschland + Österreich</div>
     </div>
 
     <section class="view on" id="dash">
       <div class="kpis" id="kpis"></div>
       <div class="grid g3">
-        <div class="card"><h3>Pipeline by stage</h3><div id="stageBars"></div></div>
-        <div class="card" style="display:flex;flex-direction:column"><h3>Tender volume <span class="hint">12 months</span></h3><div id="volChart" style="flex:1;display:flex;flex-direction:column;justify-content:center"></div></div>
-        <div class="card" style="display:flex;flex-direction:column"><h3>Win rate <span class="hint">won / lost</span></h3><div id="winDonut" style="flex:1;display:flex;align-items:center"></div></div>
+        <div class="card"><h3>Pipeline nach Phase</h3><div id="stageBars"></div></div>
+        <div class="card" style="display:flex;flex-direction:column"><h3>Ausschreibungsvolumen <span class="hint">12 Monate</span></h3><div id="volChart" style="flex:1;display:flex;flex-direction:column;justify-content:center"></div></div>
+        <div class="card" style="display:flex;flex-direction:column"><h3>Erfolgsquote <span class="hint">gewonnen / verloren</span></h3><div id="winDonut" style="flex:1;display:flex;align-items:center"></div></div>
       </div>
       <div class="grid g2">
-        <div class="card"><h3>Deadlines this week <span class="hint" id="dlHint"></span></h3><div class="alist" id="deadlines"></div></div>
-        <div class="card"><h3>Needs attention</h3><div class="alist" id="attention"></div></div>
+        <div class="card"><h3>Fristen diese Woche <span class="hint" id="dlHint"></span></h3><div class="alist" id="deadlines"></div></div>
+        <div class="card"><h3>Braucht Aufmerksamkeit</h3><div class="alist" id="attention"></div></div>
       </div>
     </section>
 
     <section class="view" id="pipeline">
-      <p class="lede">All active public tenders across mavivo's product lines — from intake to award. Click a row for details.</p>
+      <p class="lede">Alle aktiven öffentlichen Ausschreibungen über mavivos Produktlinien — vom Eingang bis zum Zuschlag. Für Details Zeile anklicken.</p>
       <div class="tools">
-        <input id="pq" placeholder="Search buyer, title…" />
-        <span class="chip on" data-st="all">All</span>
-        <span class="chip" data-st="New">New</span><span class="chip" data-st="Screening">Screening</span>
-        <span class="chip" data-st="Pricing">Pricing</span><span class="chip" data-st="Esign">eSign</span><span class="chip" data-st="Submitted">Submitted</span>
-        <span class="chip" data-st="Won">Won</span><span class="chip" data-st="Lost">Lost</span>
+        <input id="pq" placeholder="Auftraggeber, Titel suchen…" />
+        <span class="chip on" data-st="all">Alle</span>
+        <span class="chip" data-st="New">Neu</span><span class="chip" data-st="Screening">Prüfung</span>
+        <span class="chip" data-st="Pricing">Kalkulation</span><span class="chip" data-st="Esign">eSign</span><span class="chip" data-st="Submitted">Eingereicht</span>
+        <span class="chip" data-st="Won">Gewonnen</span><span class="chip" data-st="Lost">Verloren</span>
       </div>
-      <div class="tw"><table><thead><tr><th>Tender</th><th>Line</th><th>Region</th><th>Deadline</th><th>Value</th><th>PIC</th><th>Stage</th><th>Action</th></tr></thead><tbody id="pipeRows"></tbody></table></div>
+      <div class="tw"><table><thead><tr><th>Ausschreibung</th><th>Produktlinie</th><th>Region</th><th>Frist</th><th>Volumen</th><th>PIC</th><th>Phase</th><th>Aktion</th></tr></thead><tbody id="pipeRows"></tbody></table></div>
       <div class="note" id="pipeCount"></div>
     </section>
 
-    <section class="view" id="detail"><button class="back" id="backBtn">← back to pipeline</button><div id="detailBody"></div></section>
+    <section class="view" id="detail"><button class="back" id="backBtn">← zurück zur Pipeline</button><div id="detailBody"></div></section>
 
     <section class="view" id="winners">
-      <p class="lede">Who recently won which framework contracts — buyer, award value and date. The basis for judging which contracts are realistically contestable.</p>
-      <div class="tw"><table><thead><tr><th>Contract</th><th>Winner</th><th>Buyer</th><th>Value</th><th>Date</th></tr></thead><tbody id="winRows"></tbody></table></div>
+      <p class="lede">Wer zuletzt welche Rahmenverträge gewonnen hat — Auftraggeber, Zuschlagswert und Datum. Die Basis, um zu beurteilen, welche Verträge realistisch angreifbar sind.</p>
+      <div class="tw"><table><thead><tr><th>Auftrag</th><th>Gewinner</th><th>Auftraggeber</th><th>Volumen</th><th>Datum</th></tr></thead><tbody id="winRows"></tbody></table></div>
     </section>
 
     <section class="view" id="comp">
-      <p class="lede">Who bids on the same lots as mavivo — award frequency, price strategy, estimated margins and participation trends of the established suppliers.</p>
-      <div class="seed-banner"><span class="si">⚠</span><div><b>Seeded demo data — for illustration.</b> Competitor figures (tenders, win rate, average offer, estimated margin, participation trend) are <b>modelled estimates</b> derived from EU award notices (TED), not reported company numbers. Shown to demonstrate the competitor-radar feature.</div></div>
+      <p class="lede">Wer auf dieselben Lose bietet wie mavivo — Zuschlagshäufigkeit, Preisstrategie, geschätzte Margen und Teilnahmetrends der etablierten Anbieter.</p>
+      <div class="seed-banner"><span class="si">⚠</span><div><b>Beispieldaten — zur Veranschaulichung.</b> Wettbewerber-Zahlen (Vergaben, Erfolgsquote, Ø Angebot, geschätzte Marge, Teilnahmetrend) sind <b>modellierte Schätzwerte</b> aus EU-Zuschlagsbekanntmachungen (TED), keine gemeldeten Unternehmenszahlen. Dient der Demonstration des Wettbewerber-Radars.</div></div>
       <div class="comp-grid" id="compCards"></div>
     </section>
 
     <section class="view" id="auth">
-      <p class="lede">Contracting authorities at a glance — tenders per year, segments, contacts and last activity.</p>
-      <div class="tw"><table><thead><tr><th>Buyer</th><th>Region</th><th>Tenders/yr</th><th>Segments</th><th>Contact</th><th>Last activity</th></tr></thead><tbody id="authRows"></tbody></table></div>
+      <p class="lede">Vergabestellen auf einen Blick — Ausschreibungen pro Jahr, Segmente, Kontakte und letzte Aktivität.</p>
+      <div class="tw"><table><thead><tr><th>Auftraggeber</th><th>Region</th><th>Vergaben/Jahr</th><th>Segmente</th><th>Kontakt</th><th>Letzte Aktivität</th></tr></thead><tbody id="authRows"></tbody></table></div>
     </section>
 
     <section class="view" id="search">
-      <p class="lede">Filter open tenders by CPV, keyword, region, deadline and value.</p>
+      <p class="lede">Offene Ausschreibungen nach CPV, Stichwort, Region, Frist und Volumen filtern.</p>
       <div class="tools">
-        <input id="sq" placeholder="Keyword…" />
-        <select id="sLine"><option value="">All lines</option></select>
-        <select id="sReg"><option value="">All regions</option></select>
-        <select id="sVal"><option value="0">Any value</option><option value="250000">from €250k</option><option value="500000">from €500k</option><option value="1000000">from €1M</option></select>
+        <input id="sq" placeholder="Stichwort…" />
+        <select id="sLine"><option value="">Alle Produktlinien</option></select>
+        <select id="sReg"><option value="">Alle Regionen</option></select>
+        <select id="sVal"><option value="0">Jedes Volumen</option><option value="250000">ab 250 T€</option><option value="500000">ab 500 T€</option><option value="1000000">ab 1 Mio. €</option></select>
       </div>
-      <div class="tw"><table><thead><tr><th>Tender</th><th>CPV</th><th>Region</th><th>Deadline</th><th>Value</th><th>Stage</th></tr></thead><tbody id="searchRows"></tbody></table></div>
+      <div class="tw"><table><thead><tr><th>Ausschreibung</th><th>CPV</th><th>Region</th><th>Frist</th><th>Volumen</th><th>Phase</th></tr></thead><tbody id="searchRows"></tbody></table></div>
       <div class="note" id="searchCount"></div>
     </section>
     <section class="view" id="focus">
-      <div class="mf-hero"><span class="mf-badge">June 2026</span><h2>Monthly focus — what counts this month.</h2><p>Focus in June: submit the short-term school- &amp; sanitary-container procurements due by month-end on time — and in parallel prepare the PQ &amp; supplier base for the larger July modular-building lots.</p></div>
+      <div class="mf-hero"><span class="mf-badge">Juni 2026</span><h2>Monatsfokus — was diesen Monat zählt.</h2><p>Fokus im Juni: die kurzfristigen Schul- &amp; Sanitärcontainer-Vergaben mit Frist bis Monatsende fristgerecht einreichen — und parallel die PQ- &amp; Lieferantenbasis für die größeren Juli-Modulbau-Lose vorbereiten.</p></div>
       <div class="mf-kpis" id="mfKpis"></div>
-      <div class="tw"><table><thead><tr><th>Task</th><th>Responsible</th><th>Priority</th><th>Due</th><th>Status</th></tr></thead><tbody id="mfRows"></tbody></table></div>
+      <div class="tw"><table><thead><tr><th>Aufgabe</th><th>Verantwortlich</th><th>Priorität</th><th>Frist</th><th>Status</th></tr></thead><tbody id="mfRows"></tbody></table></div>
     </section>
 
     <section class="view" id="compass">
-      <p class="lede">Where German medical public-tender demand is moving — every CPV 33 sub-market, mapped to what mavivo covers.</p>
-      <div class="explain"><b>The medical market, by sub-market.</b> Every German TED notice in <b>CPV division 33</b> bucketed by CPV class, with <b>mavivo's coverage</b> overlaid — so the biggest sub-markets we <i>don't</i> cover are where to grow next. TED is EU above-threshold only; sub-threshold national demand isn't counted yet. <b>Only medical is populated</b> — mavivo operates in CPV 33 exclusively.</div>
+      <p class="lede">Wohin sich die deutsche Medizin-Vergabenachfrage bewegt — jeder CPV-33-Teilmarkt, abgeglichen mit mavivos Abdeckung.</p>
+      <div class="explain"><b>Der Medizinmarkt, nach Teilmärkten.</b> Jede deutsche TED-Bekanntmachung in <b>CPV-Abteilung 33</b>, gebündelt nach CPV-Klasse, überlagert mit <b>mavivos Abdeckung</b> — die größten Teilmärkte, die wir <i>nicht</i> abdecken, sind das nächste Wachstumsfeld. TED umfasst nur EU-Oberschwellenvergaben; nationale Unterschwellen-Nachfrage wird noch nicht gezählt. <b>Nur Medizin ist befüllt</b> — mavivo ist ausschließlich in CPV 33 aktiv.</div>
       <div class="dc-kpis" id="dcKpis"></div>
-      <div class="panel"><h2>Watching <span class="sub" id="watchN"></span></h2><div class="watchgrid" id="watching"></div></div>
+      <div class="panel"><h2>Beobachtung <span class="sub" id="watchN"></span></h2><div class="watchgrid" id="watching"></div></div>
       <div class="twocol">
-        <div class="panel"><h2>Demand by sub-market <span class="sub">· last 30 days (click Medical equipments for its 90-day view)</span></h2><div id="demandBars"></div>
-          <div class="legend"><span><span class="sw2" style="background:var(--cov-cover)"></span>we cover</span><span><span class="sw2" style="background:var(--cov-partial)"></span>partial</span><span><span class="sw2" style="background:var(--cov-parked)"></span>parked</span><span><span class="sw2" style="background:var(--cov-not)"></span>not covered</span></div>
+        <div class="panel"><h2>Nachfrage nach Teilmarkt <span class="sub">· letzte 30 Tage (Medizinische Geräte anklicken für die 90-Tage-Ansicht)</span></h2><div id="demandBars"></div>
+          <div class="legend"><span><span class="sw2" style="background:var(--cov-cover)"></span>wir decken ab</span><span><span class="sw2" style="background:var(--cov-partial)"></span>teilweise</span><span><span class="sw2" style="background:var(--cov-parked)"></span>geparkt</span><span><span class="sw2" style="background:var(--cov-not)"></span>nicht abgedeckt</span></div>
         </div>
-        <div class="panel"><h2>Movers <span class="sub">· week over week</span></h2><div class="mlabel">▲ Rising</div><div id="rising"></div><div class="mlabel" style="margin-top:16px">▼ Falling</div><div id="falling"></div></div>
+        <div class="panel"><h2>Bewegungen <span class="sub">· Woche über Woche</span></h2><div class="mlabel">▲ Steigend</div><div id="rising"></div><div class="mlabel" style="margin-top:16px">▼ Fallend</div><div id="falling"></div></div>
       </div>
-      <div class="panel"><h2>Opportunities <span class="sub">— hot medical sub-markets we don't cover</span></h2><div id="opps" style="margin-top:12px"></div></div>
-      <div class="panel brief"><h2>Market brief <span class="sub" id="briefDate"></span></h2><ul id="brief" style="margin-top:10px"></ul></div>
+      <div class="panel"><h2>Chancen <span class="sub">— starke Medizin-Teilmärkte ohne Abdeckung</span></h2><div id="opps" style="margin-top:12px"></div></div>
+      <div class="panel brief"><h2>Marktbrief <span class="sub" id="briefDate"></span></h2><ul id="brief" style="margin-top:10px"></ul></div>
     </section>
 
     <section class="view" id="cpv33">
-      <button class="back" onclick="go('compass')">← back to Demand Compass</button>
-      <p class="lede">CPV division 33 — 90-day observation view.</p>
+      <button class="back" onclick="go('compass')">← zurück zum Demand Compass</button>
+      <p class="lede">CPV-Abteilung 33 — 90-Tage-Beobachtungsansicht.</p>
       <div class="dhead">
         <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
-          <span class="pill"><span class="pdot"></span>partial — MEDICAL touch it</span>
-          <div class="dstat"><span><b>93/wk</b> TED <span class="up">(+69% WoW)</span></span><span>· +82/wk national</span><span>· Ø ≈ <b>1957k €</b> (12 lots)</span></div>
+          <span class="pill"><span class="pdot"></span>teilweise — MEDICAL berührt ihn</span>
+          <div class="dstat"><span><b>93/Wo.</b> TED <span class="up">(+69 % WoW)</span></span><span>· +82/Wo. national</span><span>· Ø ≈ <b>1957 T€</b> (12 Lose)</span></div>
         </div>
-        <button class="btnG">◎ Watch this category</button>
+        <button class="btnG">◎ Kategorie beobachten</button>
       </div>
-      <div class="panel"><h2>Demand · last 90 days</h2><div id="chart90" style="margin-top:8px"></div>
-        <div class="clegend"><span><span class="cln" style="background:var(--muted2)"></span>daily</span><span><span class="cln" style="background:var(--ink)"></span>7-day average</span></div>
-        <div class="chartnote">Weekend zeros are real (German portals barely publish Sat/Sun) — read the smoothed line. TED above-threshold only.</div></div>
+      <div class="panel"><h2>Nachfrage · letzte 90 Tage</h2><div id="chart90" style="margin-top:8px"></div>
+        <div class="clegend"><span><span class="cln" style="background:var(--muted2)"></span>täglich</span><span><span class="cln" style="background:var(--ink)"></span>7-Tage-Schnitt</span></div>
+        <div class="chartnote">Wochenend-Nullen sind echt (deutsche Portale veröffentlichen Sa/So kaum) — die geglättete Linie lesen. Nur TED-Oberschwelle.</div></div>
       <div class="twocol" style="grid-template-columns:1fr 1fr">
-        <div class="panel"><h2>Top buyers <span class="sub">· 90d</span></h2><div id="buyers" style="margin-top:10px"></div></div>
-        <div class="panel"><h2>Where <span class="sub">· 90d</span></h2><div id="where" style="margin-top:10px"></div></div>
+        <div class="panel"><h2>Top-Auftraggeber <span class="sub">· 90 T</span></h2><div id="buyers" style="margin-top:10px"></div></div>
+        <div class="panel"><h2>Wo <span class="sub">· 90 T</span></h2><div id="where" style="margin-top:10px"></div></div>
       </div>
-      <div class="panel"><h2>Sub-markets <span class="sub">(CPV classes · 30d)</span></h2><div style="overflow-x:auto;margin-top:10px"><table class="htbl"><thead><tr><th>Sub-market</th><th class="num">TED 30d</th><th class="num">Natl 30d</th><th class="num">Trend</th><th>Top winner · 180d</th></tr></thead><tbody id="submkt"></tbody></table></div></div>
-      <div class="panel"><h2>Who wins here <span class="sub">(296 awards · 180d · display only)</span></h2><div class="twocol" style="grid-template-columns:1fr 1fr;margin-top:12px"><div id="whoWins"></div><div style="overflow-x:auto"><table class="htbl"><thead><tr><th>Date</th><th>Winner</th><th class="num">Value / spread</th></tr></thead><tbody id="awards"></tbody></table></div></div></div>
-      <div class="panel"><h2>News timeline</h2><div class="emptybox">No tagged news yet — the daily digest tags bullets to sub-markets as they appear.</div></div>
+      <div class="panel"><h2>Teilmärkte <span class="sub">(CPV-Klassen · 30 T)</span></h2><div style="overflow-x:auto;margin-top:10px"><table class="htbl"><thead><tr><th>Teilmarkt</th><th class="num">TED 30 T</th><th class="num">National 30 T</th><th class="num">Trend</th><th>Top-Gewinner · 180 T</th></tr></thead><tbody id="submkt"></tbody></table></div></div>
+      <div class="panel"><h2>Wer gewinnt hier <span class="sub">(296 Zuschläge · 180 T · nur Anzeige)</span></h2><div class="twocol" style="grid-template-columns:1fr 1fr;margin-top:12px"><div id="whoWins"></div><div style="overflow-x:auto"><table class="htbl"><thead><tr><th>Datum</th><th>Gewinner</th><th class="num">Volumen / Spanne</th></tr></thead><tbody id="awards"></tbody></table></div></div></div>
+      <div class="panel"><h2>News-Verlauf</h2><div class="emptybox">Noch keine getaggten News — der tägliche Digest ordnet Meldungen den Teilmärkten zu, sobald sie erscheinen.</div></div>
     </section>
   </main>
 </div>
 
 <div id="modal" class="modal" onclick="if(event.target===this)closeModal()">
   <div class="modal-inner">
-    <div class="modal-bar"><span class="mt" id="modalTitle"></span><button class="modal-close" onclick="closeModal()">✕ Close</button></div>
+    <div class="modal-bar"><span class="mt" id="modalTitle"></span><button class="modal-close" onclick="closeModal()">✕ Schließen</button></div>
     <iframe id="modalFrame" class="modal-frame" title="mavivo tool"></iframe>
   </div>
 </div>
@@ -405,10 +405,10 @@
 <script>
 const TODAY=window.MAVIVO_MOCK_DATA.meta.generatedAt;
 const CPV={Gloves:"18424300",Masks:"18143000",Wound:"33141110",Diagnostics:"33141625",Consumables:"33140000",Syringes:"33141310",Disinfection:"24455000"};
-const LINE={Gloves:"Gloves",Masks:"Masks / PPE",Wound:"Wound care",Diagnostics:"Diagnostics",Consumables:"Consumables",Syringes:"Syringes / Catheters",Disinfection:"Disinfection"};
+const LINE={Gloves:"Handschuhe",Masks:"Masken / PSA",Wound:"Wundversorgung",Diagnostics:"Diagnostik",Consumables:"Verbrauchsmaterial",Syringes:"Spritzen / Katheter",Disinfection:"Desinfektion"};
 // [line,title,buyer,region,value,published,deadline,stage,pic]
 // Populated from mavivo_mock_data.js — real eCore MEDICAL niche (fields eCore doesn't provide are left blank/0, not invented).
-const SEG2LINE={"Hygiene supplies":"Disinfection","Lab / Diagnostics":"Diagnostics","PPE / Gloves":"Gloves"};
+const SEG2LINE={"Hygieneartikel":"Disinfection","Labor / Diagnostik":"Diagnostics","PSA / Handschuhe":"Gloves"};
 const R=window.MAVIVO_MOCK_DATA.MEDICAL_TENDERS.map(t=>[
  SEG2LINE[t.segment]||"Consumables",
  t.title,
@@ -423,11 +423,11 @@ const R=window.MAVIVO_MOCK_DATA.MEDICAL_TENDERS.map(t=>[
 const PICN={DN:"Dat N.",HK:"Hanna K.",KP:"Khang P.",TA:"Thy A.",PT:"Phú T."};
 const T=R.map((r,i)=>({id:i+1,line:r[0],title:r[1],buyer:r[2],region:r[3],value:r[4],published:r[5],deadline:r[6],stage:r[7],pic:r[8]}));
 const STAGES=["New","Screening","Pricing","Esign","Submitted","Won","Lost"];
-const ST={New:"New",Screening:"Screening",Pricing:"Pricing",Esign:"eSign",Submitted:"Submitted",Won:"Won",Lost:"Lost"};
+const ST={New:"Neu",Screening:"Prüfung",Pricing:"Kalkulation",Esign:"eSign",Submitted:"Eingereicht",Won:"Gewonnen",Lost:"Verloren"};
 
-const eur=v=>!v?'—':v>=1e6?'€'+(v/1e6).toFixed(2).replace(/\.?0+$/,'')+'M':v>=1e3?'€'+Math.round(v/1e3)+'k':'€'+v;
+const eur=v=>!v?'—':v>=1e6?(v/1e6).toFixed(2).replace(/\.?0+$/,'').replace('.',',')+' Mio. €':v>=1e3?Math.round(v/1e3)+' T€':v+' €';
 const MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-const fd=d=>{const p=d.split('-');return MON[(+p[1])-1]+' '+(+p[2])+', '+p[0]};
+const fd=d=>{const p=d.split('-');return p[2]+'.'+p[1]+'.'+p[0]};
 const days=d=>Math.round((new Date(d)-new Date(TODAY))/864e5);
 const esc=s=>(s||'').replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
 const av=p=>`<span class="pic"><span class="av">${p}</span>${PICN[p]||p}</span>`;
@@ -450,20 +450,20 @@ const SEED={
  volume:[16,19,17,22,20,25,23,21,26,24,28,30],
  won:12,lost:9,awardValueWon:4620000,
  attention:[
-  {t:"Deadline in 3 days — Robert Koch-Institut diagnostics",d:"Bid not yet submitted",c:"lost"},
-  {t:"Certificate check pending — DGUV gloves lot",d:"EN 455 / CE conformity to confirm",c:"scr"},
-  {t:"Sample logistics to confirm — Hochschule Düsseldorf",d:"Awaiting carrier slot",c:"gold"}
+  {t:"Frist in 3 Tagen — Robert Koch-Institut Diagnostik",d:"Angebot noch nicht eingereicht",c:"lost"},
+  {t:"Zertifikatsprüfung offen — DGUV Handschuh-Los",d:"EN 455 / CE-Konformität zu bestätigen",c:"scr"},
+  {t:"Musterversand zu klären — Hochschule Düsseldorf",d:"Warten auf Speditionstermin",c:"gold"}
  ]
 };
 const seedDecided=SEED.won+SEED.lost,seedWinRate=Math.round(SEED.won/seedDecided*100);
 const KPI=[
- {l:"Open tenders",v:T.filter(active).length,d:"in progress",hero:1},
- {l:"In pricing",v:pricingN,d:"price sheet open"},
- {l:"Bids submitted",v:subN,d:"under evaluation"},
- {l:"Won (year)",v:SEED.won,d:"awards 2026"},
- {l:"Win rate",v:seedWinRate+"%",d:SEED.won+" : "+SEED.lost},
- {l:"Pipeline value",v:eur(pipeVal),d:"active, estimated"},
- {l:"Deadlines ≤ 7 days",v:dueSoon.length,d:"this week"}
+ {l:"Offene Vergaben",v:T.filter(active).length,d:"in Bearbeitung",hero:1},
+ {l:"In Kalkulation",v:pricingN,d:"Preisblatt offen"},
+ {l:"Angebote eingereicht",v:subN,d:"in Wertung"},
+ {l:"Gewonnen (Jahr)",v:SEED.won,d:"Zuschläge 2026"},
+ {l:"Erfolgsquote",v:seedWinRate+"%",d:SEED.won+" : "+SEED.lost},
+ {l:"Pipeline-Volumen",v:eur(pipeVal),d:"aktiv, geschätzt"},
+ {l:"Fristen ≤ 7 Tage",v:dueSoon.length,d:"diese Woche"}
 ];
 document.getElementById('kpis').innerHTML=KPI.map(k=>`<div class="kpi ${k.hero?'hero':''}"><div class="l">${k.l}</div><div class="v">${k.v}</div><div class="d">${k.d}</div></div>`).join('');
 
@@ -471,25 +471,25 @@ const stageActive=["New","Screening","Pricing","Submitted"];
 const maxSt=Math.max(1,...stageActive.map(s=>T.filter(t=>t.stage===s).length));
 document.getElementById('stageBars').innerHTML=stageActive.map((s,i)=>{const n=T.filter(t=>t.stage===s).length;return `<div class="bar ${i%2?'alt':''}"><div class="lab"><span class="nm">${ST[s]}</span><span class="ct">${n}</span></div><div class="track"><div class="fill" style="width:${Math.round(n/maxSt*100)}%"></div></div></div>`}).join('');
 
-const VOL=SEED.volume;const VL=["Jul","Aug","Sep","Oct","Nov","Dec","Jan","Feb","Mar","Apr","May","Jun"];
+const VOL=SEED.volume;const VL=["Jul","Aug","Sep","Okt","Nov","Dez","Jan","Feb","Mär","Apr","Mai","Jun"];
 (function(){
- if(VOL.length<2){document.getElementById('volChart').innerHTML='<div class="note" style="padding:20px 0;text-align:center">No data</div>';return;}
+ if(VOL.length<2){document.getElementById('volChart').innerHTML='<div class="note" style="padding:20px 0;text-align:center">Keine Daten</div>';return;}
  const w=300,h=110,p=18,mx=Math.max(...VOL),mn=Math.min(...VOL);
  const pts=VOL.map((v,i)=>[p+i*(w-2*p)/(VOL.length-1),h-p-(v-mn)/(mx-mn)*(h-2*p)]);
  const line=pts.map((q,i)=>(i?'L':'M')+q[0].toFixed(1)+' '+q[1].toFixed(1)).join(' ');
  const area=line+` L${pts[pts.length-1][0].toFixed(1)} ${h-p} L${p} ${h-p} Z`;
- document.getElementById('volChart').innerHTML=`<svg viewBox="0 0 ${w} ${h}" style="width:100%;height:auto"><path d="${area}" fill="rgba(1,158,59,.10)"/><path d="${line}" fill="none" stroke="#019e3b" stroke-width="2"/>${pts.map(q=>`<circle cx="${q[0].toFixed(1)}" cy="${q[1].toFixed(1)}" r="2.4" fill="#017a2e"/>`).join('')}</svg><div style="display:flex;justify-content:space-between;font-size:9.5px;color:var(--muted2);margin-top:2px">${VL.map(m=>`<span>${m}</span>`).join('')}</div><div class="note">Avg ${Math.round(VOL.reduce((a,b)=>a+b)/VOL.length)} relevant tenders / month</div>`;
+ document.getElementById('volChart').innerHTML=`<svg viewBox="0 0 ${w} ${h}" style="width:100%;height:auto"><path d="${area}" fill="rgba(1,158,59,.10)"/><path d="${line}" fill="none" stroke="#019e3b" stroke-width="2"/>${pts.map(q=>`<circle cx="${q[0].toFixed(1)}" cy="${q[1].toFixed(1)}" r="2.4" fill="#017a2e"/>`).join('')}</svg><div style="display:flex;justify-content:space-between;font-size:9.5px;color:var(--muted2);margin-top:2px">${VL.map(m=>`<span>${m}</span>`).join('')}</div><div class="note">Ø ${Math.round(VOL.reduce((a,b)=>a+b)/VOL.length)} relevante Ausschreibungen / Monat</div>`;
 })();
 
 (function(){const wp=seedWinRate;
- document.getElementById('winDonut').innerHTML=`<div class="donut"><div class="ring" style="background:conic-gradient(var(--mav) 0 ${wp}%,#E9ECEA ${wp}% 100%)"><div class="hole"><span class="hv">${wp}%</span><span class="hl">Rate</span></div></div><div class="lg"><div><span class="sw" style="background:var(--mav)"></span>Won · ${SEED.won}</div><div><span class="sw" style="background:#E9ECEA"></span>Lost · ${SEED.lost}</div><div class="note" style="margin-top:8px">Award value won 2026:<br><b style="color:var(--mav-d);font-size:14px">${eur(SEED.awardValueWon)}</b></div></div></div>`;
+ document.getElementById('winDonut').innerHTML=`<div class="donut"><div class="ring" style="background:conic-gradient(var(--mav) 0 ${wp}%,#E9ECEA ${wp}% 100%)"><div class="hole"><span class="hv">${wp}%</span><span class="hl">Quote</span></div></div><div class="lg"><div><span class="sw" style="background:var(--mav)"></span>Gewonnen · ${SEED.won}</div><div><span class="sw" style="background:#E9ECEA"></span>Verloren · ${SEED.lost}</div><div class="note" style="margin-top:8px">Zuschlagsvolumen 2026:<br><b style="color:var(--mav-d);font-size:14px">${eur(SEED.awardValueWon)}</b></div></div></div>`;
 })();
 
-document.getElementById('dlHint').textContent='As of '+fd(TODAY);
-document.getElementById('deadlines').innerHTML=dueSoon.sort((a,b)=>days(a.deadline)-days(b.deadline)).map(t=>{const dd=days(t.deadline);return `<div class="ai" data-id="${t.id}" style="cursor:pointer"><div><div class="an">${esc(t.title.split(' – ')[0])}</div><div class="ad">${esc(t.buyer)} · ${stChip(t.stage)}</div></div><div class="dl ${dd<=3?'urgent':''}">${fd(t.deadline)}<div class="ad" style="text-align:right;font-weight:400">in ${dd} d.</div></div></div>`}).join('')||'<div class="note">No deadlines in the next 7 days.</div>';
+document.getElementById('dlHint').textContent='Stand '+fd(TODAY);
+document.getElementById('deadlines').innerHTML=dueSoon.sort((a,b)=>days(a.deadline)-days(b.deadline)).map(t=>{const dd=days(t.deadline);return `<div class="ai" data-id="${t.id}" style="cursor:pointer"><div><div class="an">${esc(t.title.split(' – ')[0])}</div><div class="ad">${esc(t.buyer)} · ${stChip(t.stage)}</div></div><div class="dl ${dd<=3?'urgent':''}">${fd(t.deadline)}<div class="ad" style="text-align:right;font-weight:400">in ${dd} T.</div></div></div>`}).join('')||'<div class="note">Keine Fristen in den nächsten 7 Tagen.</div>';
 
 const ATT=SEED.attention;
-document.getElementById('attention').innerHTML=ATT.map(a=>`<div class="ai"><div><div class="an">${esc(a.t)}</div><div class="ad">${esc(a.d)}</div></div><div class="dl" style="color:var(--${a.c})">●</div></div>`).join('')||'<div class="note">Nothing needs attention.</div>';
+document.getElementById('attention').innerHTML=ATT.map(a=>`<div class="ai"><div><div class="an">${esc(a.t)}</div><div class="ad">${esc(a.d)}</div></div><div class="dl" style="color:var(--${a.c})">●</div></div>`).join('')||'<div class="note">Nichts erfordert Aufmerksamkeit.</div>';
 
 // ---- pipeline ----
 function pipeRow(t){return `<tr class="clk" data-id="${t.id}" data-st="${t.stage}" data-x="${esc((t.title+' '+t.buyer).toLowerCase())}">
@@ -498,93 +498,93 @@ function pipeRow(t){return `<tr class="clk" data-id="${t.id}" data-st="${t.stage
  <td><span class="ct">${t.region}</span></td>
  <td>${fd(t.deadline)}</td><td class="val">${eur(t.value)}</td><td>${av(t.pic)}</td><td>${stChip(t.stage)}</td><td>${actionCell(t)}</td></tr>`}
 function renderPipe(){const q=(document.getElementById('pq').value||'').toLowerCase();let n=0;
- document.getElementById('pipeRows').innerHTML=T.filter(t=>(pfilt==='all'||t.stage===pfilt)&&(!q||(t.title+' '+t.buyer).toLowerCase().includes(q))).map(t=>{n++;return pipeRow(t)}).join('')||'<tr><td colspan="8" class="note" style="text-align:center;padding:26px">No tenders yet.</td></tr>';
- document.getElementById('pipeCount').textContent=n+' of '+T.length+' tenders';bindRows()}
+ document.getElementById('pipeRows').innerHTML=T.filter(t=>(pfilt==='all'||t.stage===pfilt)&&(!q||(t.title+' '+t.buyer).toLowerCase().includes(q))).map(t=>{n++;return pipeRow(t)}).join('')||'<tr><td colspan="8" class="note" style="text-align:center;padding:26px">Noch keine Vergaben.</td></tr>';
+ document.getElementById('pipeCount').textContent=n+' von '+T.length+' Vergaben';bindRows()}
 let pfilt='all';
 
 // ---- detail ----
 const BOQ={
- Gloves:[["Nitrile gloves size S, powder-free","180,000","pcs"],["Nitrile gloves size M","240,000","pcs"],["Nitrile gloves size L","210,000","pcs"],["Nitrile gloves size XL","90,000","pcs"],["Dispenser boxes of 100","7,200","box"]],
- Masks:[["FFP2 mask without valve","120,000","pcs"],["Surgical mask type IIR","300,000","pcs"],["Protective gown, long","18,000","pcs"],["Safety glasses","2,400","pcs"]],
- Wound:[["Gauze compresses 10×10 cm, sterile","85,000","pack"],["Elastic fixation bandages","42,000","pcs"],["Adhesive wound dressing","30,000","pcs"],["Hydrocolloid dressing","12,000","pcs"]],
- Diagnostics:[["SARS-CoV-2 antigen test","250,000","test"],["Influenza A/B rapid test","60,000","test"],["Urine test strips 10-parameter","40,000","pcs"],["Control solution","800","btl"]],
- Consumables:[["Single-use pads 60×60","120,000","pcs"],["Syringe-pump set","9,000","set"],["Hygiene paper rolls","24,000","roll"],["Practice consumables mix","1","lot"]],
- Syringes:[["Single-use syringe 2 ml","400,000","pcs"],["Single-use syringe 10 ml","180,000","pcs"],["Needle 0.9×40 mm","350,000","pcs"],["IV cannula","60,000","pcs"]],
- Disinfection:[["Hand disinfectant 500 ml","36,000","btl"],["Surface disinfectant 5 L","8,400","can"],["Disinfectant wipes","48,000","pack"],["Wall dispenser","1,200","pcs"]]
+ Gloves:[["Nitrilhandschuhe Gr. S, puderfrei","180.000","Stk."],["Nitrilhandschuhe Gr. M","240.000","Stk."],["Nitrilhandschuhe Gr. L","210.000","Stk."],["Nitrilhandschuhe Gr. XL","90.000","Stk."],["Spenderboxen à 100","7.200","Box"]],
+ Masks:[["FFP2-Maske ohne Ventil","120.000","Stk."],["OP-Maske Typ IIR","300.000","Stk."],["Schutzkittel, lang","18.000","Stk."],["Schutzbrille","2.400","Stk."]],
+ Wound:[["Mullkompressen 10×10 cm, steril","85.000","Pack"],["Elastische Fixierbinden","42.000","Stk."],["Wundschnellverband","30.000","Stk."],["Hydrokolloidverband","12.000","Stk."]],
+ Diagnostics:[["SARS-CoV-2-Antigentest","250.000","Test"],["Influenza-A/B-Schnelltest","60.000","Test"],["Urinteststreifen 10-Parameter","40.000","Stk."],["Kontrolllösung","800","Fl."]],
+ Consumables:[["Einmalunterlagen 60×60","120.000","Stk."],["Spritzenpumpen-Set","9.000","Set"],["Hygienepapier-Rollen","24.000","Rolle"],["Praxisbedarf-Mix","1","Los"]],
+ Syringes:[["Einmalspritze 2 ml","400.000","Stk."],["Einmalspritze 10 ml","180.000","Stk."],["Kanüle 0,9×40 mm","350.000","Stk."],["Venenverweilkanüle","60.000","Stk."]],
+ Disinfection:[["Händedesinfektion 500 ml","36.000","Fl."],["Flächendesinfektion 5 L","8.400","Kan."],["Desinfektionstücher","48.000","Pack"],["Wandspender","1.200","Stk."]]
 };
-const DOCS=["Contract_notice.pdf","Bill_of_quantities.pdf","Eligibility_criteria.pdf","Contract_terms.pdf","Price_sheet.xlsx"];
+const DOCS=["Bekanntmachung.pdf","Leistungsverzeichnis.pdf","Eignungskriterien.pdf","Vertragsbedingungen.pdf","Preisblatt.xlsx"];
 function detailHTML(t){
  const boq=BOQ[t.line]||BOQ.Consumables;
- const steps=["Published","Screening","Pricing","eSign","Submitted","Award"];
+ const steps=["Veröffentlicht","Prüfung","Kalkulation","eSign","Eingereicht","Zuschlag"];
  const idx={New:0,Screening:1,Pricing:2,Esign:3,Submitted:4,Won:5,Lost:5}[t.stage];
- const cks=["Eligibility documents complete","Price sheet calculated","Samples requested","Certificates (CE / EN 455 / EN 14683) attached","Bid letter signed"];
+ const cks=["Eignungsnachweise vollständig","Preisblatt kalkuliert","Muster angefordert","Zertifikate (CE / EN 455 / EN 14683) beigefügt","Bieterbrief unterschrieben"];
  const done=Math.min(idx+1,cks.length-(t.stage==="Submitted"||t.stage==="Won"?0:1));
  return `<div class="dh"><div><div class="crumb">${CPV[t.line]} · ${LINE[t.line]}</div><h2>${esc(t.title)}</h2><div class="sub" style="margin-top:4px;font-size:13px">${esc(t.buyer)} · ${t.region}</div></div><div>${stChip(t.stage)}</div></div>
  <div class="meta">
-   <div class="m"><div class="k">Value (estimated)</div><div class="v">${eur(t.value)}</div></div>
-   <div class="m"><div class="k">Published</div><div class="v">${fd(t.published)}</div></div>
-   <div class="m"><div class="k">Submission deadline</div><div class="v">${fd(t.deadline)}</div></div>
-   <div class="m"><div class="k">Procedure</div><div class="v">${t.value? 'Open procedure (EU)':'Open-house'}</div></div>
-   <div class="m"><div class="k">Responsible (PIC)</div><div class="v">${PICN[t.pic]||'—'}</div></div>
+   <div class="m"><div class="k">Volumen (geschätzt)</div><div class="v">${eur(t.value)}</div></div>
+   <div class="m"><div class="k">Veröffentlicht</div><div class="v">${fd(t.published)}</div></div>
+   <div class="m"><div class="k">Abgabefrist</div><div class="v">${fd(t.deadline)}</div></div>
+   <div class="m"><div class="k">Verfahren</div><div class="v">${t.value? 'Offenes Verfahren (EU)':'Open-House'}</div></div>
+   <div class="m"><div class="k">Verantwortlich (PIC)</div><div class="v">${PICN[t.pic]||'—'}</div></div>
  </div>
- ${decBlock(t)}${esignCard(t)}<div class="card" style="margin:14px 0"><h3>Progress</h3><div class="tl">${steps.map((s,i)=>`<div class="st ${i<idx?'done':''} ${i===idx?'cur':''} ${i<=idx?'done':''}${s==='Pricing'||(s==='eSign'&&t.dec==='ja')?' clk':''}" ${s==='Pricing'?`onclick="openModal('pricing')" title="Open pricing form"`:s==='eSign'&&t.dec==='ja'?`onclick="openModal('esign')" title="Open customer signing page"`:''}><div class="dot"></div>${s}</div>`).join('')}</div></div>
+ ${decBlock(t)}${esignCard(t)}<div class="card" style="margin:14px 0"><h3>Fortschritt</h3><div class="tl">${steps.map((s,i)=>`<div class="st ${i<idx?'done':''} ${i===idx?'cur':''} ${i<=idx?'done':''}${s==='Kalkulation'||(s==='eSign'&&t.dec==='ja')?' clk':''}" ${s==='Kalkulation'?`onclick="openModal('pricing')" title="Preisblatt öffnen"`:s==='eSign'&&t.dec==='ja'?`onclick="openModal('esign')" title="Freigabeseite öffnen"`:''}><div class="dot"></div>${s}</div>`).join('')}</div></div>
  <div class="grid g2">
-   <div class="card"><h3>Bill of quantities <span class="hint">${boq.length} items</span></h3>${boq.map((b,i)=>`<div class="li"><span>${i+1}. ${esc(b[0])}</span><span class="q">${b[1]} ${b[2]}</span></div>`).join('')}</div>
+   <div class="card"><h3>Leistungsverzeichnis <span class="hint">${boq.length} Positionen</span></h3>${boq.map((b,i)=>`<div class="li"><span>${i+1}. ${esc(b[0])}</span><span class="q">${b[1]} ${b[2]}</span></div>`).join('')}</div>
    <div>
-     <div class="card" style="margin-bottom:14px"><h3>Tender documents <button class="doc-btn" onclick="openModal('doccheck')">✓ Document checklist</button></h3>${DOCS.map(d=>`<div class="doc"><span class="fi">${d.split('.').pop().toUpperCase()}</span>${d}</div>`).join('')}</div>
-     <div class="card"><h3>Bid checklist</h3>${cks.map((c,i)=>`<div class="ck ${i<done?'done':''}"><span class="bx"></span>${c}</div>`).join('')}</div>
+     <div class="card" style="margin-bottom:14px"><h3>Vergabeunterlagen <button class="doc-btn" onclick="openModal('doccheck')">✓ Unterlagen-Checkliste</button></h3>${DOCS.map(d=>`<div class="doc"><span class="fi">${d.split('.').pop().toUpperCase()}</span>${d}</div>`).join('')}</div>
+     <div class="card"><h3>Angebots-Checkliste</h3>${cks.map((c,i)=>`<div class="ck ${i<done?'done':''}"><span class="bx"></span>${c}</div>`).join('')}</div>
    </div>
  </div>`;
 }
-function showDetail(id){const t=T.find(x=>x.id===id);if(!t)return;window._curT=t;document.getElementById('detailBody').innerHTML=detailHTML(t);go('detail');document.getElementById('crumb').textContent='Pipeline';document.getElementById('vtitle').textContent='Tender detail'}
+function showDetail(id){const t=T.find(x=>x.id===id);if(!t)return;window._curT=t;document.getElementById('detailBody').innerHTML=detailHTML(t);go('detail');document.getElementById('crumb').textContent='Pipeline';document.getElementById('vtitle').textContent='Vergabe-Detail'}
 // Customer approval · E-sign — appears once a tender is accepted (mirrors eCore's e-sign panel)
 function esignVu(){const d=new Date(TODAY);d.setDate(d.getDate()+14);return fd(d.toISOString().slice(0,10))+', 13:11'}
 function esignCard(t){if(t.dec!=='ja')return '';
- return `<div class="card" style="margin:14px 0"><h3>Customer approval · E-sign <button class="doc-btn" onclick="openModal('esign')">✍ Open signing page</button></h3>
- <div class="es-kv"><span class="k">Status</span><span class="es-pending">Pending</span></div>
- <div class="es-kv"><span class="k">Valid until</span><b>${esignVu()}</b></div>
- <div class="note" style="margin-top:9px">The signing link was shown once when created. Lost? Generate a new one — the old link becomes invalid.</div>
- <button class="btn ap" style="margin-top:11px" onclick="toast('⟳ New signing link generated — the previous link is now invalid')">⟳ Generate new link</button></div>`}
+ return `<div class="card" style="margin:14px 0"><h3>Kundenfreigabe · E-Sign <button class="doc-btn" onclick="openModal('esign')">✍ Freigabeseite öffnen</button></h3>
+ <div class="es-kv"><span class="k">Status</span><span class="es-pending">Ausstehend</span></div>
+ <div class="es-kv"><span class="k">Gültig bis</span><b>${esignVu()}</b></div>
+ <div class="note" style="margin-top:9px">Der Link wurde beim Erstellen einmalig angezeigt. Verloren? Neu erzeugen — der alte Link wird dabei ungültig.</div>
+ <button class="btn ap" style="margin-top:11px" onclick="toast('⟳ Neuer Freigabe-Link erzeugt — der alte Link ist ungültig')">⟳ Neuen Link erzeugen</button></div>`}
 function bindRows(){document.querySelectorAll('#pipeRows tr.clk').forEach(r=>r.onclick=()=>showDetail(+r.dataset.id))}
 document.getElementById('backBtn').onclick=()=>go('pipeline');
-function actionCell(t){if(t.dec==='ja')return '<span class="decided ja">✓ Accepted</span>';if(t.dec==='nein')return '<span class="decided nein">✗ Declined</span>';if(t.stage==='New'||t.stage==='Screening')return '<span class="acts"><button class="btn ap" onclick="event.stopPropagation();approve('+t.id+')">✓ Accept</button><button class="btn dc" onclick="event.stopPropagation();decline('+t.id+')">✗</button></span>';return '<span class="muted">—</span>'}
-function decBlock(t){if(t.dec==='ja')return '<div class="banner ja">✓ Accepted — moved to screening · '+(PICN[t.pic]||t.pic)+'</div>';if(t.dec==='nein')return '<div class="banner nein">✗ Declined — not pursued</div>';return '<div style="display:flex;gap:10px;margin:16px 0"><button class="btn ap big" onclick="approve('+t.id+')">✓ Accept tender</button><button class="btn dc big" onclick="decline('+t.id+')">✗ Decline</button></div>'}
+function actionCell(t){if(t.dec==='ja')return '<span class="decided ja">✓ Angenommen</span>';if(t.dec==='nein')return '<span class="decided nein">✗ Abgelehnt</span>';if(t.stage==='New'||t.stage==='Screening')return '<span class="acts"><button class="btn ap" onclick="event.stopPropagation();approve('+t.id+')">✓ Annehmen</button><button class="btn dc" onclick="event.stopPropagation();decline('+t.id+')">✗</button></span>';return '<span class="muted">—</span>'}
+function decBlock(t){if(t.dec==='ja')return '<div class="banner ja">✓ Angenommen — in Prüfung · '+(PICN[t.pic]||t.pic)+'</div>';if(t.dec==='nein')return '<div class="banner nein">✗ Abgelehnt — nicht weiterverfolgt</div>';return '<div style="display:flex;gap:10px;margin:16px 0"><button class="btn ap big" onclick="approve('+t.id+')">✓ Ausschreibung annehmen</button><button class="btn dc big" onclick="decline('+t.id+')">✗ Ablehnen</button></div>'}
 function toast(m){let e=document.getElementById('toast');if(!e){e=document.createElement('div');e.id='toast';e.className='toast';document.body.appendChild(e)}e.textContent=m;e.classList.add('show');clearTimeout(window._tt);window._tt=setTimeout(()=>e.classList.remove('show'),2300)}
-function approve(id){const t=T.find(x=>x.id===id);if(!t)return;t.dec='ja';if(t.stage==='New')t.stage='Screening';renderPipe();if(document.getElementById('detail').classList.contains('on'))showDetail(id);toast('✓ Accepted: '+t.title.split(' – ')[0])}
-function decline(id){const t=T.find(x=>x.id===id);if(!t)return;t.dec='nein';renderPipe();if(document.getElementById('detail').classList.contains('on'))showDetail(id);toast('✗ Declined: '+t.title.split(' – ')[0])}
+function approve(id){const t=T.find(x=>x.id===id);if(!t)return;t.dec='ja';if(t.stage==='New')t.stage='Screening';renderPipe();if(document.getElementById('detail').classList.contains('on'))showDetail(id);toast('✓ Angenommen: '+t.title.split(' – ')[0])}
+function decline(id){const t=T.find(x=>x.id===id);if(!t)return;t.dec='nein';renderPipe();if(document.getElementById('detail').classList.contains('on'))showDetail(id);toast('✗ Abgelehnt: '+t.title.split(' – ')[0])}
 
 // ---- winners: recent REAL German medical-supply contract awards from TED (market intelligence; eCore holds no awarded tenders) ----
 const AWARDS=window.MAVIVO_MOCK_DATA.AWARDS;
-document.getElementById('winRows').innerHTML=AWARDS.map(a=>`<tr><td><div class="ttl">${esc(a.title)}</div><div class="sub">${esc(a.segment)} · CPV ${esc(a.cpv)}</div></td><td class="win" style="font-weight:700;color:var(--ink2)">${esc(a.winner)}</td><td class="sub" style="font-size:13px;color:var(--ink2)">${esc(a.buyer)}</td><td class="val">${a.value?eur(a.value):'—'}</td><td>${fd(a.date)}</td></tr>`).join('')||'<tr><td colspan="5" class="note" style="text-align:center;padding:26px">No contract awards yet.</td></tr>';
+document.getElementById('winRows').innerHTML=AWARDS.map(a=>`<tr><td><div class="ttl">${esc(a.title)}</div><div class="sub">${esc(a.segment)} · CPV ${esc(a.cpv)}</div></td><td class="win" style="font-weight:700;color:var(--ink2)">${esc(a.winner)}</td><td class="sub" style="font-size:13px;color:var(--ink2)">${esc(a.buyer)}</td><td class="val">${a.value?eur(a.value):'—'}</td><td>${fd(a.date)}</td></tr>`).join('')||'<tr><td colspan="5" class="note" style="text-align:center;padding:26px">Noch keine Zuschläge.</td></tr>';
 
 // ---- competitors (seeded competitor radar) ----
-const STRAT={aggr:'Aggressive',prem:'Premium',bal:'Balanced'};
+const STRAT={aggr:'Aggressiv',prem:'Premium',bal:'Ausgewogen'};
 const TRARR={up:'▲',dn:'▼',fl:'▬'},TRCOL={up:'var(--red)',dn:'var(--mav-d)',fl:'var(--muted)'};
 function cspark(arr,color){var w=62,h=20,mx=Math.max.apply(null,arr),mn=Math.min.apply(null,arr),rng=(mx-mn)||1;var p=arr.map((v,i)=>(i/(arr.length-1)*w).toFixed(1)+','+(h-2-((v-mn)/rng)*(h-4)).toFixed(1)).join(' ');return '<svg width="'+w+'" height="'+h+'" style="vertical-align:middle;margin-right:8px"><polyline fill="none" stroke="'+color+'" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round" points="'+p+'"/></svg>';}
 document.getElementById('compCards').innerHTML=(window.MAVIVO_MOCK_DATA.COMPETITORS||[]).map(c=>`<div class="comp-card">
  <div class="comp-head"><div class="comp-mark" style="background:${c.mark}">${esc(c.initials)}</div><div style="flex:1;min-width:0"><div class="comp-name">${esc(c.name)}</div><div class="comp-meta">${esc(c.meta)}</div></div><span class="comp-region">${esc(c.region)}</span></div>
- <div class="comp-stats"><div class="comp-stat"><div class="cv">${c.tenders6mo}</div><div class="cl">Tenders 6 mo</div></div><div class="comp-stat"><div class="cv">${c.winRate}%</div><div class="cl">Win rate</div></div><div class="comp-stat"><div class="cv">${esc(c.avgOffer)}</div><div class="cl">Ø offer</div></div></div>
- <div class="comp-row"><span class="crk">Price strategy</span><span class="strat ${c.strategy}">${STRAT[c.strategy]||esc(c.strategy)}</span></div>
- <div class="comp-row"><span class="crk">Est. margin <span class="seed" style="margin-left:5px">EST</span></span><span style="font-weight:700">${esc(c.margin)}</span></div>
- <div class="comp-row"><span class="crk">Participation trend</span><span style="display:inline-flex;align-items:center">${cspark(c.trend,TRCOL[c.trendDir])}<span class="trend-${c.trendDir}">${TRARR[c.trendDir]} ${esc(c.trendLabel)}</span></span></div>
- <div class="comp-foot"><b>Bid behavior:</b> ${esc(c.bidBehavior)}</div>
-</div>`).join('')||'<div class="note">No competitors yet.</div>';
+ <div class="comp-stats"><div class="comp-stat"><div class="cv">${c.tenders6mo}</div><div class="cl">Vergaben 6 Mon.</div></div><div class="comp-stat"><div class="cv">${c.winRate}%</div><div class="cl">Erfolgsquote</div></div><div class="comp-stat"><div class="cv">${esc(c.avgOffer)}</div><div class="cl">Ø Angebot</div></div></div>
+ <div class="comp-row"><span class="crk">Preisstrategie</span><span class="strat ${c.strategy}">${STRAT[c.strategy]||esc(c.strategy)}</span></div>
+ <div class="comp-row"><span class="crk">Gesch. Marge <span class="seed" style="margin-left:5px">SCHÄTZUNG</span></span><span style="font-weight:700">${esc(c.margin)}</span></div>
+ <div class="comp-row"><span class="crk">Teilnahmetrend</span><span style="display:inline-flex;align-items:center">${cspark(c.trend,TRCOL[c.trendDir])}<span class="trend-${c.trendDir}">${TRARR[c.trendDir]} ${esc(c.trendLabel)}</span></span></div>
+ <div class="comp-foot"><b>Bietverhalten:</b> ${esc(c.bidBehavior)}</div>
+</div>`).join('')||'<div class="note">Noch keine Wettbewerber.</div>';
 
 // ---- authorities: real contracting authorities behind mavivo's tenders (from TED) ----
 const AUTH=window.MAVIVO_MOCK_DATA.BUYERS.map(b=>[b.name,b.region,b.openTenders,b.segments,b.contact,b.lastActivity]);
-document.getElementById('authRows').innerHTML=AUTH.map(a=>`<tr><td><div class="ttl">${esc(a[0])}</div></td><td><span class="ct">${a[1]}</span></td><td class="val">${a[2]}</td><td>${a[3].map(x=>`<span class="tag">${x}</span>`).join(' ')}</td><td class="sub" style="font-size:12.5px;color:var(--ink2)">${esc(a[4])}</td><td>${fd(a[5])}</td></tr>`).join('')||'<tr><td colspan="6" class="note" style="text-align:center;padding:26px">No buyers yet.</td></tr>';
+document.getElementById('authRows').innerHTML=AUTH.map(a=>`<tr><td><div class="ttl">${esc(a[0])}</div></td><td><span class="ct">${a[1]}</span></td><td class="val">${a[2]}</td><td>${a[3].map(x=>`<span class="tag">${x}</span>`).join(' ')}</td><td class="sub" style="font-size:12.5px;color:var(--ink2)">${esc(a[4])}</td><td>${fd(a[5])}</td></tr>`).join('')||'<tr><td colspan="6" class="note" style="text-align:center;padding:26px">Noch keine Auftraggeber.</td></tr>';
 
 // ---- search ----
 const lines=[...new Set(T.map(t=>t.line))];const regs=[...new Set(T.map(t=>t.region))];
 document.getElementById('sLine').innerHTML+=lines.map(l=>`<option value="${l}">${LINE[l]}</option>`).join('');
 document.getElementById('sReg').innerHTML+=regs.map(r=>`<option value="${r}">${r}</option>`).join('');
 function renderSearch(){const q=document.getElementById('sq').value.toLowerCase(),l=document.getElementById('sLine').value,rg=document.getElementById('sReg').value,mv=+document.getElementById('sVal').value;let n=0;
- document.getElementById('searchRows').innerHTML=T.filter(t=>(!q||(t.title+' '+t.buyer).toLowerCase().includes(q))&&(!l||t.line===l)&&(!rg||t.region===rg)&&(t.value>=mv)).map(t=>{n++;return `<tr class="clk" data-id="${t.id}"><td><div class="ttl">${esc(t.title)}</div><div class="sub">${esc(t.buyer)}</div></td><td><span class="ct">${CPV[t.line]}</span></td><td><span class="ct">${t.region}</span></td><td>${fd(t.deadline)}</td><td class="val">${eur(t.value)}</td><td>${stChip(t.stage)}</td></tr>`}).join('')||'<tr><td colspan="6" class="note" style="text-align:center;padding:26px">No open tenders.</td></tr>';
- document.getElementById('searchCount').textContent=n+' results';
+ document.getElementById('searchRows').innerHTML=T.filter(t=>(!q||(t.title+' '+t.buyer).toLowerCase().includes(q))&&(!l||t.line===l)&&(!rg||t.region===rg)&&(t.value>=mv)).map(t=>{n++;return `<tr class="clk" data-id="${t.id}"><td><div class="ttl">${esc(t.title)}</div><div class="sub">${esc(t.buyer)}</div></td><td><span class="ct">${CPV[t.line]}</span></td><td><span class="ct">${t.region}</span></td><td>${fd(t.deadline)}</td><td class="val">${eur(t.value)}</td><td>${stChip(t.stage)}</td></tr>`}).join('')||'<tr><td colspan="6" class="note" style="text-align:center;padding:26px">Keine offenen Ausschreibungen.</td></tr>';
+ document.getElementById('searchCount').textContent=n+' Treffer';
  document.querySelectorAll('#searchRows tr.clk').forEach(r=>r.onclick=()=>showDetail(+r.dataset.id))}
 
 // ---- nav ----
-const TITLES={dash:["Dashboard","Overview"],focus:["Sales","Monthly focus"],pipeline:["Pipeline","Tender Pipeline"],winners:["Awards","Contract Awards & Winners"],comp:["Competition","Competitor Radar"],auth:["Buyers","Buyer Intelligence"],search:["Search","Search & Discovery"],detail:["Pipeline","Tender detail"],compass:["Admin","Demand Compass"],cpv33:["Demand Compass","Medical equipment, pharmaceuticals · CPV 33"]};
+const TITLES={dash:["Dashboard","Überblick"],focus:["Vertrieb","Monatsfokus"],pipeline:["Pipeline","Vergabe-Pipeline"],winners:["Zuschläge","Zuschläge & Gewinner"],comp:["Wettbewerb","Wettbewerber-Radar"],auth:["Auftraggeber","Vergabestellen-Übersicht"],search:["Suche","Suche & Recherche"],detail:["Pipeline","Vergabe-Detail"],compass:["Admin","Demand Compass"],cpv33:["Demand Compass","Medizinische Geräte, Arzneimittel · CPV 33"]};
 function go(v){document.querySelectorAll('.view').forEach(s=>s.classList.toggle('on',s.id===v));
  document.querySelectorAll('#nav button').forEach(b=>b.classList.toggle('on',b.dataset.v===v||(v==='cpv33'&&b.dataset.v==='compass')));
  const ti=TITLES[v]||["",""];document.getElementById('crumb').textContent=ti[0];document.getElementById('vtitle').textContent=ti[1];window.scrollTo(0,0)}
@@ -609,12 +609,12 @@ document.getElementById('deadlines').addEventListener('click',e=>{const r=e.targ
 
  // Watching
  document.getElementById('watchN').textContent='('+(DC.watching||[]).length+')';
- document.getElementById('watching').innerHTML=(DC.watching||[]).map(w=>`<div class="watch"><div class="wtop"><span class="wn">${esc(w.name)}</span><span class="wm">${esc(w.meta)} <b>(${esc(w.delta)})</b></span></div>${spark(w.spark,'#5F6E66',120,26)}<div class="field"><input placeholder="Observation notes (what you're waiting to see)…"><button class="btnG">Save</button></div><div class="field"><input placeholder="Decision note (required)…"><button class="btnP">Adopt</button><button class="btnG">Dismiss</button></div></div>`).join('');
+ document.getElementById('watching').innerHTML=(DC.watching||[]).map(w=>`<div class="watch"><div class="wtop"><span class="wn">${esc(w.name)}</span><span class="wm">${esc(w.meta)} <b>(${esc(w.delta)})</b></span></div>${spark(w.spark,'#5F6E66',120,26)}<div class="field"><input placeholder="Beobachtungsnotizen (worauf warten wir?)…"><button class="btnG">Speichern</button></div><div class="field"><input placeholder="Entscheidungsnotiz (erforderlich)…"><button class="btnP">Übernehmen</button><button class="btnG">Verwerfen</button></div></div>`).join('');
 
  // Demand by sub-market (click Medical equipments -> CPV33 detail)
  var SM=DC.subMarkets||[];
  var smMax=Math.max.apply(null,SM.map(s=>s.ted30d).concat([1]));
- document.getElementById('demandBars').innerHTML=SM.map(s=>{var wd=Math.max(3,Math.round(s.ted30d/smMax*100));var clk=s.code==='3310';return `<div class="brow cov-${s.coverage||'not'}${clk?' clk':''}" ${clk?'onclick="go(\'cpv33\')" title="Open CPV 33 view"':''}><div class="blab">${esc(s.name)}</div><div class="btrack"><div class="bfill" style="width:${wd}%"></div></div>${spark([s.ted30d*0.5,s.ted30d*0.7,s.ted30d*0.6,s.ted30d*0.85,s.ted30d*0.9,s.ted30d],covColor[s.coverage||'not'])}<div class="bval">${s.ted30d}</div></div>`;}).join('')+`<div class="showall">CPV 33 · ${SM.length} tracked sub-markets · national sub-threshold feed not counted yet</div>`;
+ document.getElementById('demandBars').innerHTML=SM.map(s=>{var wd=Math.max(3,Math.round(s.ted30d/smMax*100));var clk=s.code==='3310';return `<div class="brow cov-${s.coverage||'not'}${clk?' clk':''}" ${clk?'onclick="go(\'cpv33\')" title="CPV-33-Ansicht öffnen"':''}><div class="blab">${esc(s.name)}</div><div class="btrack"><div class="bfill" style="width:${wd}%"></div></div>${spark([s.ted30d*0.5,s.ted30d*0.7,s.ted30d*0.6,s.ted30d*0.85,s.ted30d*0.9,s.ted30d],covColor[s.coverage||'not'])}<div class="bval">${s.ted30d}</div></div>`;}).join('')+`<div class="showall">CPV 33 · ${SM.length} beobachtete Teilmärkte · nationaler Unterschwellen-Feed noch nicht gezählt</div>`;
 
  // Movers
  var mv=DC.movers||{rising:[],falling:[]};
@@ -622,17 +622,17 @@ document.getElementById('deadlines').addEventListener('click',e=>{const r=e.targ
  document.getElementById('falling').innerHTML=(mv.falling||[]).map(r=>`<div class="mrow"><span class="mn">${esc(r[0])}</span><span class="mdn">${esc(r[1])} <span class="mwk">(${esc(r[2])})</span></span></div>`).join('');
 
  // Opportunities
- document.getElementById('opps').innerHTML=(DC.opportunities||[]).map(o=>`<div class="opp"><div class="otop"><div><span class="on">${esc(o.name)}</span><span class="ocpv">CPV ${esc(o.cpv)}</span></div><span class="orate">${esc(o.rate)} (<span class="up">${esc(o.delta)}</span>) · ${esc(o.mkt)}</span></div><div class="otop2">Top: ${esc(o.top)}</div><div class="owhy"><b>why:</b> ${esc(o.why)}</div><div class="cli">${esc(o.cli)}</div></div>`).join('');
+ document.getElementById('opps').innerHTML=(DC.opportunities||[]).map(o=>`<div class="opp"><div class="otop"><div><span class="on">${esc(o.name)}</span><span class="ocpv">CPV ${esc(o.cpv)}</span></div><span class="orate">${esc(o.rate)} (<span class="up">${esc(o.delta)}</span>) · ${esc(o.mkt)}</span></div><div class="otop2">Top: ${esc(o.top)}</div><div class="owhy"><b>warum:</b> ${esc(o.why)}</div><div class="cli">${esc(o.cli)}</div></div>`).join('');
 
  // Market brief
  var mb=DC.marketBrief||{date:'',items:[]};
- document.getElementById('briefDate').textContent='updated '+mb.date;
+ document.getElementById('briefDate').textContent='aktualisiert '+mb.date;
  document.getElementById('brief').innerHTML=(mb.items||[]).map(b=>`<li>${esc(b[0])} <span class="src">— <a href="#" onclick="return false">${esc(b[1])}</a></span> <span class="btag">[${esc(b[2])}]</span></li>`).join('');
 
  // ---------- CPV 33 detail view ----------
  var hd=DC.header||{};
  var dstat=document.querySelector('#cpv33 .dstat');
- if(dstat&&hd.perWkTed){dstat.innerHTML=`<span><b>${hd.perWkTed}/wk</b> TED <span class="up">(+${hd.wowPct}% WoW)</span></span><span>· +${hd.nationalFeedPerWk}/wk national</span><span>· Ø ≈ <b>${Math.round(hd.avgPublishedValueEur/1000)}k €</b> (${hd.valuedLots} lots)</span>`;}
+ if(dstat&&hd.perWkTed){dstat.innerHTML=`<span><b>${hd.perWkTed}/Wo.</b> TED <span class="up">(+${hd.wowPct} % WoW)</span></span><span>· +${hd.nationalFeedPerWk}/Wo. national</span><span>· Ø ≈ <b>${Math.round(hd.avgPublishedValueEur/1000)} T€</b> (${hd.valuedLots} Lose)</span>`;}
 
  // 90-day chart (real TED daily series + 7-day average)
  (function(){var daily=(DC.demand90d&&DC.demand90d.daily)||[];var N=daily.length||1;
@@ -653,7 +653,7 @@ document.getElementById('deadlines').addEventListener('click',e=>{const r=e.targ
 })();
 
 // ---- tender-tool modal: pricing form + document checklist ----
-function openModal(which){var m={pricing:['mavivo-pricing-form-excel-en.html','Pricing form · Bill of quantities'],doccheck:['mavivo-document-checklist.html','Document checklist'],esign:['mavivo-esign.html','Customer approval · eSign']}[which];if(!m)return;var src=m[0];
+function openModal(which){var m={pricing:['mavivo-pricing-form-excel-en.html','Preisblatt · Leistungsverzeichnis'],doccheck:['mavivo-document-checklist.html','Unterlagen-Checkliste'],esign:['mavivo-esign.html','Kundenfreigabe · E-Sign']}[which];if(!m)return;var src=m[0];
  if(which==='esign'&&window._curT){var t=window._curT;src+='?'+new URLSearchParams({ref:'MAV-'+String(t.id).padStart(4,'0'),title:t.title,buyer:t.buyer,loc:t.region,dl:fd(t.deadline),val:t.value||'',vu:esignVu()}).toString();}
  document.getElementById('modalTitle').textContent=m[1];document.getElementById('modalFrame').src=src;document.getElementById('modal').classList.add('on');document.body.style.overflow='hidden';}
 function closeModal(){document.getElementById('modal').classList.remove('on');document.getElementById('modalFrame').src='about:blank';document.body.style.overflow='';}
@@ -662,37 +662,37 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal()
 // ---- Monthly focus (seeded action plan — flagged by the seed banner) ----
 const FOCUS={
  kpis:[
-  {l:"Total tasks",v:10,d:"active monthly plan",c:"var(--ink)"},
-  {l:"High priority",v:4,d:"act now",c:"var(--orange)"},
-  {l:"Due ≤ 7 days",v:7,d:"due this week",c:"var(--pri)"},
-  {l:"Done",v:1,d:"of 10",c:"var(--mav)"}
+  {l:"Aufgaben gesamt",v:10,d:"aktiver Monatsplan",c:"var(--ink)"},
+  {l:"Hohe Priorität",v:4,d:"sofort handeln",c:"var(--orange)"},
+  {l:"Frist ≤ 7 Tage",v:7,d:"diese Woche fällig",c:"var(--pri)"},
+  {l:"Erledigt",v:1,d:"von 10",c:"var(--mav)"}
  ],
  people:{Markus:"#1b3947",Petri:"#0F231A",Lena:"#D85D00",Sven:"#23495a"},
  tasks:[
-  {t:"Carry out site survey / on-site visit",d:"On-site visit completed 24.06: crane access suitable, installation area level, utility connections available. Measurement & photo protocol handed over to Petri.",tag:"OGS modular unit (Herten)",who:"Markus",pr:"Medium",due:"24.06.",urgent:1,st:"done",stl:"Done"},
-  {t:"Query to contracting authority on service duration",d:"Rental period & option extension unclear in the documents. Submit bidder question by 25.06 — answer deadline is before submission (30.06).",tag:"Frauenweiler – mobile room units",who:"Markus",pr:"Medium",due:"25.06.",urgent:1,st:"open",stl:"Open"},
-  {t:"Finalize bid & upload submission",d:"Deadline 26.06. Calculation done; self-declaration & signed price sheet still missing. Upload by 25.06 noon at the latest (buffer time).",tag:"School pavilion Munich",who:"Petri",pr:"High",due:"26.06.",urgent:1,st:"prog",stl:"In progress"},
-  {t:"Compile eligibility documents / PQ",d:"Internal deadline 27.06 (submission 29.06). Update reference list, clearance certificate & PQ-VOB.",tag:"HAFUN – Sprinkenhof",who:"Lena",pr:"High",due:"27.06.",urgent:1,st:"open",stl:"Open"},
-  {t:"Obtain supplier prices PL/TR for sanitary units",d:"Waiting for the Polish plant (rental terms incl. maintenance); TR supplier requested as backup. Answer by 27.06, otherwise standard rate.",tag:"Sanitary containers Trier-Land",who:"Sven",pr:"Medium",due:"27.06.",urgent:1,st:"wait",stl:"Waiting"},
-  {t:"Align bidding consortium with Tepe",d:"Total GC scope exceeds own capacity. Consortium agreement with Tepe in coordination (Petri: containers/rental, Tepe: shell construction/site development). Submission 01.07.",tag:"GC scope school interim Cologne",who:"Lena",pr:"High",due:"28.06.",urgent:1,st:"wait",stl:"Waiting"},
-  {t:"Prepare OGS modular unit bid",d:"Base calculation for the double module done. Transport & foundation costs still open; incorporate survey results, submission 29.06.",tag:"OGS modular unit (Herten)",who:"Petri",pr:"High",due:"29.06.",urgent:1,st:"prog",stl:"In progress"},
-  {t:"Request crane & transport quote",d:"Obtain crane and low-loader quotes for the double-module delivery; align time window with site access.",tag:"OGS modular unit (Herten)",who:"Sven",pr:"Medium",due:"30.06.",urgent:1,st:"open",stl:"Open"},
-  {t:"Internal completeness check of June uploads",d:"Cross-check all June submissions for completeness (signatures, price sheets, declarations) before the respective deadlines.",tag:"All June lots",who:"Markus",pr:"Medium",due:"30.06.",urgent:1,st:"open",stl:"Open"},
-  {t:"Prepare submission (Stephan-Brodmann school)",d:"Deadline 13.07. Documents complete; processing after the June awards. Internal review by Lena before upload.",tag:"Stephan-Brodmann school",who:"Petri",pr:"Medium",due:"13.07.",urgent:0,st:"open",stl:"Open"}
+  {t:"Aufmaß / Ortstermin durchführen",d:"Ortstermin am 24.06. erledigt: Kranzufahrt geeignet, Aufstellfläche eben, Medienanschlüsse vorhanden. Maß- & Fotoprotokoll an Petri übergeben.",tag:"OGS-Modulanlage (Herten)",who:"Markus",pr:"Mittel",due:"24.06.",urgent:1,st:"done",stl:"Erledigt"},
+  {t:"Rückfrage an Vergabestelle zur Leistungsdauer",d:"Mietzeitraum & Optionsverlängerung in den Unterlagen unklar. Bieterfrage bis 25.06. einreichen — Antwortfrist liegt vor Abgabe (30.06.).",tag:"Frauenweiler – mobile Raumeinheiten",who:"Markus",pr:"Mittel",due:"25.06.",urgent:1,st:"open",stl:"Offen"},
+  {t:"Angebot finalisieren & Submission hochladen",d:"Frist 26.06. Kalkulation steht; es fehlen Eigenerklärung & unterschriebenes Preisblatt. Upload spätestens 25.06. mittags (Pufferzeit).",tag:"Schulpavillon München",who:"Petri",pr:"Hoch",due:"26.06.",urgent:1,st:"prog",stl:"In Arbeit"},
+  {t:"Eignungsnachweise / PQ zusammenstellen",d:"Interne Deadline 27.06. (Abgabe 29.06.). Referenzliste, Unbedenklichkeitsbescheinigung & PQ-VOB aktualisieren.",tag:"HAFUN – Sprinkenhof",who:"Lena",pr:"Hoch",due:"27.06.",urgent:1,st:"open",stl:"Offen"},
+  {t:"Lieferantenpreise PL/TR für Sanitäreinheiten einholen",d:"Warten auf das polnische Werk (Mietkonditionen inkl. Wartung); TR-Lieferant als Backup angefragt. Antwort bis 27.06., sonst Standardrate.",tag:"Sanitärcontainer Trier-Land",who:"Sven",pr:"Mittel",due:"27.06.",urgent:1,st:"wait",stl:"Wartet"},
+  {t:"Bietergemeinschaft mit Tepe abstimmen",d:"TU-Gesamtleistung übersteigt eigene Kapazität. BG-Vertrag mit Tepe in Abstimmung (Petri: Container/Miete, Tepe: Rohbau/Erschließung). Abgabe 01.07.",tag:"TU-Leistung Schulinterim Köln",who:"Lena",pr:"Hoch",due:"28.06.",urgent:1,st:"wait",stl:"Wartet"},
+  {t:"Angebot OGS-Modulanlage erstellen",d:"Grundkalkulation Doppelmodul steht. Transport- & Fundamentkosten noch offen; Aufmaß-Ergebnis einarbeiten, Abgabe 29.06.",tag:"OGS-Modulanlage (Herten)",who:"Petri",pr:"Hoch",due:"29.06.",urgent:1,st:"prog",stl:"In Arbeit"},
+  {t:"Kran- & Transportangebot anfragen",d:"Kran- und Tieflader-Angebote für die Doppelmodul-Lieferung einholen; Zeitfenster mit Baustellenzufahrt abstimmen.",tag:"OGS-Modulanlage (Herten)",who:"Sven",pr:"Mittel",due:"30.06.",urgent:1,st:"open",stl:"Offen"},
+  {t:"Interne Vollständigkeitsprüfung der Juni-Abgaben",d:"Alle Juni-Submissionen vor den jeweiligen Fristen auf Vollständigkeit prüfen (Unterschriften, Preisblätter, Erklärungen).",tag:"Alle Juni-Lose",who:"Markus",pr:"Mittel",due:"30.06.",urgent:1,st:"open",stl:"Offen"},
+  {t:"Submission vorbereiten (Stephan-Brodmann-Schule)",d:"Frist 13.07. Unterlagen vollständig; Bearbeitung nach den Juni-Vergaben. Interner Review durch Lena vor Upload.",tag:"Stephan-Brodmann-Schule",who:"Petri",pr:"Mittel",due:"13.07.",urgent:0,st:"open",stl:"Offen"}
  ]
 };
 document.getElementById('mfKpis').innerHTML=FOCUS.kpis.map(k=>`<div class="mf-kpi" style="border-left-color:${k.c}"><div class="l">${k.l}</div><div class="v">${k.v}</div><div class="d">${k.d}</div></div>`).join('');
 document.getElementById('mfRows').innerHTML=FOCUS.tasks.map(k=>`<tr>
  <td class="mf-task"><div class="tt">${esc(k.t)}</div><div class="td">${esc(k.d)}</div><span class="mf-tag">🔗 ${esc(k.tag)}</span></td>
  <td><span class="pic"><span class="av" style="background:${FOCUS.people[k.who]};color:#fff">${k.who[0]}</span>${k.who}</span></td>
- <td><span class="mf-pr ${k.pr==='High'?'hi':'md'}">${k.pr}</span></td>
+ <td><span class="mf-pr ${k.pr==='Hoch'?'hi':'md'}">${k.pr}</span></td>
  <td class="mf-due ${k.urgent?'urg':''}">${k.due}</td>
  <td><span class="mf-st ${k.st}">${k.stl}</span></td>
 </tr>`).join('');
 
 // ---- seeded-data banner on every page (transparency for client demos) ----
 (function(){
- var NOTE='<b>Seeded demo data — for illustration.</b> Live tenders, buyers &amp; awards are pulled from eCore &amp; TED; activity metrics (dashboard volumes, win rate, needs-attention and competitor figures) are modelled sample values to demonstrate the workflow.';
+ var NOTE='<b>Beispieldaten — zur Veranschaulichung.</b> Live-Vergaben, Auftraggeber &amp; Zuschläge stammen aus eCore &amp; TED; Aktivitätskennzahlen (Dashboard-Volumen, Erfolgsquote, Aufmerksamkeits-Hinweise und Wettbewerber-Zahlen) sind modellierte Beispielwerte zur Demonstration des Workflows.';
  document.querySelectorAll('.view').forEach(function(v){
   if(v.id==='comp'||v.id==='detail'||v.id==='cpv33')return; // competitors carry their own banner; detail & cpv33 are drill-downs
   var b=document.createElement('div');b.className='seed-banner';

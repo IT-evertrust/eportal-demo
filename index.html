@@ -283,7 +283,6 @@
     </section>
 
     <section class="view" id="pipeline">
-      <h2 class="sec">Tender Pipeline</h2>
       <p class="lede">All active public tenders across mavivo's product lines — from intake to award. Click a row for details.</p>
       <div class="tools">
         <input id="pq" placeholder="Search buyer, title…" />
@@ -299,26 +298,22 @@
     <section class="view" id="detail"><button class="back" id="backBtn">← back to pipeline</button><div id="detailBody"></div></section>
 
     <section class="view" id="winners">
-      <h2 class="sec">Contract Awards &amp; Winners</h2>
       <p class="lede">Who recently won which framework contracts — buyer, award value and date. The basis for judging which contracts are realistically contestable.</p>
       <div class="tw"><table><thead><tr><th>Contract</th><th>Winner</th><th>Buyer</th><th>Value</th><th>Date</th></tr></thead><tbody id="winRows"></tbody></table></div>
     </section>
 
     <section class="view" id="comp">
-      <h2 class="sec">Competitor Radar <span class="seed">SEED</span></h2>
       <p class="lede">Who bids on the same lots as mavivo — award frequency, price strategy, estimated margins and participation trends of the established suppliers.</p>
       <div class="seed-banner"><span class="si">⚠</span><div><b>Seeded demo data — for illustration.</b> Competitor figures (tenders, win rate, average offer, estimated margin, participation trend) are <b>modelled estimates</b> derived from EU award notices (TED), not reported company numbers. Shown to demonstrate the competitor-radar feature.</div></div>
       <div class="comp-grid" id="compCards"></div>
     </section>
 
     <section class="view" id="auth">
-      <h2 class="sec">Buyer Intelligence</h2>
       <p class="lede">Contracting authorities at a glance — tenders per year, segments, contacts and last activity.</p>
       <div class="tw"><table><thead><tr><th>Buyer</th><th>Region</th><th>Tenders/yr</th><th>Segments</th><th>Contact</th><th>Last activity</th></tr></thead><tbody id="authRows"></tbody></table></div>
     </section>
 
     <section class="view" id="search">
-      <h2 class="sec">Search &amp; Discovery</h2>
       <p class="lede">Filter open tenders by CPV, keyword, region, deadline and value.</p>
       <div class="tools">
         <input id="sq" placeholder="Keyword…" />
@@ -330,7 +325,6 @@
       <div class="note" id="searchCount"></div>
     </section>
     <section class="view" id="compass">
-      <h2 class="sec">Demand compass</h2>
       <p class="lede">Where German medical public-tender demand is moving — every CPV 33 sub-market, mapped to what mavivo covers.</p>
       <div class="explain"><b>The medical market, by sub-market.</b> Every German TED notice in <b>CPV division 33</b> bucketed by CPV class, with <b>mavivo's coverage</b> overlaid — so the biggest sub-markets we <i>don't</i> cover are where to grow next. TED is EU above-threshold only; sub-threshold national demand isn't counted yet. <b>Only medical is populated</b> — mavivo operates in CPV 33 exclusively.</div>
       <div class="dc-kpis" id="dcKpis"></div>
@@ -347,7 +341,6 @@
 
     <section class="view" id="cpv33">
       <button class="back" onclick="go('compass')">← back to Demand Compass</button>
-      <h2 class="sec">Medical equipment, pharmaceuticals · CPV 33</h2>
       <p class="lede">CPV division 33 — 90-day observation view.</p>
       <div class="dhead">
         <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
@@ -552,7 +545,7 @@ function renderSearch(){const q=document.getElementById('sq').value.toLowerCase(
  document.querySelectorAll('#searchRows tr.clk').forEach(r=>r.onclick=()=>showDetail(+r.dataset.id))}
 
 // ---- nav ----
-const TITLES={dash:["Dashboard","Overview"],pipeline:["Pipeline","Tender Pipeline"],winners:["Awards","Contract Awards & Winners"],comp:["Competition","Competitor Radar"],auth:["Buyers","Buyer Intelligence"],search:["Search","Search & Discovery"],detail:["Pipeline","Tender detail"],compass:["Admin","Demand Compass"],cpv33:["Demand Compass","CPV 33 · Medical"]};
+const TITLES={dash:["Dashboard","Overview"],pipeline:["Pipeline","Tender Pipeline"],winners:["Awards","Contract Awards & Winners"],comp:["Competition","Competitor Radar"],auth:["Buyers","Buyer Intelligence"],search:["Search","Search & Discovery"],detail:["Pipeline","Tender detail"],compass:["Admin","Demand Compass"],cpv33:["Demand Compass","Medical equipment, pharmaceuticals · CPV 33"]};
 function go(v){document.querySelectorAll('.view').forEach(s=>s.classList.toggle('on',s.id===v));
  document.querySelectorAll('#nav button').forEach(b=>b.classList.toggle('on',b.dataset.v===v||(v==='cpv33'&&b.dataset.v==='compass')));
  const ti=TITLES[v]||["",""];document.getElementById('crumb').textContent=ti[0];document.getElementById('vtitle').textContent=ti[1];window.scrollTo(0,0)}

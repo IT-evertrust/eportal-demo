@@ -11,6 +11,7 @@
     --muted:#5F6E66;--muted2:#94A19A;
     --new:#6b7280;--new-bg:#EEF1EF;--scr:#9a6a12;--scr-bg:#FAF1DC;--pri:#1856a5;--pri-bg:#EAF1FB;
     --sub:#7a3da5;--sub-bg:#F3EBFA;--won:#017a2e;--won-bg:#E4F5EA;--lost:#a32d2d;--lost-bg:#FCEBEB;
+    --mav-l3:#CFE6D8;--gold:#b0820f;--gold-d:#7a5a0a;--gold-l:#FAF1DC;--orange:#D85D00;--orange-l:#FEF0E5;--orange-d:#B34E00;--red:#a32d2d;--red-l:#FCEBEB;--track:#EEF1EF;--cov-cover:#019e3b;--cov-partial:#1f2b25;--cov-parked:#b0820f;--cov-not:#AEB8B2;--r:12px;--r2:14px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;font-size:14px;line-height:1.5}
@@ -137,6 +138,75 @@
   .toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:11px 20px;border-radius:10px;font-size:13px;font-weight:600;opacity:0;transition:opacity .25s;z-index:80;pointer-events:none}
   .toast.show{opacity:1}
   @media(max-width:820px){.app{grid-template-columns:1fr}.sb{position:static;height:auto}.nav{display:flex;flex-wrap:wrap}.nav button{width:auto}}
+  /* ===== Demand Compass (added view) ===== */
+  .explain{background:#EFF2F0;border-radius:10px;padding:14px 18px;font-size:13px;line-height:1.6;color:var(--ink2);margin-bottom:18px}
+  .explain b{color:var(--ink)}.explain i{color:var(--muted);font-style:italic}
+  .dc-kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-bottom:20px}
+  .dc-kpi{background:#fff;border:1px solid var(--line);border-radius:12px;padding:15px 18px}
+  .dc-kpi .l{font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted2);font-weight:700}
+  .dc-kpi .v{font-size:28px;font-weight:800;letter-spacing:-1px;margin-top:4px}
+  .dc-kpi .d{font-size:11px;color:var(--muted);margin-top:3px}
+  .panel{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:16px}
+  .panel h2{font-size:14px;font-weight:800;letter-spacing:-.2px;margin-bottom:2px;display:flex;align-items:baseline;gap:8px}
+  .panel h2 .sub{font-size:12px;font-weight:500;color:var(--muted)}
+  .twocol{display:grid;grid-template-columns:1fr 360px;gap:16px}
+  @media(max-width:980px){.twocol{grid-template-columns:1fr!important}}
+  .watchgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px}
+  .watch{border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+  .watch .wtop{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+  .watch .wn{font-weight:700;font-size:14px}.watch .wm{font-size:11px;color:var(--muted);white-space:nowrap}.watch .wm b{color:var(--mav-d)}
+  .field{display:flex;gap:8px;margin-top:10px}
+  .field input{flex:1;font-family:inherit;font-size:12px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;color:var(--ink)}
+  .field input:focus{outline:none;border-color:var(--mav)}
+  .btnP{font-family:inherit;font-size:12px;font-weight:700;border:1px solid var(--mav);background:var(--mav);color:#fff;border-radius:8px;padding:8px 14px;cursor:pointer}
+  .btnG{font-family:inherit;font-size:12px;font-weight:600;border:1px solid var(--line);background:#fff;color:var(--muted);border-radius:8px;padding:8px 12px;cursor:pointer}
+  .brow{display:grid;grid-template-columns:210px 1fr 92px 48px;align-items:center;gap:10px;padding:5px 0;border-radius:6px}
+  .brow.clk{cursor:pointer}.brow.clk:hover{background:var(--mav-l2)}
+  .blab{font-size:12.5px;color:var(--ink2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .btrack{height:22px;background:var(--track);border-radius:4px;overflow:hidden}
+  .bfill{height:100%;border-radius:4px}
+  .bval{font-size:13px;font-weight:700;text-align:right;font-variant-numeric:tabular-nums}
+  .cov-cover .bfill{background:var(--cov-cover)}.cov-partial .bfill{background:var(--cov-partial)}.cov-parked .bfill{background:var(--cov-parked)}.cov-not .bfill{background:var(--cov-not)}
+  .spark{display:block}
+  .legend{display:flex;flex-wrap:wrap;gap:16px;margin-top:14px;font-size:11.5px;color:var(--muted)}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .sw2{width:11px;height:11px;border-radius:3px;display:inline-block}
+  .showall{margin-top:12px;font-size:12.5px;color:var(--muted2)}
+  .mlabel{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin:6px 0 8px}
+  .mrow{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:8px 0;border-top:1px solid var(--line2);font-size:13px}
+  .mrow:first-of-type{border-top:none}
+  .mn{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .mup{color:var(--mav-d);font-weight:700;white-space:nowrap}.mdn{color:var(--lost);font-weight:700;white-space:nowrap}
+  .mwk{color:var(--muted2);font-weight:400;font-size:11px}
+  .opp{border:1px solid var(--line);border-radius:12px;padding:15px 18px;margin-bottom:12px}
+  .opp .otop{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+  .opp .on{font-weight:700;font-size:15px}
+  .opp .ocpv{font-size:11px;font-weight:700;color:var(--muted2);border:1px solid var(--line);border-radius:5px;padding:1px 6px;margin-left:6px}
+  .opp .orate{font-size:12.5px;color:var(--muted);white-space:nowrap}.opp .orate .up{color:var(--mav-d);font-weight:700}
+  .opp .otop2{font-size:12px;color:var(--muted);margin-top:6px}
+  .opp .owhy{font-size:12px;color:var(--ink2);margin-top:7px}.opp .owhy b{color:var(--gold)}
+  .opp .cli{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px;background:#F5F7F6;border:1px solid var(--line2);border-radius:7px;padding:9px 11px;margin-top:10px;color:var(--ink2);overflow-x:auto;white-space:nowrap}
+  .brief li{list-style:none;padding:8px 0;border-top:1px solid var(--line2);font-size:13px;line-height:1.55}
+  .brief li:first-child{border-top:none}
+  .brief .src{color:var(--muted2)}.brief .src a{color:var(--mav-d);text-decoration:none}.brief .btag{color:var(--muted2);font-weight:700}
+  .pill{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:600;border:1px solid var(--line);border-radius:20px;padding:6px 13px;color:var(--ink2)}
+  .pill .pdot{width:8px;height:8px;border-radius:50%;background:var(--cov-partial)}
+  .dhead{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+  .dstat{display:flex;flex-wrap:wrap;align-items:center;gap:14px;font-size:13px;color:var(--ink2)}.dstat .up{color:var(--mav-d);font-weight:700}
+  .chartnote{font-size:11.5px;color:var(--muted2);margin-top:8px}
+  .clegend{display:flex;gap:16px;justify-content:flex-end;font-size:11px;color:var(--muted);margin-top:4px}
+  .clegend span{display:inline-flex;align-items:center;gap:6px}.cln{width:16px;height:2px;display:inline-block}
+  .htbl{min-width:0}
+  .htbl th{text-align:left;font-size:10px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);padding:9px 10px;border-bottom:1px solid var(--line);background:#fff;white-space:nowrap}
+  .htbl td{padding:10px;border-bottom:1px solid var(--line2);font-size:12.5px}
+  .htbl .num{text-align:right;font-variant-numeric:tabular-nums;font-weight:700}.htbl .up{color:var(--mav-d);font-weight:700}
+  .cpvcode{color:var(--muted2);font-size:11px;font-weight:600;margin-left:5px}
+  .rowbar{display:grid;grid-template-columns:150px 1fr 60px;align-items:center;gap:10px;padding:6px 0}
+  .rowbar .rl{font-size:12.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .rowbar .rt{height:16px;background:var(--track);border-radius:3px;overflow:hidden}
+  .rowbar .rf{height:100%;background:var(--cov-partial);border-radius:3px}.rowbar.win .rf{background:var(--gold)}
+  .rowbar .rv{font-size:12.5px;font-weight:700;text-align:right;font-variant-numeric:tabular-nums}.rowbar .rv small{color:var(--muted2);font-weight:400}
+  .emptybox{text-align:center;color:var(--muted2);font-size:12.5px;padding:34px 10px}
 </style>
 </head>
 <body>
@@ -154,6 +224,7 @@
       <button data-v="comp"><span class="ic">◑</span>Competitors</button>
       <button data-v="auth"><span class="ic">⌂</span>Buyers</button>
       <button data-v="search"><span class="ic">⌕</span>Search</button>
+      <button data-v="compass"><span class="ic">◎</span>Demand Compass</button>
     </nav>
     <div class="foot">Outsourced tender dept.<br>by EverTrust<br><span style="color:var(--mav-d)">Demo · sample data</span></div>
   </aside>
@@ -222,6 +293,44 @@
       </div>
       <div class="tw"><table><thead><tr><th>Tender</th><th>CPV</th><th>Region</th><th>Deadline</th><th>Value</th><th>Stage</th></tr></thead><tbody id="searchRows"></tbody></table></div>
       <div class="note" id="searchCount"></div>
+    </section>
+    <section class="view" id="compass">
+      <h2 class="sec">Demand compass</h2>
+      <p class="lede">Where German medical public-tender demand is moving — every CPV 33 sub-market, mapped to what mavivo covers.</p>
+      <div class="explain"><b>The medical market, by sub-market.</b> Every German TED notice in <b>CPV division 33</b> bucketed by CPV class, with <b>mavivo's coverage</b> overlaid — so the biggest sub-markets we <i>don't</i> cover are where to grow next. TED is EU above-threshold only; sub-threshold national demand isn't counted yet. <b>Only medical is populated</b> — mavivo operates in CPV 33 exclusively.</div>
+      <div class="dc-kpis" id="dcKpis"></div>
+      <div class="panel"><h2>Watching <span class="sub" id="watchN"></span></h2><div class="watchgrid" id="watching"></div></div>
+      <div class="twocol">
+        <div class="panel"><h2>Demand by sub-market <span class="sub">· last 30 days (click Medical equipments for its 90-day view)</span></h2><div id="demandBars"></div>
+          <div class="legend"><span><span class="sw2" style="background:var(--cov-cover)"></span>we cover</span><span><span class="sw2" style="background:var(--cov-partial)"></span>partial</span><span><span class="sw2" style="background:var(--cov-parked)"></span>parked</span><span><span class="sw2" style="background:var(--cov-not)"></span>not covered</span></div>
+        </div>
+        <div class="panel"><h2>Movers <span class="sub">· week over week</span></h2><div class="mlabel">▲ Rising</div><div id="rising"></div><div class="mlabel" style="margin-top:16px">▼ Falling</div><div id="falling"></div></div>
+      </div>
+      <div class="panel"><h2>Opportunities <span class="sub">— hot medical sub-markets we don't cover</span></h2><div id="opps" style="margin-top:12px"></div></div>
+      <div class="panel brief"><h2>Market brief <span class="sub" id="briefDate"></span></h2><ul id="brief" style="margin-top:10px"></ul></div>
+    </section>
+
+    <section class="view" id="cpv33">
+      <button class="back" onclick="go('compass')">← back to Demand Compass</button>
+      <h2 class="sec">Medical equipment, pharmaceuticals · CPV 33</h2>
+      <p class="lede">CPV division 33 — 90-day observation view.</p>
+      <div class="dhead">
+        <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+          <span class="pill"><span class="pdot"></span>partial — MEDICAL touch it</span>
+          <div class="dstat"><span><b>93/wk</b> TED <span class="up">(+69% WoW)</span></span><span>· +82/wk national</span><span>· Ø ≈ <b>1957k €</b> (12 lots)</span></div>
+        </div>
+        <button class="btnG">◎ Watch this category</button>
+      </div>
+      <div class="panel"><h2>Demand · last 90 days</h2><div id="chart90" style="margin-top:8px"></div>
+        <div class="clegend"><span><span class="cln" style="background:var(--muted2)"></span>daily</span><span><span class="cln" style="background:var(--ink)"></span>7-day average</span></div>
+        <div class="chartnote">Weekend zeros are real (German portals barely publish Sat/Sun) — read the smoothed line. TED above-threshold only.</div></div>
+      <div class="twocol" style="grid-template-columns:1fr 1fr">
+        <div class="panel"><h2>Top buyers <span class="sub">· 90d</span></h2><div id="buyers" style="margin-top:10px"></div></div>
+        <div class="panel"><h2>Where <span class="sub">· 90d</span></h2><div id="where" style="margin-top:10px"></div></div>
+      </div>
+      <div class="panel"><h2>Sub-markets <span class="sub">(CPV classes · 30d)</span></h2><div style="overflow-x:auto;margin-top:10px"><table class="htbl"><thead><tr><th>Sub-market</th><th class="num">TED 30d</th><th class="num">Natl 30d</th><th class="num">Trend</th><th>Top winner · 180d</th></tr></thead><tbody id="submkt"></tbody></table></div></div>
+      <div class="panel"><h2>Who wins here <span class="sub">(296 awards · 180d · display only)</span></h2><div class="twocol" style="grid-template-columns:1fr 1fr;margin-top:12px"><div id="whoWins"></div><div style="overflow-x:auto"><table class="htbl"><thead><tr><th>Date</th><th>Winner</th><th class="num">Value / spread</th></tr></thead><tbody id="awards"></tbody></table></div></div></div>
+      <div class="panel"><h2>News timeline</h2><div class="emptybox">No tagged news yet — the daily digest tags bullets to sub-markets as they appear.</div></div>
     </section>
   </main>
 </div>
@@ -382,15 +491,73 @@ function renderSearch(){const q=document.getElementById('sq').value.toLowerCase(
  document.querySelectorAll('#searchRows tr.clk').forEach(r=>r.onclick=()=>showDetail(+r.dataset.id))}
 
 // ---- nav ----
-const TITLES={dash:["Dashboard","Overview"],pipeline:["Pipeline","Tender Pipeline"],winners:["Awards","Contract Awards & Winners"],comp:["Competition","Competitor Radar"],auth:["Buyers","Buyer Intelligence"],search:["Search","Search & Discovery"],detail:["Pipeline","Tender detail"]};
+const TITLES={dash:["Dashboard","Overview"],pipeline:["Pipeline","Tender Pipeline"],winners:["Awards","Contract Awards & Winners"],comp:["Competition","Competitor Radar"],auth:["Buyers","Buyer Intelligence"],search:["Search","Search & Discovery"],detail:["Pipeline","Tender detail"],compass:["Admin","Demand Compass"],cpv33:["Demand Compass","CPV 33 · Medical"]};
 function go(v){document.querySelectorAll('.view').forEach(s=>s.classList.toggle('on',s.id===v));
- document.querySelectorAll('#nav button').forEach(b=>b.classList.toggle('on',b.dataset.v===v));
+ document.querySelectorAll('#nav button').forEach(b=>b.classList.toggle('on',b.dataset.v===v||(v==='cpv33'&&b.dataset.v==='compass')));
  const ti=TITLES[v]||["",""];document.getElementById('crumb').textContent=ti[0];document.getElementById('vtitle').textContent=ti[1];window.scrollTo(0,0)}
 document.getElementById('nav').addEventListener('click',e=>{const b=e.target.closest('button');if(b)go(b.dataset.v)});
 document.getElementById('pq').addEventListener('input',renderPipe);
 document.querySelectorAll('#pipeline .chip').forEach(c=>c.addEventListener('click',()=>{document.querySelectorAll('#pipeline .chip').forEach(x=>x.classList.toggle('on',x===c));pfilt=c.dataset.st;renderPipe()}));
 ['sq','sLine','sReg','sVal'].forEach(id=>document.getElementById(id).addEventListener('input',renderSearch));
 document.getElementById('deadlines').addEventListener('click',e=>{const r=e.target.closest('[data-id]');if(r)showDetail(+r.dataset.id)});
+
+// ================= Demand Compass — wired to MAVIVO_MOCK_DATA.DEMAND_COMPASS.detail['33'] =================
+(function(){
+ var D=window.MAVIVO_MOCK_DATA&&window.MAVIVO_MOCK_DATA.DEMAND_COMPASS||{};
+ var DC=(D.detail&&D.detail['33'])||{};
+ var esc=s=>(s||'').replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
+ function spark(arr,color,w,h){w=w||88;h=h||24;var mx=Math.max.apply(null,arr),mn=Math.min.apply(null,arr),rng=(mx-mn)||1;
+   var pts=arr.map((v,i)=>(i/(arr.length-1)*w).toFixed(1)+','+(h-3-((v-mn)/rng)*(h-6)).toFixed(1)).join(' ');
+   return '<svg class="spark" width="'+w+'" height="'+h+'" viewBox="0 0 '+w+' '+h+'"><polyline fill="none" stroke="'+color+'" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" points="'+pts+'"/></svg>';}
+ var covColor={cover:'#019e3b',partial:'#1f2b25',parked:'#b0820f',not:'#AEB8B2'};
+
+ // KPIs
+ document.getElementById('dcKpis').innerHTML=(DC.dcKpis||[]).map(k=>`<div class="dc-kpi"><div class="l">${esc(k.l)}</div><div class="v">${esc(k.v)}</div><div class="d">${esc(k.d)}</div></div>`).join('');
+
+ // Watching
+ document.getElementById('watchN').textContent='('+(DC.watching||[]).length+')';
+ document.getElementById('watching').innerHTML=(DC.watching||[]).map(w=>`<div class="watch"><div class="wtop"><span class="wn">${esc(w.name)}</span><span class="wm">${esc(w.meta)} <b>(${esc(w.delta)})</b></span></div>${spark(w.spark,'#5F6E66',120,26)}<div class="field"><input placeholder="Observation notes (what you're waiting to see)…"><button class="btnG">Save</button></div><div class="field"><input placeholder="Decision note (required)…"><button class="btnP">Adopt</button><button class="btnG">Dismiss</button></div></div>`).join('');
+
+ // Demand by sub-market (click Medical equipments -> CPV33 detail)
+ var SM=DC.subMarkets||[];
+ var smMax=Math.max.apply(null,SM.map(s=>s.ted30d).concat([1]));
+ document.getElementById('demandBars').innerHTML=SM.map(s=>{var wd=Math.max(3,Math.round(s.ted30d/smMax*100));var clk=s.code==='3310';return `<div class="brow cov-${s.coverage||'not'}${clk?' clk':''}" ${clk?'onclick="go(\'cpv33\')" title="Open CPV 33 view"':''}><div class="blab">${esc(s.name)}</div><div class="btrack"><div class="bfill" style="width:${wd}%"></div></div>${spark([s.ted30d*0.5,s.ted30d*0.7,s.ted30d*0.6,s.ted30d*0.85,s.ted30d*0.9,s.ted30d],covColor[s.coverage||'not'])}<div class="bval">${s.ted30d}</div></div>`;}).join('')+`<div class="showall">CPV 33 · ${SM.length} tracked sub-markets · national sub-threshold feed not counted yet</div>`;
+
+ // Movers
+ var mv=DC.movers||{rising:[],falling:[]};
+ document.getElementById('rising').innerHTML=(mv.rising||[]).map(r=>`<div class="mrow"><span class="mn">${esc(r[0])}</span><span class="mup">${esc(r[1])} <span class="mwk">(${esc(r[2])})</span></span></div>`).join('');
+ document.getElementById('falling').innerHTML=(mv.falling||[]).map(r=>`<div class="mrow"><span class="mn">${esc(r[0])}</span><span class="mdn">${esc(r[1])} <span class="mwk">(${esc(r[2])})</span></span></div>`).join('');
+
+ // Opportunities
+ document.getElementById('opps').innerHTML=(DC.opportunities||[]).map(o=>`<div class="opp"><div class="otop"><div><span class="on">${esc(o.name)}</span><span class="ocpv">CPV ${esc(o.cpv)}</span></div><span class="orate">${esc(o.rate)} (<span class="up">${esc(o.delta)}</span>) · ${esc(o.mkt)}</span></div><div class="otop2">Top: ${esc(o.top)}</div><div class="owhy"><b>why:</b> ${esc(o.why)}</div><div class="cli">${esc(o.cli)}</div></div>`).join('');
+
+ // Market brief
+ var mb=DC.marketBrief||{date:'',items:[]};
+ document.getElementById('briefDate').textContent='updated '+mb.date;
+ document.getElementById('brief').innerHTML=(mb.items||[]).map(b=>`<li>${esc(b[0])} <span class="src">— <a href="#" onclick="return false">${esc(b[1])}</a></span> <span class="btag">[${esc(b[2])}]</span></li>`).join('');
+
+ // ---------- CPV 33 detail view ----------
+ var hd=DC.header||{};
+ var dstat=document.querySelector('#cpv33 .dstat');
+ if(dstat&&hd.perWkTed){dstat.innerHTML=`<span><b>${hd.perWkTed}/wk</b> TED <span class="up">(+${hd.wowPct}% WoW)</span></span><span>· +${hd.nationalFeedPerWk}/wk national</span><span>· Ø ≈ <b>${Math.round(hd.avgPublishedValueEur/1000)}k €</b> (${hd.valuedLots} lots)</span>`;}
+
+ // 90-day chart (real TED daily series + 7-day average)
+ (function(){var daily=(DC.demand90d&&DC.demand90d.daily)||[];var N=daily.length||1;
+   var avg=daily.map((_,i)=>{var s=0,c=0;for(var j=Math.max(0,i-6);j<=i;j++){s+=daily[j];c++;}return s/c;});
+   var w=1040,h=220,p=8,mx=Math.max.apply(null,daily.concat([1]));var X=i=>p+i/(N-1)*(w-2*p),Y=v=>h-p-(v/mx)*(h-2*p);
+   var dl=daily.map((v,i)=>(i?'L':'M')+X(i).toFixed(1)+' '+Y(v).toFixed(1)).join(' ');
+   var al=avg.map((v,i)=>(i?'L':'M')+X(i).toFixed(1)+' '+Y(v).toFixed(1)).join(' ');
+   var ticks=['04-08','04-23','05-08','05-23','06-07','06-22','07-06'];
+   document.getElementById('chart90').innerHTML='<svg viewBox="0 0 '+w+' '+(h+22)+'" style="width:100%;height:auto"><text x="'+p+'" y="16" font-size="12" fill="#94A19A">max '+mx+'</text><path d="'+dl+'" fill="none" stroke="#C4CCC7" stroke-width="1.2"/><path d="'+al+'" fill="none" stroke="#0F231A" stroke-width="2.4" stroke-linejoin="round"/><line x1="'+p+'" y1="'+(h-p)+'" x2="'+(w-p)+'" y2="'+(h-p)+'" stroke="#E4EAE6"/></svg><div style="display:flex;justify-content:space-between;font-size:11px;color:#94A19A;padding:0 4px">'+ticks.map(t=>'<span>'+t+'</span>').join('')+'</div>';})();
+
+ function barList(el,rows,cls){var max=Math.max.apply(null,rows.map(r=>r[1]).concat([1]));document.getElementById(el).innerHTML=rows.map(r=>`<div class="rowbar ${cls||''}"><div class="rl">${esc(r[0])}</div><div class="rt"><div class="rf" style="width:${Math.round(r[1]/max*100)}%"></div></div><div class="rv">${r[1]}${r[2]?' <small>'+esc(r[2])+'</small>':''}</div></div>`).join('');}
+ barList('buyers',(DC.topBuyers||[]).map(b=>[b.name,b.count]));
+ barList('where',(DC.whereRegions||[]).map(r=>[r.region,r.count]));
+ document.getElementById('submkt').innerHTML=SM.map(s=>`<tr><td>${esc(s.name)}<span class="cpvcode">${esc(s.code)}</span></td><td class="num">${s.ted30d}</td><td class="num">${s.natl30d}</td><td class="num">${s.trendPct?'<span class="up">+'+s.trendPct+'%</span>':'—'}</td><td>${esc(s.topWinner180d||'—')}</td></tr>`).join('');
+ var aw=DC.awards180d||{whoWins:[],recent:[]};
+ barList('whoWins',(aw.whoWins||[]).map(w=>[w.name,w.awards,w.sumValueText?'Σ '+w.sumValueText:'']),'win');
+ document.getElementById('awards').innerHTML=(aw.recent||[]).map(a=>`<tr><td>${esc(a.date)}</td><td>${esc(a.winner)}</td><td class="num" style="font-weight:400">${esc(a.valueText)}</td></tr>`).join('');
+})();
 
 renderPipe();renderSearch();
 </script>

@@ -1,0 +1,122 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>mavivo · Customer approval — Confirm offer</title>
+<style>
+:root{--mav:#019e3b;--mav-d:#017a2e;--mav-l:#E8F6ED;--mav-l2:#F3FBF6;--ink:#0F231A;--ink2:#27352E;--line:#E4EAE6;--line2:#EEF2EF;--muted:#5F6E66;--muted2:#94A19A;--red:#a32d2d;--red-l:#FCEBEB;--won-bg:#E4F5EA;--won:#017a2e}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.page{max-width:680px;margin:0 auto;padding:34px 24px 70px}
+.rule{height:3px;background:var(--ink);margin-bottom:30px}
+.crumb{font-size:11px;letter-spacing:3px;color:var(--muted);text-transform:uppercase;font-weight:700}
+h1{font-size:34px;font-weight:800;letter-spacing:-.8px;margin:10px 0 12px}
+.lede{color:var(--ink2);font-size:15px;margin-bottom:28px;max-width:560px}
+table.kv{width:100%;border-collapse:collapse;border:1px solid var(--line);margin-bottom:26px}
+.kv td{padding:13px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+.kv tr:last-child td{border-bottom:none}
+.kv td.k{width:38%;background:#FAFBFA;font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);font-weight:700;padding-top:17px}
+.kv td.v{font-weight:700;font-size:15px}
+.kv tr.sum td{border-top:2px solid var(--ink)}
+.kv tr.sum td.v{font-size:20px;font-weight:800;color:var(--mav-d)}
+.callout{border-left:3px solid var(--mav);background:var(--mav-l2);padding:16px 18px;font-size:14px;color:var(--ink2);margin-bottom:30px;line-height:1.65}
+.callout b{color:var(--mav-d)}
+.flabel{font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);font-weight:700;margin:20px 0 7px}
+.flabel .req{color:var(--red)}
+input[type=text]{width:100%;border:1px solid var(--line);padding:13px 14px;font-family:inherit;font-size:15px;color:var(--ink);border-radius:0}
+input[type=text]:focus{outline:none;border-color:var(--mav)}
+input::placeholder{color:var(--muted2)}
+.padwrap{border:1.5px dashed var(--muted2);position:relative}
+canvas{display:block;width:100%;height:220px;touch-action:none;cursor:crosshair}
+.padhint{font-size:12.5px;color:var(--muted2);margin-top:7px}
+.clear{position:absolute;top:8px;right:10px;font-size:11px;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:5px;padding:3px 9px;cursor:pointer;font-family:inherit;font-weight:700}
+.clear:hover{color:var(--mav-d);border-color:var(--mav)}
+.actions{display:flex;align-items:center;gap:26px;margin:30px 0 16px;flex-wrap:wrap}
+.confirm{background:var(--mav);color:#fff;border:none;font-family:inherit;font-size:13.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:17px 30px;cursor:pointer}
+.confirm:hover{background:var(--mav-d)}
+.decline{background:none;border:none;font-family:inherit;font-size:15px;font-weight:600;color:var(--ink2);cursor:pointer}
+.decline:hover{color:var(--red)}
+.legal{font-size:13px;color:var(--muted);line-height:1.65;margin-bottom:26px}
+.hr{border-top:1px solid var(--line);margin:26px 0}
+.alt{font-size:15px;font-weight:700}
+.alt a{color:var(--mav-d);text-decoration:none}
+.fine{font-size:12.5px;color:var(--muted2);margin-top:16px}
+.foot{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--muted2);font-weight:700;line-height:1.9;margin-top:8px}
+.foot b{color:var(--mav-d)}
+.banner{display:none;padding:18px 20px;font-size:14.5px;font-weight:700;margin:26px 0}
+.banner.ok{background:var(--won-bg);color:var(--won)}
+.banner.no{background:var(--red-l);color:var(--red)}
+.err{color:var(--red);font-size:12.5px;margin-top:6px;display:none}
+</style></head><body>
+<div class="page">
+  <div class="rule"></div>
+  <div class="crumb">Customer approval &nbsp;·&nbsp; mavivo</div>
+  <h1>Confirm offer</h1>
+  <p class="lede">Please review the offer and confirm the submission bindingly — or decline it.</p>
+
+  <table class="kv">
+    <tr><td class="k">Reference</td><td class="v" id="fRef">—</td></tr>
+    <tr><td class="k">Tender</td><td class="v" id="fTitle">—</td></tr>
+    <tr><td class="k">Location</td><td class="v" id="fLoc">—</td></tr>
+    <tr><td class="k">Submission deadline</td><td class="v" id="fDl">—</td></tr>
+    <tr><td class="k">Contracting authority (client)</td><td class="v" id="fBuyer">—</td></tr>
+    <tr class="sum"><td class="k">Offer total</td><td class="v" id="fVal">—</td></tr>
+  </table>
+
+  <div class="callout">With this confirmation you bindingly instruct <b>mavivo</b> (tender department powered by EverTrust) to submit the offer of <b id="cVal">—</b> before the deadline.</div>
+
+  <div id="form">
+    <div class="flabel">Full name <span class="req">*</span></div>
+    <input type="text" id="name" placeholder="First and last name" autocomplete="name">
+    <div class="err" id="nameErr">Please enter your full name.</div>
+
+    <div class="flabel">Position (optional)</div>
+    <input type="text" id="pos" placeholder="e.g. Managing Director">
+
+    <div class="flabel">Signature (optional)</div>
+    <div class="padwrap"><canvas id="pad"></canvas><button class="clear" id="clearBtn" type="button">Clear</button></div>
+    <div class="padhint">Sign here with finger, stylus or mouse (optional)</div>
+
+    <div class="actions">
+      <button class="confirm" id="okBtn">Confirm bindingly</button>
+      <button class="decline" id="noBtn">Decline</button>
+    </div>
+    <p class="legal">By clicking "Confirm bindingly", your name (and, if drawn, your signature) will be stored together with a timestamp and IP address as your electronic confirmation.</p>
+  </div>
+
+  <div class="banner ok" id="okBanner">✓ Binding confirmation recorded — name, timestamp &amp; IP address stored as electronic confirmation.</div>
+  <div class="banner no" id="noBanner">✗ Offer declined — the tender team has been notified.</div>
+
+  <div class="hr"></div>
+  <p class="alt">Alternative: <a href="#" onclick="return false">upload a signed confirmation as PDF →</a></p>
+  <p class="fine">Valid until <span id="fVu">—</span> · Content fingerprint: 4fd0e7cceb1cda1ad646324c…</p>
+  <div class="hr"></div>
+  <div class="foot"><b>mavivo</b> · powered by EverTrust &nbsp;·&nbsp; Confidential — this link is intended for the recipient only</div>
+</div>
+
+<script>
+// fill from query params (passed by the cockpit when opening the modal)
+var q=new URLSearchParams(location.search);
+function set(id,v){document.getElementById(id).textContent=v&&v.trim()?v:'—';}
+set('fRef',q.get('ref'));set('fTitle',q.get('title'));set('fLoc',q.get('loc'));set('fDl',q.get('dl'));set('fBuyer',q.get('buyer'));set('fVu',q.get('vu'));
+var raw=parseFloat(q.get('val'));
+var val=raw>0?'€'+raw.toLocaleString('en-IE',{minimumFractionDigits:2,maximumFractionDigits:2}):'€12,500.00';
+set('fVal',val);set('cVal',val);
+
+// signature pad
+var pad=document.getElementById('pad'),ctx=pad.getContext('2d'),drawing=false,drew=false;
+function fit(){var r=pad.getBoundingClientRect(),d=window.devicePixelRatio||1;pad.width=r.width*d;pad.height=220*d;ctx.scale(d,d);ctx.lineWidth=2;ctx.lineCap='round';ctx.lineJoin='round';ctx.strokeStyle='#0F231A';}
+fit();window.addEventListener('resize',fit);
+function pos(e){var r=pad.getBoundingClientRect();return[e.clientX-r.left,e.clientY-r.top];}
+pad.addEventListener('pointerdown',function(e){drawing=true;drew=true;pad.setPointerCapture(e.pointerId);var p=pos(e);ctx.beginPath();ctx.moveTo(p[0],p[1]);});
+pad.addEventListener('pointermove',function(e){if(!drawing)return;var p=pos(e);ctx.lineTo(p[0],p[1]);ctx.stroke();});
+pad.addEventListener('pointerup',function(){drawing=false;});
+document.getElementById('clearBtn').onclick=function(){ctx.clearRect(0,0,pad.width,pad.height);drew=false;};
+
+function finish(ok){document.getElementById('form').style.display='none';document.getElementById(ok?'okBanner':'noBanner').style.display='block';}
+document.getElementById('okBtn').onclick=function(){
+  var n=document.getElementById('name');
+  if(!n.value.trim()){document.getElementById('nameErr').style.display='block';n.style.borderColor='var(--red)';n.focus();return;}
+  finish(true);
+};
+document.getElementById('noBtn').onclick=function(){finish(false);};
+</script>
+</body></html>

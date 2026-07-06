@@ -87,7 +87,7 @@
   .ttl{font-weight:600;line-height:1.3}.sub{color:var(--muted);font-size:11.5px;margin-top:2px}
   .stage{display:inline-block;font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px;white-space:nowrap}
   .s-New{background:var(--new-bg);color:var(--new)}.s-Screening{background:var(--scr-bg);color:var(--scr)}
-  .s-Pricing{background:var(--pri-bg);color:var(--pri)}.s-Submitted{background:var(--sub-bg);color:var(--sub)}
+  .s-Pricing{background:var(--pri-bg);color:var(--pri)}.s-Esign{background:#E0F2F7;color:#0e7490}.s-Submitted{background:var(--sub-bg);color:var(--sub)}
   .s-Won{background:var(--won-bg);color:var(--won)}.s-Lost{background:var(--lost-bg);color:var(--lost)}
   .ct{font-size:10.5px;color:var(--muted);font-weight:700;border:1px solid var(--line);border-radius:5px;padding:2px 6px;white-space:nowrap}
   .val{font-weight:700;white-space:nowrap}.muted{color:var(--muted2);font-weight:400}
@@ -208,6 +208,10 @@
   .rowbar .rf{height:100%;background:var(--cov-partial);border-radius:3px}.rowbar.win .rf{background:var(--gold)}
   .rowbar .rv{font-size:12.5px;font-weight:700;text-align:right;font-variant-numeric:tabular-nums}.rowbar .rv small{color:var(--muted2);font-weight:400}
   .emptybox{text-align:center;color:var(--muted2);font-size:12.5px;padding:34px 10px}
+  /* ===== customer approval · e-sign card ===== */
+  .es-kv{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:8px 0;border-bottom:1px solid var(--line2);font-size:13.5px}
+  .es-kv .k{color:var(--muted)}
+  .es-pending{color:var(--orange);font-weight:800}
   /* ===== Monthly focus ===== */
   .mf-hero{position:relative;overflow:hidden;background:linear-gradient(120deg,var(--mav) 0%,var(--mav-d) 100%);border-radius:14px;padding:26px 30px;color:#fff;margin-bottom:16px}
   .mf-hero::after{content:"";position:absolute;right:-60px;top:-90px;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,.08)}
@@ -309,7 +313,7 @@
         <input id="pq" placeholder="Search buyer, title…" />
         <span class="chip on" data-st="all">All</span>
         <span class="chip" data-st="New">New</span><span class="chip" data-st="Screening">Screening</span>
-        <span class="chip" data-st="Pricing">Pricing</span><span class="chip" data-st="Submitted">Submitted</span>
+        <span class="chip" data-st="Pricing">Pricing</span><span class="chip" data-st="Esign">eSign</span><span class="chip" data-st="Submitted">Submitted</span>
         <span class="chip" data-st="Won">Won</span><span class="chip" data-st="Lost">Lost</span>
       </div>
       <div class="tw"><table><thead><tr><th>Tender</th><th>Line</th><th>Region</th><th>Deadline</th><th>Value</th><th>PIC</th><th>Stage</th><th>Action</th></tr></thead><tbody id="pipeRows"></tbody></table></div>
@@ -418,8 +422,8 @@ const R=window.MAVIVO_MOCK_DATA.MEDICAL_TENDERS.map(t=>[
 ]);
 const PICN={DN:"Dat N.",HK:"Hanna K.",KP:"Khang P.",TA:"Thy A.",PT:"Phú T."};
 const T=R.map((r,i)=>({id:i+1,line:r[0],title:r[1],buyer:r[2],region:r[3],value:r[4],published:r[5],deadline:r[6],stage:r[7],pic:r[8]}));
-const STAGES=["New","Screening","Pricing","Submitted","Won","Lost"];
-const ST={New:"New",Screening:"Screening",Pricing:"Pricing",Submitted:"Submitted",Won:"Won",Lost:"Lost"};
+const STAGES=["New","Screening","Pricing","Esign","Submitted","Won","Lost"];
+const ST={New:"New",Screening:"Screening",Pricing:"Pricing",Esign:"eSign",Submitted:"Submitted",Won:"Won",Lost:"Lost"};
 
 const eur=v=>!v?'—':v>=1e6?'€'+(v/1e6).toFixed(2).replace(/\.?0+$/,'')+'M':v>=1e3?'€'+Math.round(v/1e3)+'k':'€'+v;
 const MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
@@ -511,8 +515,8 @@ const BOQ={
 const DOCS=["Contract_notice.pdf","Bill_of_quantities.pdf","Eligibility_criteria.pdf","Contract_terms.pdf","Price_sheet.xlsx"];
 function detailHTML(t){
  const boq=BOQ[t.line]||BOQ.Consumables;
- const steps=["Published","Screening","Pricing","Submitted","Award"];
- const idx={New:0,Screening:1,Pricing:2,Submitted:3,Won:4,Lost:4}[t.stage];
+ const steps=["Published","Screening","Pricing","eSign","Submitted","Award"];
+ const idx={New:0,Screening:1,Pricing:2,Esign:3,Submitted:4,Won:5,Lost:5}[t.stage];
  const cks=["Eligibility documents complete","Price sheet calculated","Samples requested","Certificates (CE / EN 455 / EN 14683) attached","Bid letter signed"];
  const done=Math.min(idx+1,cks.length-(t.stage==="Submitted"||t.stage==="Won"?0:1));
  return `<div class="dh"><div><div class="crumb">${CPV[t.line]} · ${LINE[t.line]}</div><h2>${esc(t.title)}</h2><div class="sub" style="margin-top:4px;font-size:13px">${esc(t.buyer)} · ${t.region}</div></div><div>${stChip(t.stage)}</div></div>
@@ -523,7 +527,7 @@ function detailHTML(t){
    <div class="m"><div class="k">Procedure</div><div class="v">${t.value? 'Open procedure (EU)':'Open-house'}</div></div>
    <div class="m"><div class="k">Responsible (PIC)</div><div class="v">${PICN[t.pic]||'—'}</div></div>
  </div>
- ${decBlock(t)}<div class="card" style="margin:14px 0"><h3>Progress</h3><div class="tl">${steps.map((s,i)=>`<div class="st ${i<idx?'done':''} ${i===idx?'cur':''} ${i<=idx?'done':''}${s==='Pricing'?' clk':''}" ${s==='Pricing'?`onclick="openModal('pricing')" title="Open pricing form"`:''}><div class="dot"></div>${s}</div>`).join('')}</div></div>
+ ${decBlock(t)}${esignCard(t)}<div class="card" style="margin:14px 0"><h3>Progress</h3><div class="tl">${steps.map((s,i)=>`<div class="st ${i<idx?'done':''} ${i===idx?'cur':''} ${i<=idx?'done':''}${s==='Pricing'||(s==='eSign'&&t.dec==='ja')?' clk':''}" ${s==='Pricing'?`onclick="openModal('pricing')" title="Open pricing form"`:s==='eSign'&&t.dec==='ja'?`onclick="openModal('esign')" title="Open customer signing page"`:''}><div class="dot"></div>${s}</div>`).join('')}</div></div>
  <div class="grid g2">
    <div class="card"><h3>Bill of quantities <span class="hint">${boq.length} items</span></h3>${boq.map((b,i)=>`<div class="li"><span>${i+1}. ${esc(b[0])}</span><span class="q">${b[1]} ${b[2]}</span></div>`).join('')}</div>
    <div>
@@ -532,7 +536,15 @@ function detailHTML(t){
    </div>
  </div>`;
 }
-function showDetail(id){const t=T.find(x=>x.id===id);if(!t)return;document.getElementById('detailBody').innerHTML=detailHTML(t);go('detail');document.getElementById('crumb').textContent='Pipeline';document.getElementById('vtitle').textContent='Tender detail'}
+function showDetail(id){const t=T.find(x=>x.id===id);if(!t)return;window._curT=t;document.getElementById('detailBody').innerHTML=detailHTML(t);go('detail');document.getElementById('crumb').textContent='Pipeline';document.getElementById('vtitle').textContent='Tender detail'}
+// Customer approval · E-sign — appears once a tender is accepted (mirrors eCore's e-sign panel)
+function esignVu(){const d=new Date(TODAY);d.setDate(d.getDate()+14);return fd(d.toISOString().slice(0,10))+', 13:11'}
+function esignCard(t){if(t.dec!=='ja')return '';
+ return `<div class="card" style="margin:14px 0"><h3>Customer approval · E-sign <button class="doc-btn" onclick="openModal('esign')">✍ Open signing page</button></h3>
+ <div class="es-kv"><span class="k">Status</span><span class="es-pending">Pending</span></div>
+ <div class="es-kv"><span class="k">Valid until</span><b>${esignVu()}</b></div>
+ <div class="note" style="margin-top:9px">The signing link was shown once when created. Lost? Generate a new one — the old link becomes invalid.</div>
+ <button class="btn ap" style="margin-top:11px" onclick="toast('⟳ New signing link generated — the previous link is now invalid')">⟳ Generate new link</button></div>`}
 function bindRows(){document.querySelectorAll('#pipeRows tr.clk').forEach(r=>r.onclick=()=>showDetail(+r.dataset.id))}
 document.getElementById('backBtn').onclick=()=>go('pipeline');
 function actionCell(t){if(t.dec==='ja')return '<span class="decided ja">✓ Accepted</span>';if(t.dec==='nein')return '<span class="decided nein">✗ Declined</span>';if(t.stage==='New'||t.stage==='Screening')return '<span class="acts"><button class="btn ap" onclick="event.stopPropagation();approve('+t.id+')">✓ Accept</button><button class="btn dc" onclick="event.stopPropagation();decline('+t.id+')">✗</button></span>';return '<span class="muted">—</span>'}
@@ -641,7 +653,9 @@ document.getElementById('deadlines').addEventListener('click',e=>{const r=e.targ
 })();
 
 // ---- tender-tool modal: pricing form + document checklist ----
-function openModal(which){var m={pricing:['mavivo-pricing-form-excel-en.html','Pricing form · Bill of quantities'],doccheck:['mavivo-document-checklist.html','Document checklist']}[which];if(!m)return;document.getElementById('modalTitle').textContent=m[1];document.getElementById('modalFrame').src=m[0];document.getElementById('modal').classList.add('on');document.body.style.overflow='hidden';}
+function openModal(which){var m={pricing:['mavivo-pricing-form-excel-en.html','Pricing form · Bill of quantities'],doccheck:['mavivo-document-checklist.html','Document checklist'],esign:['mavivo-esign.html','Customer approval · eSign']}[which];if(!m)return;var src=m[0];
+ if(which==='esign'&&window._curT){var t=window._curT;src+='?'+new URLSearchParams({ref:'MAV-'+String(t.id).padStart(4,'0'),title:t.title,buyer:t.buyer,loc:t.region,dl:fd(t.deadline),val:t.value||'',vu:esignVu()}).toString();}
+ document.getElementById('modalTitle').textContent=m[1];document.getElementById('modalFrame').src=src;document.getElementById('modal').classList.add('on');document.body.style.overflow='hidden';}
 function closeModal(){document.getElementById('modal').classList.remove('on');document.getElementById('modalFrame').src='about:blank';document.body.style.overflow='';}
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
 

@@ -208,6 +208,26 @@
   .rowbar .rf{height:100%;background:var(--cov-partial);border-radius:3px}.rowbar.win .rf{background:var(--gold)}
   .rowbar .rv{font-size:12.5px;font-weight:700;text-align:right;font-variant-numeric:tabular-nums}.rowbar .rv small{color:var(--muted2);font-weight:400}
   .emptybox{text-align:center;color:var(--muted2);font-size:12.5px;padding:34px 10px}
+  /* ===== Monthly focus ===== */
+  .mf-hero{position:relative;overflow:hidden;background:linear-gradient(120deg,var(--mav) 0%,var(--mav-d) 100%);border-radius:14px;padding:26px 30px;color:#fff;margin-bottom:16px}
+  .mf-hero::after{content:"";position:absolute;right:-60px;top:-90px;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,.08)}
+  .mf-hero::before{content:"";position:absolute;right:40px;top:-40px;width:170px;height:170px;border-radius:50%;background:rgba(255,255,255,.06)}
+  .mf-badge{display:inline-block;background:rgba(15,35,26,.45);font-size:10.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:12px}
+  .mf-hero h2{font-size:21px;font-weight:800;letter-spacing:-.4px;margin-bottom:8px;position:relative;z-index:1}
+  .mf-hero p{font-size:13.5px;line-height:1.65;max-width:720px;color:rgba(255,255,255,.92);position:relative;z-index:1}
+  .mf-kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:16px}
+  .mf-kpi{background:#fff;border:1px solid var(--line);border-left:4px solid var(--mav);border-radius:12px;padding:14px 17px}
+  .mf-kpi .l{font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted2);font-weight:700}
+  .mf-kpi .v{font-size:27px;font-weight:800;letter-spacing:-1px;margin-top:4px}
+  .mf-kpi .d{font-size:11px;color:var(--muted);margin-top:2px}
+  .mf-task .tt{font-weight:700;font-size:14px}
+  .mf-task .td{font-size:12px;color:var(--muted);line-height:1.55;margin-top:3px;max-width:640px}
+  .mf-tag{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:600;background:var(--mav-l2);border:1px solid var(--line);color:var(--mav-d);border-radius:6px;padding:2px 8px;margin-top:8px}
+  .mf-pr{display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px}
+  .mf-pr.hi{background:var(--red-l);color:var(--red)}.mf-pr.md{background:var(--gold-l);color:var(--gold-d)}
+  .mf-due{font-weight:800;white-space:nowrap}.mf-due.urg{color:var(--red)}
+  .mf-st{display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;white-space:nowrap}
+  .mf-st.done{background:var(--won-bg);color:var(--won)}.mf-st.open{background:var(--new-bg);color:var(--new)}.mf-st.prog{background:var(--orange-l);color:var(--orange-d)}.mf-st.wait{background:var(--gold-l);color:var(--gold-d)}
   /* ===== tender-tool modal (pricing form / document checklist) ===== */
   .tl .st.clk{cursor:pointer}.tl .st.clk .dot{box-shadow:0 0 0 4px var(--mav-l)}.tl .st.clk:hover{color:var(--mav-d)}
   .doc-btn{font-family:inherit;font-size:11px;font-weight:700;border:1px solid var(--line);background:#fff;color:var(--mav-d);border-radius:7px;padding:4px 10px;cursor:pointer;text-transform:none;letter-spacing:0}
@@ -253,6 +273,7 @@
     </div>
     <nav class="nav" id="nav">
       <button data-v="dash" class="on"><span class="ic">▣</span>Dashboard</button>
+      <button data-v="focus"><span class="ic">▤</span>Monthly Focus</button>
       <button data-v="pipeline"><span class="ic">≣</span>Tender Pipeline <span class="badge" id="nbPipe"></span></button>
       <button data-v="winners"><span class="ic">★</span>Contract Awards</button>
       <button data-v="comp"><span class="ic">◑</span>Competitors</button>
@@ -324,6 +345,12 @@
       <div class="tw"><table><thead><tr><th>Tender</th><th>CPV</th><th>Region</th><th>Deadline</th><th>Value</th><th>Stage</th></tr></thead><tbody id="searchRows"></tbody></table></div>
       <div class="note" id="searchCount"></div>
     </section>
+    <section class="view" id="focus">
+      <div class="mf-hero"><span class="mf-badge">June 2026</span><h2>Monthly focus — what counts this month.</h2><p>Focus in June: submit the short-term school- &amp; sanitary-container procurements due by month-end on time — and in parallel prepare the PQ &amp; supplier base for the larger July modular-building lots.</p></div>
+      <div class="mf-kpis" id="mfKpis"></div>
+      <div class="tw"><table><thead><tr><th>Task</th><th>Responsible</th><th>Priority</th><th>Due</th><th>Status</th></tr></thead><tbody id="mfRows"></tbody></table></div>
+    </section>
+
     <section class="view" id="compass">
       <p class="lede">Where German medical public-tender demand is moving — every CPV 33 sub-market, mapped to what mavivo covers.</p>
       <div class="explain"><b>The medical market, by sub-market.</b> Every German TED notice in <b>CPV division 33</b> bucketed by CPV class, with <b>mavivo's coverage</b> overlaid — so the biggest sub-markets we <i>don't</i> cover are where to grow next. TED is EU above-threshold only; sub-threshold national demand isn't counted yet. <b>Only medical is populated</b> — mavivo operates in CPV 33 exclusively.</div>
@@ -545,7 +572,7 @@ function renderSearch(){const q=document.getElementById('sq').value.toLowerCase(
  document.querySelectorAll('#searchRows tr.clk').forEach(r=>r.onclick=()=>showDetail(+r.dataset.id))}
 
 // ---- nav ----
-const TITLES={dash:["Dashboard","Overview"],pipeline:["Pipeline","Tender Pipeline"],winners:["Awards","Contract Awards & Winners"],comp:["Competition","Competitor Radar"],auth:["Buyers","Buyer Intelligence"],search:["Search","Search & Discovery"],detail:["Pipeline","Tender detail"],compass:["Admin","Demand Compass"],cpv33:["Demand Compass","Medical equipment, pharmaceuticals · CPV 33"]};
+const TITLES={dash:["Dashboard","Overview"],focus:["Sales","Monthly focus"],pipeline:["Pipeline","Tender Pipeline"],winners:["Awards","Contract Awards & Winners"],comp:["Competition","Competitor Radar"],auth:["Buyers","Buyer Intelligence"],search:["Search","Search & Discovery"],detail:["Pipeline","Tender detail"],compass:["Admin","Demand Compass"],cpv33:["Demand Compass","Medical equipment, pharmaceuticals · CPV 33"]};
 function go(v){document.querySelectorAll('.view').forEach(s=>s.classList.toggle('on',s.id===v));
  document.querySelectorAll('#nav button').forEach(b=>b.classList.toggle('on',b.dataset.v===v||(v==='cpv33'&&b.dataset.v==='compass')));
  const ti=TITLES[v]||["",""];document.getElementById('crumb').textContent=ti[0];document.getElementById('vtitle').textContent=ti[1];window.scrollTo(0,0)}
@@ -617,6 +644,37 @@ document.getElementById('deadlines').addEventListener('click',e=>{const r=e.targ
 function openModal(which){var m={pricing:['mavivo-pricing-form-excel-en.html','Pricing form · Bill of quantities'],doccheck:['mavivo-document-checklist.html','Document checklist']}[which];if(!m)return;document.getElementById('modalTitle').textContent=m[1];document.getElementById('modalFrame').src=m[0];document.getElementById('modal').classList.add('on');document.body.style.overflow='hidden';}
 function closeModal(){document.getElementById('modal').classList.remove('on');document.getElementById('modalFrame').src='about:blank';document.body.style.overflow='';}
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+
+// ---- Monthly focus (seeded action plan — flagged by the seed banner) ----
+const FOCUS={
+ kpis:[
+  {l:"Total tasks",v:10,d:"active monthly plan",c:"var(--ink)"},
+  {l:"High priority",v:4,d:"act now",c:"var(--orange)"},
+  {l:"Due ≤ 7 days",v:7,d:"due this week",c:"var(--pri)"},
+  {l:"Done",v:1,d:"of 10",c:"var(--mav)"}
+ ],
+ people:{Markus:"#1b3947",Petri:"#0F231A",Lena:"#D85D00",Sven:"#23495a"},
+ tasks:[
+  {t:"Carry out site survey / on-site visit",d:"On-site visit completed 24.06: crane access suitable, installation area level, utility connections available. Measurement & photo protocol handed over to Petri.",tag:"OGS modular unit (Herten)",who:"Markus",pr:"Medium",due:"24.06.",urgent:1,st:"done",stl:"Done"},
+  {t:"Query to contracting authority on service duration",d:"Rental period & option extension unclear in the documents. Submit bidder question by 25.06 — answer deadline is before submission (30.06).",tag:"Frauenweiler – mobile room units",who:"Markus",pr:"Medium",due:"25.06.",urgent:1,st:"open",stl:"Open"},
+  {t:"Finalize bid & upload submission",d:"Deadline 26.06. Calculation done; self-declaration & signed price sheet still missing. Upload by 25.06 noon at the latest (buffer time).",tag:"School pavilion Munich",who:"Petri",pr:"High",due:"26.06.",urgent:1,st:"prog",stl:"In progress"},
+  {t:"Compile eligibility documents / PQ",d:"Internal deadline 27.06 (submission 29.06). Update reference list, clearance certificate & PQ-VOB.",tag:"HAFUN – Sprinkenhof",who:"Lena",pr:"High",due:"27.06.",urgent:1,st:"open",stl:"Open"},
+  {t:"Obtain supplier prices PL/TR for sanitary units",d:"Waiting for the Polish plant (rental terms incl. maintenance); TR supplier requested as backup. Answer by 27.06, otherwise standard rate.",tag:"Sanitary containers Trier-Land",who:"Sven",pr:"Medium",due:"27.06.",urgent:1,st:"wait",stl:"Waiting"},
+  {t:"Align bidding consortium with Tepe",d:"Total GC scope exceeds own capacity. Consortium agreement with Tepe in coordination (Petri: containers/rental, Tepe: shell construction/site development). Submission 01.07.",tag:"GC scope school interim Cologne",who:"Lena",pr:"High",due:"28.06.",urgent:1,st:"wait",stl:"Waiting"},
+  {t:"Prepare OGS modular unit bid",d:"Base calculation for the double module done. Transport & foundation costs still open; incorporate survey results, submission 29.06.",tag:"OGS modular unit (Herten)",who:"Petri",pr:"High",due:"29.06.",urgent:1,st:"prog",stl:"In progress"},
+  {t:"Request crane & transport quote",d:"Obtain crane and low-loader quotes for the double-module delivery; align time window with site access.",tag:"OGS modular unit (Herten)",who:"Sven",pr:"Medium",due:"30.06.",urgent:1,st:"open",stl:"Open"},
+  {t:"Internal completeness check of June uploads",d:"Cross-check all June submissions for completeness (signatures, price sheets, declarations) before the respective deadlines.",tag:"All June lots",who:"Markus",pr:"Medium",due:"30.06.",urgent:1,st:"open",stl:"Open"},
+  {t:"Prepare submission (Stephan-Brodmann school)",d:"Deadline 13.07. Documents complete; processing after the June awards. Internal review by Lena before upload.",tag:"Stephan-Brodmann school",who:"Petri",pr:"Medium",due:"13.07.",urgent:0,st:"open",stl:"Open"}
+ ]
+};
+document.getElementById('mfKpis').innerHTML=FOCUS.kpis.map(k=>`<div class="mf-kpi" style="border-left-color:${k.c}"><div class="l">${k.l}</div><div class="v">${k.v}</div><div class="d">${k.d}</div></div>`).join('');
+document.getElementById('mfRows').innerHTML=FOCUS.tasks.map(k=>`<tr>
+ <td class="mf-task"><div class="tt">${esc(k.t)}</div><div class="td">${esc(k.d)}</div><span class="mf-tag">🔗 ${esc(k.tag)}</span></td>
+ <td><span class="pic"><span class="av" style="background:${FOCUS.people[k.who]};color:#fff">${k.who[0]}</span>${k.who}</span></td>
+ <td><span class="mf-pr ${k.pr==='High'?'hi':'md'}">${k.pr}</span></td>
+ <td class="mf-due ${k.urgent?'urg':''}">${k.due}</td>
+ <td><span class="mf-st ${k.st}">${k.stl}</span></td>
+</tr>`).join('');
 
 // ---- seeded-data banner on every page (transparency for client demos) ----
 (function(){

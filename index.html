@@ -421,12 +421,23 @@ const pipeVal=T.filter(active).reduce((s,t)=>s+t.value,0);
 const decided=won.length+lost.length;
 const winRate=decided?Math.round(won.length/decided*100):null;
 const dueSoon=T.filter(t=>active(t)&&days(t.deadline)>=0&&days(t.deadline)<=7);
+// ---- seeded demo activity (dashboard cards only — flagged by the seed banner; pipeline/buyers/awards stay live) ----
+const SEED={
+ volume:[16,19,17,22,20,25,23,21,26,24,28,30],
+ won:12,lost:9,awardValueWon:4620000,
+ attention:[
+  {t:"Deadline in 3 days — Robert Koch-Institut diagnostics",d:"Bid not yet submitted",c:"lost"},
+  {t:"Certificate check pending — DGUV gloves lot",d:"EN 455 / CE conformity to confirm",c:"scr"},
+  {t:"Sample logistics to confirm — Hochschule Düsseldorf",d:"Awaiting carrier slot",c:"gold"}
+ ]
+};
+const seedDecided=SEED.won+SEED.lost,seedWinRate=Math.round(SEED.won/seedDecided*100);
 const KPI=[
  {l:"Open tenders",v:T.filter(active).length,d:"in progress",hero:1},
  {l:"In pricing",v:pricingN,d:"price sheet open"},
  {l:"Bids submitted",v:subN,d:"under evaluation"},
- {l:"Won (year)",v:won.length,d:"awards 2026"},
- {l:"Win rate",v:winRate===null?"—":winRate+"%",d:decided?won.length+" : "+lost.length:"no data"},
+ {l:"Won (year)",v:SEED.won,d:"awards 2026"},
+ {l:"Win rate",v:seedWinRate+"%",d:SEED.won+" : "+SEED.lost},
  {l:"Pipeline value",v:eur(pipeVal),d:"active, estimated"},
  {l:"Deadlines ≤ 7 days",v:dueSoon.length,d:"this week"}
 ];
@@ -436,7 +447,7 @@ const stageActive=["New","Screening","Pricing","Submitted"];
 const maxSt=Math.max(1,...stageActive.map(s=>T.filter(t=>t.stage===s).length));
 document.getElementById('stageBars').innerHTML=stageActive.map((s,i)=>{const n=T.filter(t=>t.stage===s).length;return `<div class="bar ${i%2?'alt':''}"><div class="lab"><span class="nm">${ST[s]}</span><span class="ct">${n}</span></div><div class="track"><div class="fill" style="width:${Math.round(n/maxSt*100)}%"></div></div></div>`}).join('');
 
-const VOL=[];const VL=["Jul","Aug","Sep","Oct","Nov","Dec","Jan","Feb","Mar","Apr","May","Jun"];
+const VOL=SEED.volume;const VL=["Jul","Aug","Sep","Oct","Nov","Dec","Jan","Feb","Mar","Apr","May","Jun"];
 (function(){
  if(VOL.length<2){document.getElementById('volChart').innerHTML='<div class="note" style="padding:20px 0;text-align:center">No data</div>';return;}
  const w=300,h=110,p=18,mx=Math.max(...VOL),mn=Math.min(...VOL);
@@ -446,14 +457,14 @@ const VOL=[];const VL=["Jul","Aug","Sep","Oct","Nov","Dec","Jan","Feb","Mar","Ap
  document.getElementById('volChart').innerHTML=`<svg viewBox="0 0 ${w} ${h}" style="width:100%;height:auto"><path d="${area}" fill="rgba(1,158,59,.10)"/><path d="${line}" fill="none" stroke="#019e3b" stroke-width="2"/>${pts.map(q=>`<circle cx="${q[0].toFixed(1)}" cy="${q[1].toFixed(1)}" r="2.4" fill="#017a2e"/>`).join('')}</svg><div style="display:flex;justify-content:space-between;font-size:9.5px;color:var(--muted2);margin-top:2px">${VL.map(m=>`<span>${m}</span>`).join('')}</div><div class="note">Avg ${Math.round(VOL.reduce((a,b)=>a+b)/VOL.length)} relevant tenders / month</div>`;
 })();
 
-(function(){const wp=decided?won.length/decided*100:0;
- document.getElementById('winDonut').innerHTML=`<div class="donut"><div class="ring" style="background:conic-gradient(var(--mav) 0 ${wp}%,#E9ECEA ${wp}% 100%)"><div class="hole"><span class="hv">${decided?Math.round(wp)+'%':'—'}</span><span class="hl">Rate</span></div></div><div class="lg"><div><span class="sw" style="background:var(--mav)"></span>Won · ${won.length}</div><div><span class="sw" style="background:#E9ECEA"></span>Lost · ${lost.length}</div><div class="note" style="margin-top:8px">Award value won 2026:<br><b style="color:var(--mav-d);font-size:14px">${eur(won.reduce((s,t)=>s+t.value,0))}</b></div></div></div>`;
+(function(){const wp=seedWinRate;
+ document.getElementById('winDonut').innerHTML=`<div class="donut"><div class="ring" style="background:conic-gradient(var(--mav) 0 ${wp}%,#E9ECEA ${wp}% 100%)"><div class="hole"><span class="hv">${wp}%</span><span class="hl">Rate</span></div></div><div class="lg"><div><span class="sw" style="background:var(--mav)"></span>Won · ${SEED.won}</div><div><span class="sw" style="background:#E9ECEA"></span>Lost · ${SEED.lost}</div><div class="note" style="margin-top:8px">Award value won 2026:<br><b style="color:var(--mav-d);font-size:14px">${eur(SEED.awardValueWon)}</b></div></div></div>`;
 })();
 
 document.getElementById('dlHint').textContent='As of '+fd(TODAY);
 document.getElementById('deadlines').innerHTML=dueSoon.sort((a,b)=>days(a.deadline)-days(b.deadline)).map(t=>{const dd=days(t.deadline);return `<div class="ai" data-id="${t.id}" style="cursor:pointer"><div><div class="an">${esc(t.title.split(' – ')[0])}</div><div class="ad">${esc(t.buyer)} · ${stChip(t.stage)}</div></div><div class="dl ${dd<=3?'urgent':''}">${fd(t.deadline)}<div class="ad" style="text-align:right;font-weight:400">in ${dd} d.</div></div></div>`}).join('')||'<div class="note">No deadlines in the next 7 days.</div>';
 
-const ATT=[];
+const ATT=SEED.attention;
 document.getElementById('attention').innerHTML=ATT.map(a=>`<div class="ai"><div><div class="an">${esc(a.t)}</div><div class="ad">${esc(a.d)}</div></div><div class="dl" style="color:var(--${a.c})">●</div></div>`).join('')||'<div class="note">Nothing needs attention.</div>';
 
 // ---- pipeline ----
@@ -613,6 +624,17 @@ document.getElementById('deadlines').addEventListener('click',e=>{const r=e.targ
 function openModal(which){var m={pricing:['mavivo-pricing-form-excel-en.html','Pricing form · Bill of quantities'],doccheck:['mavivo-document-checklist.html','Document checklist']}[which];if(!m)return;document.getElementById('modalTitle').textContent=m[1];document.getElementById('modalFrame').src=m[0];document.getElementById('modal').classList.add('on');document.body.style.overflow='hidden';}
 function closeModal(){document.getElementById('modal').classList.remove('on');document.getElementById('modalFrame').src='about:blank';document.body.style.overflow='';}
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+
+// ---- seeded-data banner on every page (transparency for client demos) ----
+(function(){
+ var NOTE='<b>Seeded demo data — for illustration.</b> Live tenders, buyers &amp; awards are pulled from eCore &amp; TED; activity metrics (dashboard volumes, win rate, needs-attention and competitor figures) are modelled sample values to demonstrate the workflow.';
+ document.querySelectorAll('.view').forEach(function(v){
+  if(v.id==='comp'||v.id==='detail'||v.id==='cpv33')return; // competitors carry their own banner; detail & cpv33 are drill-downs
+  var b=document.createElement('div');b.className='seed-banner';
+  b.innerHTML='<span class="si">⚠</span><div>'+NOTE+'</div>';
+  v.insertBefore(b,v.firstChild);
+ });
+})();
 
 renderPipe();renderSearch();
 </script>

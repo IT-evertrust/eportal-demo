@@ -208,6 +208,33 @@
   .rowbar .rf{height:100%;background:var(--cov-partial);border-radius:3px}.rowbar.win .rf{background:var(--gold)}
   .rowbar .rv{font-size:12.5px;font-weight:700;text-align:right;font-variant-numeric:tabular-nums}.rowbar .rv small{color:var(--muted2);font-weight:400}
   .emptybox{text-align:center;color:var(--muted2);font-size:12.5px;padding:34px 10px}
+  /* ===== feature checklist (customer selection form) ===== */
+  .fc-wrap{max-width:860px}
+  .fc-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:20px}
+  .fc-meta label{display:block;background:#fff;border:1px solid var(--line);border-radius:12px;padding:11px 14px}
+  .fc-meta .k{font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);font-weight:700}
+  .fc-meta input{width:100%;border:none;outline:none;font-family:inherit;font-size:13.5px;font-weight:600;color:var(--ink);margin-top:3px;background:transparent}
+  .fc-meta input::placeholder{color:var(--muted2);font-weight:400}
+  .fc-glabel{font-size:10.5px;text-transform:uppercase;letter-spacing:1.4px;color:var(--muted);font-weight:800;margin:22px 0 10px;display:flex;align-items:center;gap:10px}
+  .fc-glabel::after{content:"";flex:1;height:1px;background:var(--line)}
+  .fc-feat{display:flex;align-items:flex-start;gap:14px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:15px 17px;margin-bottom:10px;cursor:pointer;transition:all .15s}
+  .fc-feat:hover{border-color:var(--mav);box-shadow:0 2px 10px rgba(1,158,59,.12)}
+  .fc-feat.sel{border-color:var(--mav);background:var(--mav-l2)}
+  .fc-feat .ic2{width:38px;height:38px;border-radius:10px;background:var(--mav-l);display:flex;align-items:center;justify-content:center;font-size:16px;flex:none}
+  .fc-feat>span:nth-child(2){flex:1;min-width:0}
+  .fc-feat .fn{display:block;font-weight:800;font-size:14px;letter-spacing:-.2px}
+  .fc-feat .fd{display:block;font-size:12.5px;color:var(--muted);line-height:1.6;margin-top:3px;max-width:600px}
+  .fc-feat .cbw{margin-left:auto;flex:none;padding-top:6px}
+  .fc-feat input[type=checkbox]{width:21px;height:21px;accent-color:var(--mav);cursor:pointer}
+  .fc-extra{background:#fff;border:1px solid var(--line);border-radius:12px;padding:15px 17px;margin-top:10px}
+  .fc-extra .k{font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);font-weight:700;margin-bottom:8px}
+  .fc-extra textarea{width:100%;min-height:80px;border:1px solid var(--line);border-radius:9px;font-family:inherit;font-size:13px;padding:10px 12px;resize:vertical;color:var(--ink)}
+  .fc-extra textarea:focus{outline:none;border-color:var(--mav)}
+  .fc-bar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 17px;margin-top:14px;position:sticky;bottom:14px;box-shadow:0 6px 22px rgba(15,35,26,.08)}
+  .fc-bar .ct2{font-size:13.5px;font-weight:800}.fc-bar .ct2 b{color:var(--mav-d)}
+  .fc-bar .hint2{font-size:11px;color:var(--muted2)}
+  .fc-btn{font-family:inherit;font-size:12.5px;font-weight:700;border-radius:9px;padding:9px 16px;cursor:pointer;border:1px solid var(--line);background:#fff;color:var(--ink2);margin-left:auto}
+  .fc-btn:hover{border-color:var(--mav);color:var(--mav-d)}
   /* ===== chat with assistant ===== */
   .chat{display:flex;flex-direction:column;gap:14px;margin-bottom:16px;max-width:860px}
   .msg{display:flex;gap:10px;max-width:88%}
@@ -306,6 +333,7 @@
       <button data-v="search"><span class="ic">⌕</span>Suche</button>
       <button data-v="compass"><span class="ic">◎</span>Demand Compass</button>
       <button data-v="chat"><span class="ic">⚡</span>Chat mit Assistent</button>
+      <button data-v="check"><span class="ic">☑</span>Feature-Checkliste</button>
     </nav>
     <div class="foot">Ausgelagerte Vergabeabteilung<br>von EverTrust<br><span style="color:var(--mav-d)">Demo · Beispieldaten</span></div>
   </aside>
@@ -418,6 +446,40 @@
       <div class="chat" id="chatLog"></div>
       <div class="chat-sugs" id="chatSugs"></div>
       <div class="chat-bar"><input id="chatIn" placeholder="Frage an den Assistenten…" /><button class="chat-send" onclick="chatSend()">Senden</button></div>
+    </section>
+    <section class="view" id="check">
+      <p class="lede">Haken Sie an, welche Bausteine Ihr Cockpit enthalten soll — keine technischen Vorkenntnisse nötig, jede Funktion in einem Satz erklärt. Die Auswahl können Sie unten als Text kopieren und uns zusenden; sie dient als Grundlage für Angebot &amp; Umsetzungsplan.</p>
+      <div class="fc-wrap">
+      <div class="fc-meta">
+        <label><span class="k">Firma</span><input placeholder="z. B. Maskmedicare GmbH (mavivo)"></label>
+        <label><span class="k">Ansprechpartner/in</span><input placeholder="Name"></label>
+        <label><span class="k">Datum</span><input placeholder="TT.MM.JJJJ"></label>
+      </div>
+
+      <div class="fc-glabel">Cockpit</div>
+      <label class="fc-feat"><span class="ic2">◆</span><span><span class="fn">Dashboard</span><span class="fd">Ihre Startseite: Wie viele passende Ausschreibungen sind offen, welche Fristen stehen an, was ist heute wichtig — alles auf einen Blick, ohne selbst zu suchen.</span></span><span class="cbw"><input type="checkbox" name="fcfeat" value="Dashboard"></span></label>
+      <label class="fc-feat"><span class="ic2">☰</span><span><span class="fn">Vergaben (Live-Liste)</span><span class="fd">Jede offene Medizin-Ausschreibung Deutschlands in einer durchsuchbaren Liste — mit Eignungswert („Wie gut passt das zu unserem Sortiment?“) und Link direkt zur Originalquelle.</span></span><span class="cbw"><input type="checkbox" name="fcfeat" value="Vergaben (Live-Liste)"></span></label>
+      <label class="fc-feat"><span class="ic2">⏰</span><span><span class="fn">Fristen</span><span class="fd">Alle Abgabetermine chronologisch sortiert. Das System erinnert automatisch, bevor eine Frist eng wird — keine verpasste Abgabe mehr.</span></span><span class="cbw"><input type="checkbox" name="fcfeat" value="Fristen"></span></label>
+      <label class="fc-feat"><span class="ic2">☷</span><span><span class="fn">CPV-Codes</span><span class="fd">Überwachung genau der amtlichen Warengruppen, auf die Sie bieten (z. B. CPV 33 — Medizin). Erscheint eine neue passende Ausschreibung, werden Sie sofort benachrichtigt.</span></span><span class="cbw"><input type="checkbox" name="fcfeat" value="CPV-Codes"></span></label>
+
+      <div class="fc-glabel">Markt &amp; Steuerung</div>
+      <label class="fc-feat"><span class="ic2">🎯</span><span><span class="fn">Wettbewerber</span><span class="fd">Wer bietet auf dieselben Lose wie Sie? Zuschläge, Preisverhalten und Teilnahmetrends der etablierten Anbieter — damit Sie wissen, gegen wen Sie antreten.</span></span><span class="cbw"><input type="checkbox" name="fcfeat" value="Wettbewerber"></span></label>
+      <label class="fc-feat"><span class="ic2">🛡️</span><span><span class="fn">Bundeswehr</span><span class="fd">Eigene Seite für Vergaben der Bundeswehr und der Bundesliegenschaften — dort gibt es oft größere, längere Rahmenverträge (Sanitätsmaterial, PSA), die sonst leicht übersehen werden.</span></span><span class="cbw"><input type="checkbox" name="fcfeat" value="Bundeswehr"></span></label>
+      <label class="fc-feat"><span class="ic2">📦</span><span><span class="fn">Partner &amp; Preise</span><span class="fd">Vergleicht Bezugsquellen für Großlose mit Richtpreisen und Lieferzeiten je Produktgruppe — die Grundlage, um bei preissensiblen Ausschreibungen wettbewerbsfähig zu kalkulieren.</span></span><span class="cbw"><input type="checkbox" name="fcfeat" value="Partner &amp; Preise"></span></label>
+
+      <div class="fc-glabel">Vertrieb</div>
+      <label class="fc-feat"><span class="ic2">≣</span><span><span class="fn">Projekt-Pipeline</span><span class="fd">Jede qualifizierte Ausschreibung wandert sichtbar durch fünf Stufen — von der Entdeckung bis zum Zuschlag. Nichts versickert in der Inbox, jeder sieht, wo ein Projekt steht.</span></span><span class="cbw"><input type="checkbox" name="fcfeat" value="Projekt-Pipeline"></span></label>
+      <label class="fc-feat"><span class="ic2">📈</span><span><span class="fn">Umsatz-Dashboard</span><span class="fd">Management-Übersicht: Auftragseingang, Jahresprognose und Auswertung nach Produkttyp — auf Knopfdruck, statt in Excel zusammengesucht.</span></span><span class="cbw"><input type="checkbox" name="fcfeat" value="Umsatz-Dashboard"></span></label>
+      <label class="fc-feat"><span class="ic2">☑</span><span><span class="fn">Monatsfokus</span><span class="fd">Was zählt diesen Monat? Ein Aktionsplan mit To-dos, Verantwortlichen, Prioritäten und Fristen — damit das Team am selben Strang zieht.</span></span><span class="cbw"><input type="checkbox" name="fcfeat" value="Monatsfokus"></span></label>
+
+      <div class="fc-glabel">Werkzeuge</div>
+      <label class="fc-feat"><span class="ic2">⚡</span><span><span class="fn">KI-Assistent</span><span class="fd">Fragen in Alltagssprache stellen — „Lohnt sich dieses Los?“, „Wann ist die Frist?“, „Wer bietet da noch?“. Der Assistent kennt jede Ausschreibung im Radar und Ihr Firmenprofil.</span></span><span class="cbw"><input type="checkbox" name="fcfeat" value="KI-Assistent"></span></label>
+      <label class="fc-feat"><span class="ic2">✨</span><span><span class="fn">Warum eCore</span><span class="fd">Aufbereitete Übersichten und Argumente zum Teilen mit Geschäftsführung oder Gesellschaftern — ohne dass Sie selbst Folien bauen müssen.</span></span><span class="cbw"><input type="checkbox" name="fcfeat" value="Warum eCore"></span></label>
+
+      <div class="fc-extra"><div class="k">Weitere Wünsche / Anmerkungen</div><textarea id="fcNotes" placeholder="Gibt es Funktionen, die Ihnen fehlen? Besondere Abläufe in Ihrem Haus? Schreiben Sie es hier in eigenen Worten…"></textarea></div>
+
+      <div class="fc-bar"><span class="ct2"><b id="fcCnt">0</b> von <span id="fcTot"></span> Funktionen ausgewählt</span><span class="hint2">Auswahl unverbindlich — Grundlage für Angebot &amp; Umsetzungsplan</span><button class="fc-btn" id="fcCopy" onclick="fcCopySel()">Auswahl kopieren</button></div>
+      </div>
     </section>
   </main>
 </div>
@@ -612,7 +674,7 @@ function renderSearch(){const q=document.getElementById('sq').value.toLowerCase(
  document.querySelectorAll('#searchRows tr.clk').forEach(r=>r.onclick=()=>showDetail(+r.dataset.id))}
 
 // ---- nav ----
-const TITLES={dash:["Dashboard","Überblick"],focus:["Vertrieb","Monatsfokus"],pipeline:["Pipeline","Vergabe-Pipeline"],winners:["Zuschläge","Zuschläge & Gewinner"],comp:["Wettbewerb","Wettbewerber-Radar"],auth:["Auftraggeber","Vergabestellen-Übersicht"],search:["Suche","Suche & Recherche"],detail:["Pipeline","Vergabe-Detail"],compass:["Admin","Demand Compass"],chat:["Werkzeuge","Chat mit Assistent"],cpv33:["Demand Compass","Medizinische Geräte, Arzneimittel · CPV 33"]};
+const TITLES={dash:["Dashboard","Überblick"],focus:["Vertrieb","Monatsfokus"],pipeline:["Pipeline","Vergabe-Pipeline"],winners:["Zuschläge","Zuschläge & Gewinner"],comp:["Wettbewerb","Wettbewerber-Radar"],auth:["Auftraggeber","Vergabestellen-Übersicht"],search:["Suche","Suche & Recherche"],detail:["Pipeline","Vergabe-Detail"],compass:["Admin","Demand Compass"],chat:["Werkzeuge","Chat mit Assistent"],check:["Werkzeuge","Feature-Checkliste"],cpv33:["Demand Compass","Medizinische Geräte, Arzneimittel · CPV 33"]};
 function go(v){document.querySelectorAll('.view').forEach(s=>s.classList.toggle('on',s.id===v));
  document.querySelectorAll('#nav button').forEach(b=>b.classList.toggle('on',b.dataset.v===v||(v==='cpv33'&&b.dataset.v==='compass')));
  const ti=TITLES[v]||["",""];document.getElementById('crumb').textContent=ti[0];document.getElementById('vtitle').textContent=ti[1];window.scrollTo(0,0)}
@@ -739,11 +801,28 @@ function chatSend(){var i=document.getElementById('chatIn'),v=i.value.trim();if(
 document.getElementById('chatIn').addEventListener('keydown',function(e){if(e.key==='Enter')chatSend();});
 renderChat();
 
+// ---- Feature-Checkliste (Kundenauswahl — Funktionsumfang lt. eCore-Cockpit) ----
+(function(){
+ var boxes=document.querySelectorAll('input[name=fcfeat]');
+ document.getElementById('fcTot').textContent=boxes.length;
+ function upd(){var n=0;boxes.forEach(function(b){b.closest('.fc-feat').classList.toggle('sel',b.checked);if(b.checked)n++;});document.getElementById('fcCnt').textContent=n;}
+ boxes.forEach(function(b){b.addEventListener('change',upd);});
+ window.fcCopySel=function(){
+  var sel=[];boxes.forEach(function(b){if(b.checked)sel.push('✓ '+b.value);});
+  var meta=[].map.call(document.querySelectorAll('#check .fc-meta input'),function(i){return i.value;}).filter(Boolean).join(' · ');
+  var notes=document.getElementById('fcNotes').value.trim();
+  var txt='Feature-Auswahl · mavivo Ausschreibungs-Cockpit (powered by EverTrust)'+(meta?'\n'+meta:'')+'\n\n'+(sel.length?sel.join('\n'):'(keine Funktionen angehakt)')+(notes?'\n\nAnmerkungen:\n'+notes:'');
+  function done(){toast('Auswahl kopiert ✓');}
+  if(navigator.clipboard){navigator.clipboard.writeText(txt).then(done).catch(function(){fallback();});}else{fallback();}
+  function fallback(){var t=document.createElement('textarea');t.value=txt;document.body.appendChild(t);t.select();try{document.execCommand('copy');}catch(e){}t.remove();done();}
+ };
+})();
+
 // ---- seeded-data banner on every page (transparency for client demos) ----
 (function(){
  var NOTE='<b>Beispieldaten — zur Veranschaulichung.</b> Live-Vergaben, Auftraggeber &amp; Zuschläge stammen aus eCore &amp; TED; Aktivitätskennzahlen (Dashboard-Volumen, Erfolgsquote, Aufmerksamkeits-Hinweise und Wettbewerber-Zahlen) sind modellierte Beispielwerte zur Demonstration des Workflows.';
  document.querySelectorAll('.view').forEach(function(v){
-  if(v.id==='comp'||v.id==='detail'||v.id==='cpv33')return; // competitors carry their own banner; detail & cpv33 are drill-downs
+  if(v.id==='comp'||v.id==='detail'||v.id==='cpv33'||v.id==='check')return; // competitors carry their own banner; detail & cpv33 are drill-downs
   var b=document.createElement('div');b.className='seed-banner';
   b.innerHTML='<span class="si">⚠</span><div>'+NOTE+'</div>';
   v.insertBefore(b,v.firstChild);

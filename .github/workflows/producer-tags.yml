@@ -14,7 +14,8 @@ jobs:
     steps:
       - name: Post producer tag to Slack
         env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
           ACTOR: ${{ github.actor }}
           REPOSITORY: ${{ github.repository }}
           BRANCH: ${{ github.ref_name }}
@@ -22,8 +23,12 @@ jobs:
           COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
           COMPARE_URL: ${{ github.event.compare }}
         run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq espeak-ng
+
           node <<'NODE'
           const crypto = require("crypto");
+          const fs = require("fs");
 
           const tags = [
             "Another one fresh out of the compiler.",
@@ -44,12 +49,48 @@ jobs:
           const message = escapeSlack((process.env.COMMIT_MESSAGE || "Push completed").split("\n")[0].slice(0, 160));
           const text = `:studio_microphone: *${actor} on the keys:* _${tag}_\n*${process.env.REPOSITORY}* \u2192 \`${branch}\` \u2022 <${process.env.COMPARE_URL}|${shortSha}> \u2022 ${message}`;
 
-          fetch(process.env.SLACK_WEBHOOK_URL, {
-            method: "POST",
-            headers: { "content-type": "application/json" },
-            body: JSON.stringify({ text })
-          }).then(response => {
-            if (!response.ok) throw new Error(`Slack returned ${response.status}`);
+          fs.writeFileSync("producer-tag.txt", `${actor} on the keys. ${tag}`);
+          fs.writeFileSync("producer-tag.json", JSON.stringify({ actor, text }));
+          NODE
+
+          espeak-ng -v en-us+m3 -s 145 -p 45 -f producer-tag.txt -w producer-tag.wav
+
+          node <<'NODE'
+          const fs = require("fs");
+
+          const audio = fs.readFileSync("producer-tag.wav");
+          const { actor, text } = JSON.parse(fs.readFileSync("producer-tag.json", "utf8"));
+          const token = process.env.SLACK_BOT_TOKEN;
+
+          async function slack(method, fields) {
+            const response = await fetch(`https://slack.com/api/${method}`, {
+              method: "POST",
+              headers: {
+                authorization: `Bearer ${token}`,
+                "content-type": "application/x-www-form-urlencoded"
+              },
+              body: new URLSearchParams(fields)
+            });
+            const result = await response.json();
+            if (!result.ok) throw new Error(`${method}: ${result.error}`);
+            return result;
+          }
+
+          slack("files.getUploadURLExternal", {
+            filename: "producer-tag.wav",
+            length: String(audio.length)
+          }).then(async ({ upload_url, file_id }) => {
+            const upload = await fetch(upload_url, {
+              method: "POST",
+              headers: { "content-type": "application/octet-stream" },
+              body: audio
+            });
+            if (!upload.ok) throw new Error(`audio upload: ${upload.status}`);
+            return slack("files.completeUploadExternal", {
+              files: JSON.stringify([{ id: file_id, title: `${actor}'s producer tag` }]),
+              channel_id: process.env.SLACK_CHANNEL_ID,
+              initial_comment: text
+            });
           }).catch(error => {
             console.error(error.message);
             process.exit(1);

@@ -1,0 +1,57 @@
+name: Producer Tags
+
+on:
+  push:
+    branches:
+      - "**"
+
+permissions:
+  contents: read
+
+jobs:
+  announce:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Post producer tag to Slack
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          ACTOR: ${{ github.actor }}
+          REPOSITORY: ${{ github.repository }}
+          BRANCH: ${{ github.ref_name }}
+          SHA: ${{ github.sha }}
+          COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+          COMPARE_URL: ${{ github.event.compare }}
+        run: |
+          node <<'NODE'
+          const crypto = require("crypto");
+
+          const tags = [
+            "Another one fresh out of the compiler.",
+            "No samples were harmed in this deployment.",
+            "Turning coffee into commits since day one.",
+            "The keyboard has spoken.",
+            "Straight outta code review.",
+            "Drop the build. Raise the uptime.",
+            "Certified fresh by the commit police.",
+            "Cooked locally. Served globally."
+          ];
+
+          const actor = process.env.ACTOR;
+          const tag = tags[crypto.createHash("sha256").update(actor).digest()[0] % tags.length];
+          const escapeSlack = value => value.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("`", "'");
+          const shortSha = process.env.SHA.slice(0, 7);
+          const branch = escapeSlack(process.env.BRANCH);
+          const message = escapeSlack((process.env.COMMIT_MESSAGE || "Push completed").split("\n")[0].slice(0, 160));
+          const text = `:studio_microphone: *${actor} on the keys:* _${tag}_\n*${process.env.REPOSITORY}* \u2192 \`${branch}\` \u2022 <${process.env.COMPARE_URL}|${shortSha}> \u2022 ${message}`;
+
+          fetch(process.env.SLACK_WEBHOOK_URL, {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify({ text })
+          }).then(response => {
+            if (!response.ok) throw new Error(`Slack returned ${response.status}`);
+          }).catch(error => {
+            console.error(error.message);
+            process.exit(1);
+          });
+          NODE
